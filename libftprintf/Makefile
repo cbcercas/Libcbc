@@ -1,11 +1,12 @@
 # Executable name
-NAME	= gnl
+NAME	= libftprintf.a
 
 # Source files
-SRC		= get_next_line.c main.c
+SRC		= ft_printf.c ft_parse_args.c
 
 LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
-			ft_strncpy.c ft_putstr_fd.c ft_bzero.c ft_memset.c
+			ft_strncpy.c ft_putstr_fd.c ft_bzero.c ft_memset.c ft_putnstr.c \
+			ft_putnstr_fd.c ft_isdigit.c
 
 ###############################################################################
 #																			  #
@@ -24,13 +25,15 @@ LIB_DIR		= libft
 
 #Flags, Libraries, Objects and Includes
 CFLAGS		= -Wall -Wextra -Werror -g
-I_LIB		= -Ilibft
-LIB			= -L$(LIB_DIR) $(I_LIB) -lft
-OBJ			= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
-LIB_FILE	= $(LIB_DIR)/libft.a
+I_LIB		= -Ilibftprintf
+LIB			= -L$(LIB_DIR) $(I_LIB) -lftprintf
+OBJ_PRINTF	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
+OBJ_LIBFT	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(LIBFT_SRC))
+LIB_FILE	= libftprintf.a
 INC			= -I$(INC_DIR) -I$(LIB_DIR)
 
 #Utils
+CP			= cp
 RM			= rm -f
 MKDIR		= mkdir -p
 
@@ -45,21 +48,25 @@ all: $(init) $(NAME)
 init:
 	@$(MKDIR) $(SRC_DIR) $(OBJ_DIR) $(INC_DIR) $(LIB_DIR)
 
-$(NAME): $(LIB_FILE) $(OBJ)
-	$(CC) $(CC_FLAGS) -o $(NAME) $^ -I$(INC_DIR) $(LIB)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c include/get_next_line.h
-	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ -c $< $(LIB)
+$(NAME): $(OBJ_LIBFT) $(OBJ_PRINTF)
+	ar rc $(NAME) $(OBJ_PRINTF) $(OBJ_LIBFT)
+	ranlib $(NAME)
 
-$(LIB_FILE):
-	@make -C $(LIB_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c include/libftprintf.h
+	$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR) -o $@ -c $<
+
+$(OBJ_DIR)/%.o: $(LIB_DIR)/%.c libft/libft.h
+	$(CC) $(CFLAGS) -I$(LIB_DIR) -o $@ -c $< $(LIB)
+
+test: $(SRC_DIR)/main.c $(LIB_FILE)
+	$(CC) $(CC_FLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) -I$(INC_DIR)
 
 clean:
-	@make clean -C $(LIB_DIR)
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_PRINTF)
+	$(RM) $(OBJ_LIBFT)
 
 fclean: clean
-	@make fclean -C $(LIB_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
