@@ -24,6 +24,7 @@ void ft_aff_args(t_args	*sargs)
 	printf("deci_conv: %u,\n", sargs->deci_conv);
 	printf("min_width: %u,\n", sargs->min_width);
 	printf("precision: %u\n", sargs->precision);
+	printf("len_modifier: %u\n", sargs->len_modifier);
 }
 
 t_args	*ft_get_args(char **format, va_list *args)
@@ -38,6 +39,7 @@ t_args	*ft_get_args(char **format, va_list *args)
 	(*format) = ft_get_flags(format, sargs);
 	(*format) = ft_get_width(format, sargs, args);
 	(*format) = ft_get_precision(format, sargs, args);
+	(*format) = ft_get_len_modifier(format, sargs);
 	return (sargs);
 }
 

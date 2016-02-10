@@ -65,5 +65,30 @@ char *ft_get_precision(char **format, t_args *sargs, va_list *args)
 		}
 	}
 	return (*format);
+}
 
+char *ft_get_len_modifier(char **format, t_args *sargs)
+{
+	if (**format == 'h')
+	{
+		if ((*format)[1] == 'h')
+			sargs->len_modifier = hh;
+		else
+			sargs->len_modifier = h;
+	}
+	else if (**format == 'l')
+	{
+		if ((*format)[1] == 'l')
+			sargs->len_modifier = ll;
+		else
+			sargs->len_modifier = l;
+	}
+	else if (**format == 'j' )
+		sargs->len_modifier = j;
+	else if (**format == 'z' )
+		sargs->len_modifier = z;
+	if (sargs->len_modifier == hh || sargs->len_modifier == ll)
+		(*format)++;
+	(*format)++;
+	return (*format);
 }

@@ -1,10 +1,14 @@
 #ifndef LIBFTPRINTF
 # define LIBFTPRINTF
 # include <stdarg.h>
-enum FLAG
+enum flag
 {
-	c,
-	s,
+	 hh,
+	 h,
+	 l,
+	 ll,
+	 j,
+	 z
 };
 
 typedef struct		s_arg
@@ -18,12 +22,13 @@ typedef struct		s_arg
 	unsigned		min_width; 
 	int				precision; /* .digit */
 	char			conversion; /* char */
-	
+	enum flag		len_modifier;
 }					t_args;
 
 int		ft_printf(const char * restrict format, ...);
 char	*ft_get_flags(char **format, t_args	*sargs);
 char	*ft_get_width(char **format, t_args *sargs, va_list *args);
 char	*ft_get_precision(char **format, t_args *sargs, va_list *args);
+char	*ft_get_len_modifier(char **format, t_args *sargs);
 
 #endif
