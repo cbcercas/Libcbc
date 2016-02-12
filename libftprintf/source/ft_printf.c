@@ -14,39 +14,41 @@
 /*
 ** TMP: test args parsing
 */
-void ft_aff_args(t_args	*sargs)
+void ft_aff_args(t_args	*sarg)
 {
-	printf("alternate: %u,\n", sargs->alternate);
-	printf("zero_pad: %u,\n", sargs->zero_pad);
-	printf("left_pad: %u,\n", sargs->left_pad);
-	printf("blank_pos: %u,\n", sargs->blank_pos);
-	printf("sign_pos: %u,\n", sargs->sign_pos);
-	printf("deci_conv: %u,\n", sargs->deci_conv);
-	printf("min_width: %u,\n", sargs->min_width);
-	printf("precision: %u\n", sargs->precision);
-	printf("len_modifier: %u\n", sargs->len_modifier);
+	printf("alternate: %u,\n", sarg->alternate);
+	printf("zero_pad: %u,\n", sarg->zero_pad);
+	printf("left_pad: %u,\n", sarg->left_pad);
+	printf("blank_pos: %u,\n", sarg->blank_pos);
+	printf("sign_pos: %u,\n", sarg->sign_pos);
+	printf("deci_conv: %u,\n", sarg->deci_conv);
+	printf("min_width: %u,\n", sarg->min_width);
+	printf("precision: %u\n", sarg->precision);
+	printf("len_modifier: %u\n", sarg->len_modifier);
+	printf("conversion: %u\n", sarg->conversion);
 }
 
-t_args	*ft_get_args(char **format, va_list *args)
+int ft_get_args(char **format, va_list *larg, t_args *sarg)
 {
-	t_args	*sargs;
-
-	sargs = malloc(sizeof(t_args));
-	if (!sargs)
-		return (NULL);
 	if (*++*format == '\0')
-		return (NULL);
-	(*format) = ft_get_flags(format, sargs);
-	(*format) = ft_get_width(format, sargs, args);
-	(*format) = ft_get_precision(format, sargs, args);
-	(*format) = ft_get_len_modifier(format, sargs);
-	return (sargs);
+		return (-1);
+	if (((*format) = ft_get_flags(format, sarg))) == NULL)
+		return (-1);
+	if (((*format) = ft_get_width(format, sarg, larg))) == NULL)
+		return (-1);
+	if (((*format) = ft_get_precision(format, sarg, larg))) == NULL)
+		return (-1);
+	if (((*format) = ft_get_len_modifier(format, sarg))) == NULL)
+		return (-1);
+	if (((*format) = ft_get_conversion(format, sarg))) == NULL)
+		return (-1);
+	return (0);
 }
 
-int		ft_print(va_list *args, const char *format, int printed)
+int		ft_print(va_list *larg, const char *format, int printed)
 {
 	char	*next_arg;
-	t_args	*sargs;
+	t_args	sarg;
 
 	next_arg = ft_strchr(format, '%');
 	if (!next_arg)
@@ -57,14 +59,14 @@ int		ft_print(va_list *args, const char *format, int printed)
 	else if (next_arg > format)
 	{
 		ft_putnstr(format, next_arg - format);
-		return(ft_print(args, next_arg, printed + (next_arg - format)));
+		return(ft_print(larg, next_arg, printed + (next_arg - format)));
 	}
 	else
 	{
-		sargs = ft_get_args(&(next_arg), args);
-		if (!sargs)
+		ft_bzero(&sarg, sizeof(sarg));
+		if (ft_get_args(&(next_arg), larg, &sarg))
 			return (-1);
-		ft_aff_args(sargs);
+		ft_print_args(&(next_arg), &sarg, larg);
 		return (printed); // + ft_print_arg(arg, &next_arg)
 	}
 }
@@ -98,10 +100,10 @@ int		ft_print(va_list *args, const char *format, int printed)
 int		ft_printf(const char * restrict format, ...)
 {
 	int		ret;
-	va_list args;
+	va_list larg;
 
-	va_start(args, format);
-	ret = ft_print(&args, format, 0);
+	va_start(larg, format);
+	ret = ft_print(&larg, format, 0);
 	return (ret);
 	// while(*format)
 	// {
