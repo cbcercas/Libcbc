@@ -2,11 +2,27 @@
 NAME	= libftprintf.a
 
 # Source files
-SRC		= ft_printf.c ft_parse_args.c
+SRC		= ft_printf.c ft_parse_args.c utils.c \
+			printer_s.c \
+			printer_S.c \
+			printer_d.c \
+			printer_D.c \
+			printer_i.c \
+			printer_o.c \
+			printer_O.c \
+			printer_p.c \
+			printer_u.c \
+			printer_U.c \
+			printer_x.c \
+			printer_X.c \
+			printer_c.c \
+			printer_C.c
 
 LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
 			ft_strncpy.c ft_putstr_fd.c ft_bzero.c ft_memset.c ft_putnstr.c \
-			ft_putnstr_fd.c ft_isdigit.c
+			ft_putnstr_fd.c ft_isdigit.c ft_putchar.c ft_putchar_fd.c \
+			ft_putwchar.c ft_putwchar_fd.c ft_putwstr_fd.c ft_putwstr.c \
+			ft_wcslen.c
 
 ###############################################################################
 #																			  #
@@ -24,7 +40,7 @@ OBJ_DIR		= object
 LIB_DIR		= libft
 
 #Flags, Libraries, Objects and Includes
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror
 I_LIB		= -Ilibftprintf
 LIB			= -L$(LIB_DIR) $(I_LIB) -lftprintf
 OBJ_PRINTF	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
@@ -60,7 +76,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c libft/libft.h
 	$(CC) $(CFLAGS) -I$(LIB_DIR) -o $@ -c $< $(LIB)
 
 test: $(SRC_DIR)/main.c $(LIB_FILE)
-	$(CC) $(CC_FLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) -I$(INC_DIR)
+	$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) $(INC) 
 
 clean:
 	$(RM) $(OBJ_PRINTF)

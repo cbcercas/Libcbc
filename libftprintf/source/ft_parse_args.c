@@ -1,5 +1,6 @@
+#include <stdarg.h>
 #include "libft.h"
-#include "libftprintf.h"
+#include "type.h"
 
 char	*ft_get_flags(char **format, t_args	*sarg)
 {
@@ -92,10 +93,7 @@ char *ft_get_len_modifier(char **format, t_args *sarg)
 	if (sarg->len_modifier == hh || sarg->len_modifier == ll)
 		(*format)++;
 	if (sarg->len_modifier > 0)
-	{
 		(*format)++;
-		printf("3: %s , %d\n", *format, sarg->len_modifier);
-	}
 	return (*format);
 }
 
