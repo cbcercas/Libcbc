@@ -17,5 +17,6 @@ int ft_print_u(t_args *sarg, va_list *larg);
 int ft_print_U(t_args *sarg, va_list *larg);
 int ft_print_x(t_args *sarg, va_list *larg);
 int ft_print_X(t_args *sarg, va_list *larg);
+int ft_print_per(t_args *sarg, va_list *larg);
 
 #endif

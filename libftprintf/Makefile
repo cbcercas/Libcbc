@@ -16,7 +16,8 @@ SRC		= ft_printf.c ft_parse_args.c utils.c \
 			printer_x.c \
 			printer_X.c \
 			printer_c.c \
-			printer_C.c
+			printer_C.c \
+			printer_per.c
 
 LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
 			ft_strncpy.c ft_putstr_fd.c ft_bzero.c ft_memset.c ft_putnstr.c \

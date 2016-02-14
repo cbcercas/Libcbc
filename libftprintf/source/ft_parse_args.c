@@ -5,7 +5,7 @@
 char	*ft_get_flags(char **format, t_args	*sarg)
 {
 	if (**format == '#' || **format == '0' || **format == '-'
-		|| **format == ' ' || **format == '+' || **format == 103)
+		|| **format == ' ' || **format == '+')
 	{
 		
 		if (**format == '#')
@@ -21,8 +21,6 @@ char	*ft_get_flags(char **format, t_args	*sarg)
 			sarg->sign_pos = 1;
 			sarg->blank_pos = 0;
 		}
-		else if (**format == 103)
-			sarg->deci_conv = 1;
 		(*format)++;
 		return(ft_get_flags(format, sarg));
 	}
@@ -105,6 +103,8 @@ static char *ft_get_conversion2(char **format, t_args *sarg)
 		sarg->conversion = c;
 	else if (**format == 'C')
 		sarg->conversion = C;
+	else if (**format == '%')
+		sarg->conversion = per;
 	else
 		return (NULL);
 	(*format)++;
@@ -113,7 +113,6 @@ static char *ft_get_conversion2(char **format, t_args *sarg)
 
 char *ft_get_conversion(char **format, t_args *sarg)
 {
-	//ft_putchar(*format);
 	if (**format == 's')
 		sarg->conversion = s;
 	else if (**format == 'S')
@@ -136,7 +135,7 @@ char *ft_get_conversion(char **format, t_args *sarg)
 		sarg->conversion = U;
 	else if (**format == 'x')
 		sarg->conversion = x;
-	else 
+	else
 		return (ft_get_conversion2(format, sarg));
 	(*format)++;
 	return (*format);
