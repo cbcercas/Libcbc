@@ -26,7 +26,8 @@ enum conv
 	u,
 	U,
 	x,
-	X
+	X,
+	per
 };
 
 typedef struct		s_arg

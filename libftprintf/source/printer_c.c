@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <wchar.h>
 #include "libft.h"
 #include "type.h"
 #include "printer.h"
