@@ -4,15 +4,12 @@
 #include "type.h"
 #include "utils.h"
 
-#include <stdio.h>
-
 int ft_print_C(t_args *sarg, va_list *larg)
 {
 	size_t len;
 	wchar_t c;
 
 	c = (wchar_t)va_arg(*larg, wint_t);
-	printf("c : %C\n", c);
 	if (c <= 0x7F)
 		len = 1;
 	else if (c <= 0x7FF)
