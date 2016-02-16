@@ -3,12 +3,12 @@
 
 enum flag
 {
-	 hh,
-	 h,
-	 l,
-	 ll,
-	 j,
-	 z
+	hh,
+	h,
+	l,
+	ll,
+	j,
+	z
 };
 
 enum conv
