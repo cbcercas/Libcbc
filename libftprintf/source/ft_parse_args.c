@@ -2,6 +2,8 @@
 #include "libft.h"
 #include "type.h"
 
+#include <stdio.h>
+
 char	*ft_get_flags(char **format, t_args	*sarg)
 {
 	if (**format == '#' || **format == '0' || **format == '-'
@@ -68,30 +70,27 @@ char *ft_get_precision(char **format, t_args *sarg, va_list *larg)
 
 char *ft_get_len_modifier(char **format, t_args *sarg)
 {
-	if (**format == 'h')
+	if (**format == 'h' && *(*format + 1) == 'h')
 	{
-		if (*(*format + 1) == 'h')
-			sarg->len_modifier = hh;
-		else
-			sarg->len_modifier = h;
+		sarg->len_modifier = hh;
+		(*format)++;
 	}
+	else if (**format == 'l' && *(*format + 1) == 'l')
+	{
+		sarg->len_modifier = h;
+		(*format)++;
+	}
+	else if (**format == 'h')
+		sarg->len_modifier = h;
 	else if (**format == 'l')
-	{
-		if (*(*format + 1) == 'l')
-			sarg->len_modifier = ll;
-		else
-			sarg->len_modifier = l;
-	}
+		sarg->len_modifier = l;
 	else if (**format == 'j' )
 		sarg->len_modifier = j;
 	else if (**format == 'z' )
 		sarg->len_modifier = z;
 	else
 		return (*format);
-	if (sarg->len_modifier == hh || sarg->len_modifier == ll)
-		(*format)++;
-	if (sarg->len_modifier > 0)
-		(*format)++;
+	(*format)++;
 	return (*format);
 }
 
