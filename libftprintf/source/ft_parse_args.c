@@ -96,12 +96,22 @@ char *ft_get_len_modifier(char **format, t_args *sarg)
 
 static char *ft_get_conversion2(char **format, t_args *sarg)
 {
-	if (**format == 'X')
+	if (**format == 'u' || **format == 'U')
+	{
+		sarg->conversion = u;
+		if (**format == 'U')
+			sarg->len_modifier = l;
+	}
+	else if (**format == 'x')
+		sarg->conversion = x;
+	else if (**format == 'X')
 		sarg->conversion = X;
-	else if (**format == 'c')
+	else if (**format == 'c' || **format == 'C')
+	{
 		sarg->conversion = c;
-	else if (**format == 'C')
-		sarg->conversion = C;
+		if (**format == 'C')
+			sarg->len_modifier = l;
+	}
 	else if (**format == '%')
 		sarg->conversion = per;
 	else
@@ -118,22 +128,18 @@ char *ft_get_conversion(char **format, t_args *sarg)
 		sarg->conversion = S;
 	else if (**format == 'p')
 		sarg->conversion = p;
-	else if (**format == 'd')
+	else if (**format == 'd' || **format == 'D')
+	{
 		sarg->conversion = d;
-	else if (**format == 'D')
-		sarg->conversion = D;
+		if (**format == 'D')
+			sarg->len_modifier = l;
+	}
 	else if (**format == 'i')
 		sarg->conversion = i;
 	else if (**format == 'o')
 		sarg->conversion = o;
 	else if (**format == 'O')
-		sarg->conversion = O;
-	else if (**format == 'u')
-		sarg->conversion = u;
-	else if (**format == 'U')
-		sarg->conversion = U;
-	else if (**format == 'x')
-		sarg->conversion = x;
+			sarg->conversion = O;
 	else
 		return (ft_get_conversion2(format, sarg));
 	(*format)++;

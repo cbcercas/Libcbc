@@ -6,13 +6,11 @@ SRC		= ft_printf.c ft_parse_args.c utils.c \
 			printer_s.c \
 			printer_S.c \
 			printer_d.c \
-			printer_D.c \
 			printer_i.c \
 			printer_o.c \
 			printer_O.c \
 			printer_p.c \
 			printer_u.c \
-			printer_U.c \
 			printer_x.c \
 			printer_X.c \
 			printer_c.c \

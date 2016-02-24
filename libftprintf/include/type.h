@@ -16,7 +16,6 @@ enum conv
 	c,
 	C,
 	d,
-	D,
 	i,
 	o,
 	O,
@@ -24,7 +23,6 @@ enum conv
 	s,
 	S,
 	u,
-	U,
 	x,
 	X,
 	per
