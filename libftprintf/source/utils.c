@@ -30,3 +30,19 @@ intmax_t ft_signed_from_lenght(t_args *sarg, intmax_t nb)
 	else
 		return ((int)nb);
 }
+
+intmax_t ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
+{
+	if (sarg->len_modifier == h)
+		return ((unsigned short)nb);
+	else if (sarg->len_modifier == l)
+		return ((unsigned long)nb);
+	else if (sarg->len_modifier == ll)
+		return ((unsigned long long)nb);
+	else if (sarg->len_modifier == j)
+		return (nb);
+	else if (sarg->len_modifier == z)
+		return ((size_t)nb);
+	else
+		return ((unsigned int)nb);
+}
