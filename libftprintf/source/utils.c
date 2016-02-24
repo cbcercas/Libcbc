@@ -1,4 +1,5 @@
 #include "libft.h"
+# include "type.h"
 
 int ft_print_pad(int len_res, int pad, char c)
 {
@@ -12,4 +13,20 @@ int ft_print_pad(int len_res, int pad, char c)
 		i++;
 	}
 	return (i);
+}
+
+intmax_t ft_signed_from_lenght(t_args *sarg, intmax_t nb)
+{
+	if (sarg->len_modifier == h)
+		return ((short)nb);
+	else if (sarg->len_modifier == l)
+		return ((long)nb);
+	else if (sarg->len_modifier == ll)
+		return ((long long)nb);
+	else if (sarg->len_modifier == j)
+		return (nb);
+	else if (sarg->len_modifier == z)
+		return ((size_t)nb);
+	else
+		return ((int)nb);
 }

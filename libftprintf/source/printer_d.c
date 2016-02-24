@@ -6,27 +6,12 @@
 
 #include <stdio.h>
 
-static char *ft_dtoa(t_args *sarg, intmax_t nb)
-{
-	if (sarg->len_modifier == h)
-		return (ft_stoa((short)nb));
-	else if (sarg->len_modifier == l)
-		return (ft_ltoa((long)nb));
-	else if (sarg->len_modifier == ll)
-		return (ft_lltoa((long long)nb));
-	else if (sarg->len_modifier == j)
-		return (ft_imtoa(nb));
-	else if (sarg->len_modifier == z)
-		return (ft_sttoa((size_t)nb));
-	else
-		return (ft_itoa((int)nb));
-}
 int ft_print_d(t_args *sarg, va_list *larg)
 {
 	char	*str;
 	int		len;
 
-	str = ft_dtoa(sarg, va_arg(larg, intmax_t));
+	str = ft_imtoa(ft_signed_from_lenght(sarg, va_arg(larg, intmax_t)));
 	len = ft_strlen(str) + sarg->sign_pos;
 	if (!sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
