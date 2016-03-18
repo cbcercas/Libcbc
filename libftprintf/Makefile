@@ -43,7 +43,7 @@ LIB_DIR		= libft
 #Flags, Libraries, Objects and Includes
 CFLAGS		= -Wall -Wextra -Werror -g
 I_LIB		= -Ilibftprintf
-LIB			= -L$(LIB_DIR) $(I_LIB) -lftprintf
+LIB			= -L$(LIB_DIR) $(I_LIB)
 OBJ_PRINTF	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 OBJ_LIBFT	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(LIBFT_SRC))
 LIB_FILE	= libftprintf.a
@@ -74,7 +74,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c include/libftprintf.h
 	$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR) -o $@ -c $<
 
 $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c libft/libft.h
-	$(CC) $(CFLAGS) -I$(LIB_DIR) -o $@ -c $< $(LIB)
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 test: $(SRC_DIR)/main.c $(LIB_FILE)
 	$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) $(INC) 
