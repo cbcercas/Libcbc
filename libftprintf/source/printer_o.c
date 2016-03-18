@@ -28,7 +28,7 @@ int ft_print_o(t_args *sarg, va_list *larg)
 	int		len;
 	if (!sarg)
 		return -1;
-	str = (ft_itoo(ft_unsigned_from_lenght(sarg, va_arg(larg, uintmax_t))));
+	str = (ft_uitobase(ft_unsigned_from_lenght(sarg, va_arg(*larg, uintmax_t)), 8));
 	len = ft_strlen(str);
 	if (!sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
