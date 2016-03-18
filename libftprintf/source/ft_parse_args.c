@@ -77,7 +77,7 @@ char *ft_get_len_modifier(char **format, t_args *sarg)
 	}
 	else if (**format == 'l' && *(*format + 1) == 'l')
 	{
-		sarg->len_modifier = h;
+		sarg->len_modifier = ll;
 		(*format)++;
 	}
 	else if (**format == 'h')
