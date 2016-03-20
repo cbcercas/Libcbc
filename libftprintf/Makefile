@@ -24,7 +24,7 @@ LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
 			ft_wcslen.c ft_putnbr.c ft_countchiffres.c ft_strnew.c \
 			ft_sttoa.c ft_imtoa.c ft_ltoa.c ft_lltoa.c ft_itoa.c ft_stoa.c \
 			ft_strrev.c ft_pow.c ft_strcpy.c ft_uitobase.c ft_uitohex.c \
-			ft_uitooctal.c
+			ft_uitooctal.c ft_strncmp.c
 
 ###############################################################################
 #																			  #
