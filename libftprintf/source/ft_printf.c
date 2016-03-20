@@ -82,7 +82,7 @@ int		ft_print(va_list *larg, const char *format, int printed)
 	}
 	else
 	{
-		ft_bzero(&sarg, sizeof(sarg));
+		ft_bzero(&sarg, sizeof(sarg)); //malloc?
 		if (ft_get_args(&(next_arg), larg, &sarg))
 			return (-1);
 		ret = ft_print_args(&sarg, larg);
