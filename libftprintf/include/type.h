@@ -36,8 +36,9 @@ typedef struct		s_arg
 	unsigned		blank_pos:1; /* ' ' */
 	unsigned		sign_pos:1; /* '+' */
 	unsigned		deci_conv:1; /* ''' */
-	unsigned		min_width; 
-	int				precision; /* .digit */
+	unsigned		min_width;
+	unsigned		precision:1;
+	int				precision_len; /* .digit */
 	enum flag		len_modifier;
 	enum conv		conversion;
 }					t_args;

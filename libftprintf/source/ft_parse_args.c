@@ -52,16 +52,17 @@ char *ft_get_precision(char **format, t_args *sarg, va_list *larg)
 {
 	if (**format == '.' || ft_isdigit(**format))
 	{
+		sarg->precision = 1;
 		if (ft_isdigit(**format))
 		{
-			sarg->precision = ((sarg->precision) * 10) + ((**format) - '0');
+			sarg->precision_len = ((sarg->precision_len) * 10) + ((**format) - '0');
 			(*format)++;
 			(*format) = ft_get_precision(format, sarg, larg);
 		}
 		else
 		{
 			(*format)++;
-			sarg->precision = 0;
+			sarg->precision_len = 0;
 			(*format) = ft_get_precision(format, sarg, larg);
 		}
 	}
