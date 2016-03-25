@@ -16,7 +16,7 @@ char	*ft_get_flags(char **format, t_args	*sarg)
 			sarg->zero_pad = 1;
 		else if (**format == '-')
 			sarg->left_pad = 1;
-		else if (**format == ' ' && !sarg->sign_pos)
+		else if (**format == ' ')
 			sarg->blank_pos = 1;
 		else if (**format == '+')
 		{
