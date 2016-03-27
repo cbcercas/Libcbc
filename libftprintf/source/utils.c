@@ -19,6 +19,8 @@ intmax_t ft_signed_from_lenght(t_args *sarg, intmax_t nb)
 {
 	if (sarg->len_modifier == h)
 		return ((short)nb);
+	else if (sarg->len_modifier == hh)
+		return ((signed char)nb);
 	else if (sarg->len_modifier == l)
 		return ((long)nb);
 	else if (sarg->len_modifier == ll)
