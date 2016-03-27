@@ -3,6 +3,7 @@
 
 enum flag
 {
+	zero,
 	hh,
 	h,
 	l,
