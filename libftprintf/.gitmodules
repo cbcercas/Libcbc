@@ -1,4 +1,0 @@
-[submodule "Libft_ftprintf"]
-	path = libft
-	url = https://github.com/cbcercas/42_pri
-	branch = Libft
