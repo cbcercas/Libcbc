@@ -31,8 +31,11 @@ void ft_aff_args(t_args	*sarg)
 
 int ft_get_args(char **format, va_list *larg, t_args *sarg)
 {
+	char *save;
+
 	if (*++*format == '\0')
-		return (-1);
+		return (1);
+	save = (*format);
 	if (((*format) = ft_get_flags(format, sarg)) == NULL)
 		return (-1);
 	if (((*format) = ft_get_width(format, sarg, larg)) == NULL)
@@ -43,6 +46,8 @@ int ft_get_args(char **format, va_list *larg, t_args *sarg)
 		return (-1);
 	if (((*format) = ft_get_conversion(format, sarg)) == NULL)
 		return (-1);
+	// if (*format == save)
+	//  	return (2);
 	return (0);
 }
 
@@ -57,9 +62,10 @@ int		ft_print_args(t_args *sarg, va_list *larg)
 	// 	i++;
 	// va_end(larg2);
 	// if (i > 0)
-		return (*print[sarg->conversion])(sarg, larg);	
-	// else
-	// 	return (-1);
+	if ((sarg->conversion >= c) && (sarg->conversion <= per))
+		return (print[(sarg->conversion - 1)](sarg, larg));	
+	else
+		return (0);
 }
 
 int		ft_print(va_list *larg, const char *format, int printed)
@@ -83,8 +89,14 @@ int		ft_print(va_list *larg, const char *format, int printed)
 	else
 	{
 		ft_bzero(&sarg, sizeof(sarg)); //malloc?
-		if (ft_get_args(&(next_arg), larg, &sarg))
+		ret = ft_get_args(&(next_arg), larg, &sarg);
+		// ft_aff_args(&sarg);
+		// printf("\nret = %d\n", ret);
+		if (ret == 1)
+			return (0);
+		else if (ret == -1)
 			return (-1);
+		// printf("non\n");
 		ret = ft_print_args(&sarg, larg);
 		if (ret == -1)
 			return (-1);

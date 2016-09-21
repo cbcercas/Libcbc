@@ -14,6 +14,7 @@ enum flag
 
 enum conv
 {
+	zeroo,
 	c,
 	C,
 	d,

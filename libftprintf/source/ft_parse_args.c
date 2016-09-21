@@ -116,7 +116,7 @@ static char *ft_get_conversion2(char **format, t_args *sarg)
 	else if (**format == '%')
 		sarg->conversion = per;
 	else
-		return (NULL);
+		return (*format);
 	(*format)++;
 	return (*format);
 }
