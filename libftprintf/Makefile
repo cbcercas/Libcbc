@@ -26,17 +26,14 @@ CC				= clang
 SRC_DIR			= sources
 INC_DIR			= includes 
 OBJ_DIR			= objects
-LIB_DIR			= libft
+LIBFT_DIR		= libft
 LIBFT_INC_DIR	= libft/includes
 
 #Flags, Libraries, Objects and Includes
 CFLAGS			= -Wall -Wextra -Werror -g
-I_LIB			= -Ilibftprintf
-LIB				= -L$(LIB_DIR) $(I_LIB)
+LIB				= -L. -lftprintf
 OBJS			= $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
-SRC_FILES		= $(patsubst %.c,$(SRC_DIR)/%.c,$(SRCS))
 LIBFT_FILE		= libft/libft.a
-LIB_FILE		= libftprintf.a
 INC				= -I $(INC_DIR) -I $(LIBFT_INC_DIR)
 
 #Utils
@@ -62,17 +59,18 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(LIBFT_FILE) $(OBJS)
 	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFTPRINTF  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
-	@ar rc $@ $^
+	@cp $(LIBFT_FILE) $(NAME)
+	@ar r $@ $^
 	@ranlib $@
 	@echo "[\033[35m--------------------------\033[0m]"
 	@echo "[\033[36m---- OK - LIBFTPRINTF ----\033[0m]"
 	@echo "[\033[35m--------------------------\033[0m]"
 
 $(LIBFT_FILE):
-	@make -C libft
+	@make -C $(LIBFT_DIR)
 
 test: all
-	@$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) $(INC) 
+	$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB) $(INC)
 
 clean:
 	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression des .o\033[0m]"
@@ -90,4 +88,4 @@ norme:
 	norminette $(SRC_DIR)/$(SRC)
 	norminette $(INC_DIR)/*.h
 
-.PHONY: all clean fclean re norme init $(LIB_FILE)
+.PHONY: all clean fclean re norme init $(NAME)
