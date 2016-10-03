@@ -87,5 +87,20 @@ int				ft_countchiffres(int nb);
 size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
 void			ft_freetab(char **tab, size_t nb);
-
+/*
+** Make full test before use
+*/
+void			ft_putnstr(char const *s, size_t len);
+void			ft_putnstr_fd(char const *s, size_t len, int fd);
+size_t			ft_wcslen(const wchar_t *str);
+void			ft_putwstr_fd(wchar_t *str, int fd);
+void			ft_putwstr(wchar_t *str);
+char			*ft_uitobase(uintmax_t nb, unsigned int base);
+char			*ft_imtoa(intmax_t num);
+char			*ft_uimtoa(uintmax_t num);
+char			*ft_uitooctal(uintmax_t nb, int prefix);
+char			*ft_uitohex(uintmax_t nb, int uppercase);
+void			ft_putwchar(wchar_t c);
+void			ft_putwchar_fd(wchar_t c, int fd);
+char			*ft_strrev(char *str);
 #endif
