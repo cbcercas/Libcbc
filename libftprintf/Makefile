@@ -1,26 +1,17 @@
 # Executable name
-NAME	= libftprintf.a
+NAME		= libftprintf.a
 
 # Source files
-SRC		= ft_printf.c ft_parse_args.c utils.c \
-			printer_s.c \
-			printer_d.c \
-			printer_i.c \
-			printer_o.c \
-			printer_p.c \
-			printer_u.c \
-			printer_x.c \
-			printer_c.c \
-			printer_per.c
-
-LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
-			ft_strncpy.c ft_putstr_fd.c ft_bzero.c ft_memset.c ft_putnstr.c \
-			ft_putnstr_fd.c ft_isdigit.c ft_putchar.c ft_putchar_fd.c \
-			ft_putwchar.c ft_putwchar_fd.c ft_putwstr_fd.c ft_putwstr.c \
-			ft_wcslen.c ft_putnbr.c ft_countchiffres.c ft_strnew.c \
-			ft_sttoa.c ft_imtoa.c ft_ltoa.c ft_lltoa.c ft_itoa.c ft_stoa.c \
-			ft_strrev.c ft_pow.c ft_strcpy.c ft_uitobase.c ft_uitohex.c \
-			ft_uitooctal.c ft_strncmp.c
+SRCS		= ft_printf.c ft_parse_args.c utils.c \
+				printer_s.c \
+				printer_d.c \
+				printer_i.c \
+				printer_o.c \
+				printer_p.c \
+				printer_u.c \
+				printer_x.c \
+				printer_c.c \
+				printer_per.c
 
 ###############################################################################
 #																			  #
@@ -29,27 +20,29 @@ LIBFT_SRC = ft_strchr.c ft_putstr.c ft_strlen.c ft_strsub.c ft_strnew.c \
 ###############################################################################
 
 #  Compiler
-CC			= gcc
+CC				= clang
 
 #The Directories, Source, Includes, Objects and Libraries
-SRC_DIR		= source
-INC_DIR		= include 
-OBJ_DIR		= object
-LIB_DIR		= libft
+SRC_DIR			= sources
+INC_DIR			= includes 
+OBJ_DIR			= objects
+LIB_DIR			= libft
+LIBFT_INC_DIR	= libft/includes
 
 #Flags, Libraries, Objects and Includes
-CFLAGS		= -Wall -Wextra -Werror -g
-I_LIB		= -Ilibftprintf
-LIB			= -L$(LIB_DIR) $(I_LIB)
-OBJ_PRINTF	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
-OBJ_LIBFT	= $(patsubst %.c, $(OBJ_DIR)/%.o, $(LIBFT_SRC))
-LIB_FILE	= libftprintf.a
-INC			= -I$(INC_DIR) -I$(LIB_DIR)
+CFLAGS			= -Wall -Wextra -Werror -g
+I_LIB			= -Ilibftprintf
+LIB				= -L$(LIB_DIR) $(I_LIB)
+OBJS			= $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
+SRC_FILES		= $(patsubst %.c,$(SRC_DIR)/%.c,$(SRCS))
+LIBFT_FILE		= libft/libft.a
+LIB_FILE		= libftprintf.a
+INC				= -I $(INC_DIR) -I $(LIBFT_INC_DIR)
 
 #Utils
-CP			= cp
-RM			= rm -f
-MKDIR		= mkdir -p
+CP				= cp
+RM				= rm -f
+MKDIR			= mkdir -p
 
 ###############################################################################
 #																			  #
@@ -57,31 +50,39 @@ MKDIR		= mkdir -p
 #																			  #
 ###############################################################################
 
-all: $(init) $(NAME)
+all: init $(NAME)
 
 init:
-	@$(MKDIR) $(SRC_DIR) $(OBJ_DIR) $(INC_DIR) $(LIB_DIR)
+	@$(MKDIR) $(SRC_DIR) $(OBJ_DIR) $(INC_DIR)
 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c 
+	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ 
 
-$(NAME): $(OBJ_LIBFT) $(OBJ_PRINTF)
-	ar rc $(NAME) $(OBJ_PRINTF) $(OBJ_LIBFT)
-	ranlib $(NAME)
+$(NAME): $(LIBFT_FILE) $(OBJS)
+	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
+	@echo "\033[35mLIBFTPRINTF  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
+	@ar rc $@ $^
+	@ranlib $@
+	@echo "[\033[35m--------------------------\033[0m]"
+	@echo "[\033[36m---- OK - LIBFTPRINTF ----\033[0m]"
+	@echo "[\033[35m--------------------------\033[0m]"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c include/libftprintf.h
-	$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR) -o $@ -c $<
+$(LIBFT_FILE):
+	@make -C libft
 
-$(OBJ_DIR)/%.o: $(LIB_DIR)/%.c libft/libft.h
-	$(CC) $(CFLAGS) -o $@ -c $<
-
-test: $(SRC_DIR)/main.c $(LIB_FILE)
-	$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) $(INC) 
+test: all
+	@$(CC) $(CFLAGS) -o test $(SRC_DIR)/main.c $(LIB_FILE) $(INC) 
 
 clean:
-	$(RM) $(OBJ_PRINTF)
-	$(RM) $(OBJ_LIBFT)
+	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression des .o\033[0m]"
+	@$(RM) $(OBJS)
+	@make clean -C libft
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
+	@$(RM) $(NAME)
+	@make fclean -C libft
 
 re: fclean all
 
@@ -89,4 +90,4 @@ norme:
 	norminette $(SRC_DIR)/$(SRC)
 	norminette $(INC_DIR)/*.h
 
-.PHONY: clean fclean re norme init $(LIB_FILE)
+.PHONY: all clean fclean re norme init $(LIB_FILE)
