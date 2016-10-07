@@ -1,12 +1,10 @@
 #include <stdarg.h>
 #include "type.h"
-
-#include <stdio.h>
+#include <printer.h>
 
 int ft_print_p(t_args *sarg, va_list *larg)
 {
-	printf("In ft_print_p\n");
-	if (!sarg && !larg)
-		return (-1);
-	return (-1);
+	sarg->alternate = 1;
+	sarg->len_modifier = l;
+	return (ft_print_x(sarg, larg));
 }
