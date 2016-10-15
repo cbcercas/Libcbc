@@ -20,7 +20,6 @@ enum conv
 	d,
 	i,
 	o,
-	O,
 	p,
 	s,
 	S,
