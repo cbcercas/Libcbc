@@ -28,18 +28,19 @@ int ft_print_d(t_args *sarg, va_list *larg)
 {
 	char		*str;
 	char		sign;
-	int			len;
+	unsigned	len;
 
 	str = ft_get_nbstr(sarg, larg, &sign);
 	len = ft_strlen(str) + (sign == '-' ? 1 : 0);
-	if (!sarg->left_pad && (sarg->min_width > 1))
+	unsigned len2 = len;
+	if (!sarg->left_pad && (sarg->min_width > 1) && sarg->precision_len < sarg->min_width)
 	{
 		if ((sarg->sign_pos || sarg->blank_pos || sign == '-') && sarg->zero_pad)
 		{
 			ft_putchar((sarg->sign_pos || sign == '-' ? sign : ' '));
 			len += (sign == '-' ? 0 : 1);
 		}
-		len += ft_print_pad(len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
+		len += ft_print_pad((len > sarg->precision_len) ? len : sarg->precision_len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
 		if ((sarg->sign_pos || sarg->blank_pos || sign == '-') && !sarg->zero_pad)
 		{
 			ft_putchar((sarg->sign_pos || sign == '-' ? sign : ' '));
@@ -50,6 +51,8 @@ int ft_print_d(t_args *sarg, va_list *larg)
 		ft_putchar((sarg->sign_pos || sign == '-' ? sign : ' '));
 		len += (sign == '-' ? 0 : 1);
 	}
+	if (sarg->precision && sarg->precision_len)
+		len += ft_print_pad(len2, sarg->precision_len, '0');
 	ft_putstr(str);
 	if (sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, ' ');

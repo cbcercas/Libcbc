@@ -15,7 +15,7 @@ int ft_print_o(t_args *sarg, va_list *larg)
 	len = (sarg->precision && !sarg->precision_len && nb == 0 && !sarg->alternate) ? 0 : ft_strlen(str);
 	if (!sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
-	while (sarg->precision && sarg->precision_len > len)
+	while (sarg->precision && sarg->precision_len > (unsigned)len)
 	{
 		ft_putchar('0');
 		len++;
