@@ -104,4 +104,8 @@ char			*ft_uitohex(uintmax_t nb, int uppercase);
 void			ft_putwchar(wchar_t c);
 void			ft_putwchar_fd(wchar_t c, int fd);
 char			*ft_strrev(char *str);
+
+char			*ft_ctostr(char c, int nb);
+char			*ft_wctostr(wchar_t c);
+char			*ft_wstostr(wchar_t *ws);
 #endif
