@@ -90,6 +90,7 @@ void			ft_freetab(char **tab, size_t nb);
 /*
 ** Make full test before use
 */
+char			*ft_strjoincl(char *s1, char *s2, int free);
 void			ft_putnstr(char const *s, size_t len);
 void			ft_putnstr_fd(char const *s, size_t len, int fd);
 size_t			ft_wcslen(const wchar_t *str);

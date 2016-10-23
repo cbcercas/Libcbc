@@ -19,7 +19,7 @@ ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_st
 ft_putstr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c ft_itoa.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_countchiffres.c ft_wordlen.c \
 ft_nbword.c ft_freetab.c ft_putnstr.c ft_wcslen.c ft_putwstr.c ft_uitobase.c ft_imtoa.c ft_uitooctal.c ft_uitohex.c \
-ft_putwchar.c ft_strrev.c
+ft_putwchar.c ft_strrev.c ft_strjoincl.c
 
 SRCO	=	$(SRC:.c=.o)
 HEADERS	=	includes
