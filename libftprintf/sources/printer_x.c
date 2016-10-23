@@ -36,13 +36,15 @@ int ft_print_x(t_args *s, va_list *larg)
 	unb = ft_unsigned_from_lenght(s, va_arg(*larg, uintmax_t));
 	str = (ft_uitohex(unb, 0));
 	len = (s->precision && !s->precision_len && unb == 0) ? 0 : ft_strlen(str);
-	if (s->alternate && ft_strncmp(str, "0\0", 2))
+	if ((s->alternate && ft_strncmp(str, "0\0", 2)) || s->conversion == (enum conv)p)
 		len += 2;
-	if (ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0)
+	if ((ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0) 
+			|| (s->conversion == (enum conv)p && s->zero_pad))
 		ft_putstr("0x");
 	if (!s->left_pad && (s->min_width > 1))
 		len += ft_print_pad(len, s->min_width, s->zero_pad ? '0' : ' ');
-	if (ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0)
+	if ((ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0) 
+			|| (s->conversion == (enum conv)p && !s->zero_pad))
 		ft_putstr("0x");
 	(s->precision && !s->precision_len && unb == 0) ? 0 : ft_putstr(str);
 	if (s->left_pad && (s->min_width > 1))
