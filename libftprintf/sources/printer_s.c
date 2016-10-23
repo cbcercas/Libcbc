@@ -7,11 +7,10 @@
 
 #include <stdio.h>
 
-int ft_print_S(t_args *sarg, va_list *larg)
+int	ft_print_S(t_args *sarg, va_list *larg)
 {
-	printf("In ft_print_S\n");
-	wchar_t *str;
-	size_t len;
+	wchar_t	*str;
+	size_t	len;
 
 	str = va_arg(*larg, wchar_t *);
 	len = sarg->precision ? sarg->precision_len : ft_wcslen(str);
@@ -23,11 +22,11 @@ int ft_print_S(t_args *sarg, va_list *larg)
 	return (len);
 }
 
-int ft_print_s(t_args *sarg, va_list *larg)
+int	ft_print_s(t_args *sarg, va_list *larg)
 {
-	char *str;
-	size_t len;
-	size_t len_save;
+	char	*str;
+	size_t	len;
+	size_t	len_save;
 
 	if (sarg->len_modifier == l)
 		return(ft_print_S(sarg, larg));

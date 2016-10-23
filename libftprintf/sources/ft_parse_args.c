@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-char	*ft_get_flags(char **format, t_args	*sarg)
+char		*ft_get_flags(char **format, t_args	*sarg)
 {
 	if (**format == '#' || **format == '0' || **format == '-'
 		|| **format == ' ' || **format == '+')
@@ -29,7 +29,7 @@ char	*ft_get_flags(char **format, t_args	*sarg)
 	return(*format);
 }
 
-char *ft_get_width(char **format, t_args *sarg, va_list *larg)
+char		*ft_get_width(char **format, t_args *sarg, va_list *larg)
 {
 	if (**format == '*' || ft_isdigit(**format))
 	{
@@ -48,7 +48,7 @@ char *ft_get_width(char **format, t_args *sarg, va_list *larg)
 	return (*format);
 }
 
-char *ft_get_precision(char **format, t_args *sarg, va_list *larg)
+char		*ft_get_precision(char **format, t_args *sarg, va_list *larg)
 {
 	if (**format == '.' || ft_isdigit(**format))
 	{
@@ -69,7 +69,7 @@ char *ft_get_precision(char **format, t_args *sarg, va_list *larg)
 	return (*format);
 }
 
-char *ft_get_len_modifier(char **format, t_args *sarg)
+char		*ft_get_len_modifier(char **format, t_args *sarg)
 {
 	if (**format == 'h' && *(*format + 1) == 'h')
 	{
@@ -95,7 +95,7 @@ char *ft_get_len_modifier(char **format, t_args *sarg)
 	return (*format);
 }
 
-static char *ft_get_conversion2(char **format, t_args *sarg)
+static char	*ft_get_conversion2(char **format, t_args *sarg)
 {
 	if (**format == 'u' || **format == 'U')
 	{
@@ -121,7 +121,7 @@ static char *ft_get_conversion2(char **format, t_args *sarg)
 	return (*format);
 }
 
-char *ft_get_conversion(char **format, t_args *sarg)
+char		*ft_get_conversion(char **format, t_args *sarg)
 {
 	if (**format == 's')
 		sarg->conversion = s;

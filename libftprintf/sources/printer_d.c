@@ -45,7 +45,7 @@ static void	put_sign(char *sign, t_args *s, unsigned  int *len, char **nbr)
 	}
 }
 
-static void put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
+static void	put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
 {
 	char	*tmp;
 	unsigned int l;
@@ -71,7 +71,7 @@ static void put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
 	}
 }
 
-int ft_print_d(t_args *sarg, va_list *larg)
+int			ft_print_d(t_args *sarg, va_list *larg)
 {
 	char		*str;
 	char		sign;

@@ -1,7 +1,7 @@
 #ifndef TYPE
 # define TYPE
 
-enum flag
+enum				flag
 {
 	zero,
 	hh,
@@ -12,7 +12,7 @@ enum flag
 	z
 };
 
-enum conv
+enum				conv
 {
 	zeroo,
 	c,

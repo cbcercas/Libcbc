@@ -4,7 +4,7 @@
 #include "libft.h"
 #include "utils.h"
 
-static void put_uprecision(t_args *s, unsigned int *len, char **nbr)
+static void	put_uprecision(t_args *s, unsigned int *len, char **nbr)
 {
 	char	*tmp;
 	unsigned int l;
@@ -28,7 +28,7 @@ static void put_uprecision(t_args *s, unsigned int *len, char **nbr)
 	}
 }
 
-int ft_print_u(t_args *sarg, va_list *larg)
+int			ft_print_u(t_args *sarg, va_list *larg)
 {
 	char		*str;
 	unsigned	len;

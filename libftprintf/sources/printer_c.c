@@ -5,12 +5,10 @@
 #include "utils.h"
 #include <wchar.h>
 
-#include <stdio.h>
-
-int ft_print_C(t_args *sarg, va_list *larg)
+int	ft_print_C(t_args *sarg, va_list *larg)
 {
-	size_t len;
-	wchar_t c;
+	size_t	len;
+	wchar_t	c;
 
 	c = (wchar_t)va_arg(*larg, wint_t);
 	if (c <= 0x7F)
@@ -31,14 +29,12 @@ int ft_print_C(t_args *sarg, va_list *larg)
 	return (len);
 }
 
-int ft_print_c(t_args *sarg, va_list *larg)
+int	ft_print_c(t_args *sarg, va_list *larg)
 {
-	size_t len;
+	size_t	len;
 
 	if (sarg->len_modifier == l)
-	{
 		return(ft_print_C(sarg, larg));
-	}
 	else
 	{
 		len = 1;

@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "type.h"
 
-int ft_print_pad(int len_res, int pad, char c)
+int			ft_print_pad(int len_res, int pad, char c)
 {
 	int i;
 
@@ -15,7 +15,7 @@ int ft_print_pad(int len_res, int pad, char c)
 	return (i);
 }
 
-intmax_t ft_signed_from_lenght(t_args *sarg, intmax_t nb)
+intmax_t	ft_signed_from_lenght(t_args *sarg, intmax_t nb)
 {
 	if (sarg->len_modifier == h)
 		return ((short)nb);
@@ -33,7 +33,7 @@ intmax_t ft_signed_from_lenght(t_args *sarg, intmax_t nb)
 		return ((int)nb);
 }
 
-uintmax_t ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
+uintmax_t	ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
 {
 	if (sarg->len_modifier == h)
 		return ((unsigned short)nb);
