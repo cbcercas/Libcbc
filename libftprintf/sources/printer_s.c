@@ -16,7 +16,7 @@ int	ft_print_S(t_args *sarg, va_list *larg)
 	s = (!s) ? ft_strdup("(null)") : s;
 	len = sarg->precision ? sarg->precision_len : ft_strlen(s);
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(len, sarg->min_width, ' ');
+		len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
 	ft_putstr(s);
 	free(s);
 	if (sarg->left_pad && (sarg->min_width > len))
@@ -41,7 +41,7 @@ int	ft_print_s(t_args *sarg, va_list *larg)
 		len = sarg->precision_len;
 	len_save = len;
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(len, sarg->min_width, ' ');
+		len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
 	ft_putnstr(s, len_save);
 	(free) ? ft_strdel((char**)&s) : 0;
 	if (sarg->left_pad && (sarg->min_width > len))
