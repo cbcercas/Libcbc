@@ -1,0 +1,18 @@
+#include <stdarg.h>
+#include "libft.h"
+#include "type.h"
+#include "utils.h"
+
+int	ft_print_def(t_args *sarg, va_list *larg)
+{
+	size_t	len;
+
+	(void)larg;
+	len = 1;
+	if (!sarg->left_pad && (sarg->min_width > 1))
+			len += ft_print_pad(len, sarg->min_width, ' ');
+	ft_putchar(sarg->defchar);
+	if (sarg->left_pad && (sarg->min_width > 1))
+		len += ft_print_pad(len, sarg->min_width, ' ');
+	return (len);
+}

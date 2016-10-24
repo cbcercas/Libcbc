@@ -62,7 +62,7 @@ int		ft_print_args(t_args *sarg, va_list *larg)
 	// 	i++;
 	// va_end(larg2);
 	// if (i > 0)
-	if ((sarg->conversion >= c) && (sarg->conversion <= per))
+	if ((sarg->conversion >= c) && (sarg->conversion <= def))
 		return (print[(sarg->conversion - 1)](sarg, larg));	
 	else
 		return (0);

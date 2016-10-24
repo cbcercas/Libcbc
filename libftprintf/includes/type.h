@@ -26,7 +26,8 @@ enum				conv
 	u,
 	x,
 	X,
-	per
+	per,
+	def
 };
 
 typedef struct		s_arg
@@ -42,6 +43,7 @@ typedef struct		s_arg
 	unsigned		precision_len; /* .digit */
 	enum flag		len_modifier;
 	enum conv		conversion;
+	char			defchar;
 }					t_args;
 
 #endif

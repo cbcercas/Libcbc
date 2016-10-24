@@ -16,7 +16,8 @@ int (*print[])(t_args *sarg, va_list *larg) = {
 	ft_print_u,
 	ft_print_x,
 	ft_print_X,
-	ft_print_per
+	ft_print_per,
+	ft_print_def
 	};
 
 #endif

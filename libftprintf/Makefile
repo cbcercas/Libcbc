@@ -11,7 +11,8 @@ SRCS		= ft_printf.c ft_parse_args.c utils.c \
 				printer_u.c \
 				printer_x.c \
 				printer_c.c \
-				printer_per.c
+				printer_per.c \
+				printer_def.c
 
 ###############################################################################
 #																			  #
