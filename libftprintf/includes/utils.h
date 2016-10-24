@@ -6,6 +6,6 @@
 int			ft_print_pad(int len_res, int pad, char c);
 intmax_t	ft_signed_from_lenght(t_args *sarg, intmax_t nb);
 uintmax_t	ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb);
-void		put_uprecision(t_args *s, unsigned int *len, char **nbr);
+void		put_uprecision(t_args *s, size_t *len, char **nbr);
 
 #endif

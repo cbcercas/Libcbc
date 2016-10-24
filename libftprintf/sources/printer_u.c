@@ -7,7 +7,7 @@
 int			ft_print_u(t_args *sarg, va_list *larg)
 {
 	char		*str;
-	unsigned	len;
+	size_t	len;
 	uintmax_t	nb;
 
 	nb = ft_unsigned_from_lenght(sarg, va_arg(*larg, uintmax_t));

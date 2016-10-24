@@ -5,9 +5,9 @@
 
 int ft_print_X(t_args *s, va_list *larg)
 {
-	char			*str;
-	unsigned int	len;
-	uintmax_t		unb;
+	char		*str;
+	size_t		len;
+	uintmax_t	unb;
 
 	unb = ft_unsigned_from_lenght(s, va_arg(*larg, uintmax_t));
 	str = (ft_uitohex(unb, 1));
@@ -30,9 +30,9 @@ int ft_print_X(t_args *s, va_list *larg)
 
 int ft_print_x(t_args *s, va_list *larg)
 {
-	char			*str;
-	unsigned int	len;
-	uintmax_t		unb;
+	char		*str;
+	size_t		len;
+	uintmax_t	unb;
 
 	unb = ft_unsigned_from_lenght(s, va_arg(*larg, uintmax_t));
 	str = (ft_uitohex(unb, 0));

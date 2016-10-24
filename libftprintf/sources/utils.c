@@ -51,7 +51,7 @@ uintmax_t	ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
 		return ((unsigned int)nb);
 }
 
-void		put_uprecision(t_args *s, unsigned int *len, char **nbr)
+void		put_uprecision(t_args *s, size_t *len, char **nbr)
 {
 	char	*tmp;
 	unsigned int l;
