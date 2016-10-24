@@ -16,6 +16,7 @@ int	ft_print_C(t_args *sarg, va_list *larg)
 	if (!sarg->left_pad && (sarg->min_width > len))
 		len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
 	ft_putstr(s);
+	free(s);
 	if (sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, ' ');
 	return (len);
