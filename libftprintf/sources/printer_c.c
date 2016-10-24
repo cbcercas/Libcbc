@@ -12,6 +12,7 @@ int	ft_print_C(t_args *sarg, va_list *larg)
 
 	s = ft_wctostr(va_arg(*larg, wchar_t));
 	len = ft_strlen(s);
+	len = (len != 0) ? len : 1;
 	if (!sarg->left_pad && (sarg->min_width > len))
 		len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
 	ft_putstr(s);
