@@ -37,6 +37,8 @@ uintmax_t	ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
 {
 	if (sarg->len_modifier == h)
 		return ((unsigned short)nb);
+	if (sarg->len_modifier == hh)
+		return ((unsigned char)nb);
 	else if (sarg->len_modifier == l)
 		return ((unsigned long)nb);
 	else if (sarg->len_modifier == ll)
