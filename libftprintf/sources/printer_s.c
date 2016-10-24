@@ -5,18 +5,20 @@
 #include "printer.h"
 #include "utils.h"
 
-#include <stdio.h>
-
 int	ft_print_S(t_args *sarg, va_list *larg)
 {
-	wchar_t	*str;
+	wchar_t	*ws;
+	char	*s;
 	size_t	len;
 
-	str = va_arg(*larg, wchar_t *);
-	len = sarg->precision ? sarg->precision_len : ft_wcslen(str);
+	ws = va_arg(*larg, wchar_t *);
+	s = ft_wstostr(ws);
+	s = (!s) ? ft_strdup("(null)") : s;
+	len = sarg->precision ? sarg->precision_len : ft_strlen(s);
 	if (!sarg->left_pad && (sarg->min_width > len))
 		len += ft_print_pad(len, sarg->min_width, ' ');
-	ft_putwstr(str);
+	ft_putstr(s);
+	free(s);
 	if (sarg->left_pad && (sarg->min_width > len))
 		len += ft_print_pad(len, sarg->min_width, ' ');
 	return (len);
@@ -24,27 +26,25 @@ int	ft_print_S(t_args *sarg, va_list *larg)
 
 int	ft_print_s(t_args *sarg, va_list *larg)
 {
-	char	*str;
+	char	*s;
 	size_t	len;
 	size_t	len_save;
+	int		free;
 
 	if (sarg->len_modifier == l)
 		return(ft_print_S(sarg, larg));
-	else
-	{
-		str = va_arg(*larg, char *);
-		if (str)
-			len = ft_strlen(str);
-		else
-			len = 6;
-		if (sarg->precision && sarg->precision < len)
-			len = sarg->precision_len;
-		len_save = len;
-		if (!sarg->left_pad && (sarg->min_width > len))
-			len += ft_print_pad(len, sarg->min_width, ' ');
-		str == NULL ? ft_putnstr("(null)", len_save) : ft_putnstr(str, len_save);
-		if (sarg->left_pad && (sarg->min_width > len))
-			len += ft_print_pad(len, sarg->min_width, ' ');
-		return (len);
-	}
+	s = va_arg(*larg, char *);
+	free = (!s) ? 1 : 0;
+	s = (!s) ? ft_strdup("(null)") : s;
+	len = ft_strlen(s);
+	if (sarg->precision && sarg->precision < len)
+		len = sarg->precision_len;
+	len_save = len;
+	if (!sarg->left_pad && (sarg->min_width > len))
+		len += ft_print_pad(len, sarg->min_width, ' ');
+	ft_putnstr(s, len_save);
+	(free) ? ft_strdel((char**)&s) : 0;
+	if (sarg->left_pad && (sarg->min_width > len))
+		len += ft_print_pad(len, sarg->min_width, ' ');
+	return (len);
 }
