@@ -6,8 +6,8 @@
 int ft_print_o(t_args *sarg, va_list *larg)
 {
 	char	*str;
-	int		len;
 	uintmax_t nb;
+	unsigned int	len;
 
 	nb = ft_unsigned_from_lenght(sarg, va_arg(*larg, uintmax_t));
 	str = ft_uitooctal(nb, (sarg->alternate && nb != 0) ? 1 : 0);
