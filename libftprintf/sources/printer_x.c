@@ -37,7 +37,7 @@ int ft_print_x(t_args *s, va_list *larg)
 	unb = ft_unsigned_from_lenght(s, va_arg(*larg, uintmax_t));
 	str = (ft_uitohex(unb, 0));
 	len = (s->precision && !s->precision_len && unb == 0) ? 0 : ft_strlen(str);
-	put_uprecision(s, &len, &str);
+	(!(s->conversion == (enum conv)p)|| s->precision) ? put_uprecision(s, &len, &str) : 0;
 	if ((s->alternate && ft_strncmp(str, "0\0", 2)) || s->conversion == (enum conv)p)
 		len += 2;
 	if ((ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0) 
