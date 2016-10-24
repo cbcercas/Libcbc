@@ -15,7 +15,10 @@ int ft_print_o(t_args *sarg, va_list *larg)
 	put_uprecision(sarg, &len, &str);
 	if (!sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
-	(sarg->precision && !sarg->precision_len && nb == 0 && !sarg->alternate) ? 0 : ft_putstr(str);
+	if(sarg->precision && !sarg->precision_len && nb == 0 && !sarg->alternate)
+		len = 0;
+	else
+		ft_putstr(str);
 	if (sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, ' ');
 	free(str);
