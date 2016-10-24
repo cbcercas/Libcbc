@@ -129,14 +129,12 @@ char		*ft_get_conversion(char **format, t_args *sarg)
 		sarg->conversion = S;
 	else if (**format == 'p')
 		sarg->conversion = p;
-	else if (**format == 'd' || **format == 'D')
+	else if (**format == 'd' || **format == 'D' || **format == 'i')
 	{
 		sarg->conversion = d;
 		if (**format == 'D')
 			sarg->len_modifier = l;
 	}
-	else if (**format == 'i')
-		sarg->conversion = i;
 	else if (**format == 'o')
 		sarg->conversion = o;
 	else if (**format == 'o' || **format == 'O')
