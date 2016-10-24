@@ -48,17 +48,15 @@ MKDIR			= mkdir -p
 #																			  #
 ###############################################################################
 
-all: init $(NAME)
-
-init:
-	@$(MKDIR) $(SRC_DIR) $(OBJ_DIR) $(INC_DIR)
+all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c 
-	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(SRC_DIR) $(OBJ_DIR) $(INC_DIR)
+	@echo "\033[K\033[35mLIBFTPRINTF  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ 
 
 $(NAME): $(LIBFT_FILE) $(OBJS)
-	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
+	@echo "\033[K\033[35mLIBFTPRINTF  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFTPRINTF  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
 	@cp $(LIBFT_FILE) $(NAME)
 	@ar r $@ $^
@@ -89,4 +87,5 @@ norme:
 	norminette $(SRC_DIR)/$(SRC)
 	norminette $(INC_DIR)/*.h
 
-.PHONY: all clean fclean re norme init $(NAME)
+.PHONY: all $(NAME) clean fclean re norme init 
+.SUFFIXES:
