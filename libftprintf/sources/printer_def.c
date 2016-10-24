@@ -10,7 +10,7 @@ int	ft_print_def(t_args *sarg, va_list *larg)
 	(void)larg;
 	len = 1;
 	if (!sarg->left_pad && (sarg->min_width > 1))
-			len += ft_print_pad(len, sarg->min_width, ' ');
+			len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
 	ft_putchar(sarg->defchar);
 	if (sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, ' ');
