@@ -9,8 +9,8 @@ char	*ft_uitooctal(uintmax_t nb, int prefix)
 	nbbase = ft_uitobase(nb, 8);
 	if (!prefix)
 		return (nbbase);
-	ret = ft_strnew(2 + ft_strlen(nbbase));
-	ret[0] = '0';
+	ret = ft_strnew(prefix + ft_strlen(nbbase));
+	ret[0] = (prefix) ? '0' : 0;
 	i = 0;
 	while (nbbase[i] != '\0')
 	{
