@@ -60,6 +60,8 @@ static void	put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
 		if (s->zero_pad && !s->precision)
 			l -= (*sign == '-' || s->sign_pos) ? 1 : 0;
 		tmp = ft_strnew((s->precision_len)? s->precision_len : s->min_width);
+		if (*sign == '+' && s->blank_pos)
+			l--;
 		while (i < l)
 			tmp[i++] = '0';
 		l = 0;
@@ -70,6 +72,7 @@ static void	put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
 		*len = ft_strlen(tmp);
 	}
 }
+
 
 int			ft_print_d(t_args *sarg, va_list *larg)
 {
