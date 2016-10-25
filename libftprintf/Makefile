@@ -87,9 +87,10 @@ norme:
 	norminette $(SRC_DIR)/$(SRC)
 	norminette $(INC_DIR)/*.h
 
-chkforbiden:
-	grep stdio.h */*
-	grep -r "\tprintf" .
+chkforbidden:
+	@grep -r stdio.h .
+	@grep -r "printf" . | grep -v "ft_printf"
+	@grep -r "//" .
 
 rendu: fclean
 	@$(RM) subject
@@ -100,5 +101,5 @@ rendu: fclean
 	@git add libft
 	@git commit -m "clean rendu"
 
-.PHONY: all $(NAME) clean fclean re norme chkforbiden rendu
+.PHONY: all $(NAME) clean fclean re norme chkforbidden rendu
 .SUFFIXES:
