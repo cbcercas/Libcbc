@@ -39,7 +39,7 @@ INC				= -I $(INC_DIR) -I $(LIBFT_INC_DIR)
 
 #Utils
 CP				= cp
-RM				= rm -f
+RM				= rm -rf
 MKDIR			= mkdir -p
 
 ###############################################################################
@@ -87,5 +87,18 @@ norme:
 	norminette $(SRC_DIR)/$(SRC)
 	norminette $(INC_DIR)/*.h
 
-.PHONY: all $(NAME) clean fclean re norme init 
+chkforbiden:
+	grep stdio.h */*
+	grep -r "\tprintf" .
+
+rendu: fclean
+	@$(RM) subject
+	@mv libft libft.back
+	@git submodule deinit libft
+	@git rm libft
+	@mv libft.back libft
+	@git add libft
+	@git commit -m "clean rendu"
+
+.PHONY: all $(NAME) clean fclean re norme chkforbiden rendu
 .SUFFIXES:
