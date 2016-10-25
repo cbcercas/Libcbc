@@ -5,7 +5,6 @@ NAME		= libftprintf.a
 SRCS		= ft_printf.c ft_parse_args.c utils.c \
 				printer_s.c \
 				printer_d.c \
-				printer_i.c \
 				printer_o.c \
 				printer_p.c \
 				printer_u.c \
