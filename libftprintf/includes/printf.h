@@ -8,7 +8,6 @@ int (*print[])(t_args *sarg, va_list *larg) = {
 	ft_print_c,
 	ft_print_C,
 	ft_print_d,
-	ft_print_i,
 	ft_print_o,
 	ft_print_p,
 	ft_print_s,
