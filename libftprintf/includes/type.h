@@ -18,7 +18,6 @@ enum				conv
 	c,
 	C,
 	d,
-	i,
 	o,
 	p,
 	s,
