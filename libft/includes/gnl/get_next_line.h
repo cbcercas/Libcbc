@@ -6,14 +6,14 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 15:42:12 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/15 14:28:48 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/15 17:29:52 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "libft/includes/libft.h"
+# include "libft.h"
 # define BUFF_SIZE 5000
 # define RETURN_LEN 0
 
@@ -22,6 +22,7 @@
 # else
 # define RETURN_TYPE int
 # endif
+
 typedef struct	s_fd
 {
 	int			fd;
