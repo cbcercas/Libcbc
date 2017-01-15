@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2015/12/09 11:53:46 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/15 21:48:27 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int				ft_countchiffres(int nb);
 size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
 void			ft_freetab(char **tab, size_t nb);
+int				ft_tablen(char **tab);
+
 /*
 ** Make full test before use
 */
