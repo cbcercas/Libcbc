@@ -88,7 +88,7 @@ size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
 void			ft_freetab(char **tab, size_t nb);
 int				ft_tablen(char **tab);
-
+char			**ft_strtabdup(char **tab);
 /*
 ** Make full test before use
 */
