@@ -6,14 +6,17 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2015/12/09 13:10:15 by chbravo-         ###   ########.fr       */
+/*   Updated: 2016/10/25 22:06:07 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *elem)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	elem->next = *alst;
-	*alst = elem;
+	if (new)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
 }

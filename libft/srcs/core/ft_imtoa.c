@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_imtoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/18 02:58:36 by chbravo-          #+#    #+#             */
+/*   Updated: 2016/11/22 23:45:49 by chbravo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int ft_countdigit(intmax_t num)
+int			ft_countdigit(intmax_t num)
 {
 	int i;
 
@@ -13,7 +25,7 @@ static int ft_countdigit(intmax_t num)
 	return (i);
 }
 
-static int ft_countdigit_unsigned(uintmax_t num)
+static int	ft_countdigit_unsigned(uintmax_t num)
 {
 	int i;
 
@@ -26,12 +38,12 @@ static int ft_countdigit_unsigned(uintmax_t num)
 	return (i);
 }
 
-char *ft_imtoa(intmax_t num)
+char		*ft_imtoa(intmax_t num)
 {
-	char *str;
-	int sign;
-	int i;
-	intmax_t numtmp;
+	char		*str;
+	int			sign;
+	int			i;
+	intmax_t	numtmp;
 
 	if (!(str = ft_strnew(ft_countdigit(num))))
 		return (NULL);
@@ -53,11 +65,11 @@ char *ft_imtoa(intmax_t num)
 	return (str);
 }
 
-char *ft_uimtoa(uintmax_t num)
+char		*ft_uimtoa(uintmax_t num)
 {
-	char *str;
-	int i;
-	uintmax_t numtmp;
+	char		*str;
+	int			i;
+	uintmax_t	numtmp;
 
 	if (!(str = ft_strnew(ft_countdigit_unsigned(num))))
 		return (NULL);

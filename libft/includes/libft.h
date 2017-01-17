@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/16 09:35:19 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/17 11:05:29 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <limits.h>
 
 typedef struct	s_list
 {
@@ -40,7 +41,7 @@ void			*ft_memset(void *b, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
-char			*ft_strdup(char *src);
+char			*ft_strdup(const char *src);
 void			*ft_memcpy(void *s1, const void *s2, size_t n);
 void			*ft_memccpy(void *s1, const void *s2, int c, size_t n);
 void			*ft_memmove(void *s1, const void *s2, size_t n);
@@ -80,13 +81,14 @@ void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *elem);
+void			ft_lstadd(t_list **alst, t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_countchiffres(int nb);
 size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
 void			ft_freetab(char **tab, size_t nb);
+int				ft_countdigit(intmax_t num);
 int				ft_tablen(char **tab);
 char			**ft_strtabdup(char **tab);
 /*
@@ -110,4 +112,8 @@ char			*ft_strrev(char *str);
 char			*ft_ctostr(char c, int nb);
 char			*ft_wctostr(wchar_t c);
 char			*ft_wstostr(wchar_t *ws);
+
+void			ft_lstpush_back(t_list **head, t_list *lst);
+void			ft_lstpush_front(t_list **head, t_list *lst);
+t_list			*ft_lstpush(t_list **head, t_list *lst, int place);
 #endif
