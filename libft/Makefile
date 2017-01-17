@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/15 22:09:27 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/17 10:14:57 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,9 @@ ft_putwchar.c ft_strrev.c ft_strjoincl.c ft_ctostr.c ft_wctostr.c ft_wstostr.c f
 
 SRCS_GNL		= get_next_line.c
 
-SRCS_FT_PRINTF	= ft_printf.c ft_parse_args.c utils.c printer_s.c printer_d.c \
-printer_o.c printer_p.c printer_u.c printer_x.c printer_c.c printer_per.c printer_def.c
+SRCS_FT_PRINTF	= ft_printf.c ft_parse_args.c ft_parse_args2.c utils.c \
+printer_s.c printer_d.c printer_o.c printer_p.c printer_u.c printer_x.c \
+printer_c.c printer_per.c printer_def.c
 
 ###############################################################################
 #																			  #

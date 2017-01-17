@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printer_c.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/18 03:28:33 by chbravo-          #+#    #+#             */
+/*   Updated: 2016/11/18 23:01:49 by chbravo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "libft.h"
 #include "type.h"
@@ -5,18 +17,20 @@
 #include "utils.h"
 #include <wchar.h>
 
-int	ft_print_C(t_args *sarg, va_list *larg)
+int	ft_print_wc(t_args *sarg, va_list *larg)
 {
 	size_t	len;
-	char *s;
+	size_t	len_save;
+	char	*s;
 
 	s = ft_wctostr(va_arg(*larg, wchar_t));
 	len = ft_strlen(s);
+	len_save = len;
 	len = (len != 0) ? len : 1;
 	if (!sarg->left_pad && (sarg->min_width > len))
 		len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
-	ft_putstr(s);
-	free(s);
+	len_save ? ft_putstr(s) : write(1, "\0", 1);
+	ft_strdel(&s);
 	if (sarg->left_pad && (sarg->min_width > 1))
 		len += ft_print_pad(len, sarg->min_width, ' ');
 	return (len);
@@ -27,12 +41,13 @@ int	ft_print_c(t_args *sarg, va_list *larg)
 	size_t	len;
 
 	if (sarg->len_modifier == l)
-		return(ft_print_C(sarg, larg));
+		return (ft_print_wc(sarg, larg));
 	else
 	{
 		len = 1;
 		if (!sarg->left_pad && (sarg->min_width > len))
-			len += ft_print_pad(len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
+			len += ft_print_pad(len, sarg->min_width,
+				(sarg->zero_pad) ? '0' : ' ');
 		ft_putchar(va_arg(*larg, int));
 		if (sarg->left_pad && (sarg->min_width > 1))
 			len += ft_print_pad(len, sarg->min_width, ' ');

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
+/*   Updated: 2016/11/18 23:17:46 by chbravo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "type.h"
 
@@ -53,23 +65,24 @@ uintmax_t	ft_unsigned_from_lenght(t_args *sarg, uintmax_t nb)
 
 void		put_uprecision(t_args *s, size_t *len, char **nbr)
 {
-	char	*tmp;
-	unsigned int l;
-	unsigned int i;
-	unsigned int w;
+	char			*tmp;
+	unsigned int	l;
+	unsigned int	i;
+	unsigned int	w;
 
 	i = 0;
-	if ((s->precision_len > *len) || (s->zero_pad && s->min_width > *len && !s->left_pad))
+	if ((s->preci_len > *len)
+		|| (s->zero_pad && s->min_width > *len && !s->left_pad))
 	{
-		w = (s->precision_len) ? s->precision_len : s->min_width;
-		l = (s->precision)? s->precision_len - *len : s->min_width - *len;
-		tmp = ft_strnew((s->precision_len)? s->precision_len : s->min_width);
+		w = (s->preci_len) ? s->preci_len : s->min_width;
+		l = (s->precision) ? s->preci_len - *len : s->min_width - *len;
+		tmp = ft_strnew((s->preci_len) ? s->preci_len : s->min_width);
 		while (i < l)
 			tmp[i++] = '0';
 		l = 0;
 		while (i < w)
 			tmp[i++] = nbr[0][l++];
-		free(*nbr);
+		ft_strdel(nbr);
 		*nbr = tmp;
 		*len = ft_strlen(tmp);
 	}
