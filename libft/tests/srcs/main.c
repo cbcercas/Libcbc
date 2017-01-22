@@ -2,4 +2,4 @@
 
 TestSuite(array_create);
 
-TestSuite(array_destroy);
+TestSuite(array_simple_usage);

@@ -6,15 +6,15 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/22 15:30:04 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/22 15:47:47 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= minishell-test
+NAME			= libft-test
 
 SRCS_MAIN		= main.c
 
-SRCS_ARRAY		=test_array_create.c
+SRCS_ARRAY		= test_array_create.c test_array_simple_usage.c
 ###############################################################################
 #																			  #
 #									CONFIG									  #
@@ -30,7 +30,7 @@ SRCS_DIR	= srcs
 OBJS_DIR	= objs
 DEPS_DIR	= .deps
 LIBFT_DIR	= ../
-VPATH 		= $(SRCS_DIR)
+VPATH 		= $(SRCS_DIR) $(SRCS_DIR)/array
 
 #Flags, Libraries, Objects and Includes
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/%.c, $(SRCS_MAIN))
@@ -87,12 +87,12 @@ all: $(NAME)
 re: clean fclean all
 
 $(OBJS_DIR)/%.o: %.c $(DEPS_DIR)/%.d
-	@echo "\033[K\033[35mMinishell-test-main  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@echo "\033[K\033[35mLibft-test-main  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
 	@$(MKDIR) $(dir $@)
 	@$(CC-COMMAND)
 
 $(NAME): $(LIBFT_FILE) $(OBJS)
-	@echo "\033[K\033[35mMinishell-test  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
+	@echo "\033[K\033[35mLibft-test  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFT  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft -L ../../../Criterion/build -lcriterion $(INC)
 	@echo "[\033[35m--------------------------------\033[0m]"
@@ -103,14 +103,14 @@ $(LIBFT_FILE):
 	@make -C $(LIBFT_DIR)
 
 clean:
-	@echo "\033[35mMinishell-test  :\033[0m [\033[31mSuppression des .o\033[0m]"
+	@echo "\033[35mLibft-test  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
-	@echo "\033[35mMinishell-test  :\033[0m [\033[31mSuppression des .d\033[0m]"
+	@echo "\033[35mlibft-test  :\033[0m [\033[31mSuppression des .d\033[0m]"
 	@$(RM) $(DEPS_DIR)
 	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	@echo "\033[35mMinishell-test  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
+	@echo "\033[35mLibft-test  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
 	@make fclean -C $(LIBFT_DIR)
 
