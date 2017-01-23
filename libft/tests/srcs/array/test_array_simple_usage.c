@@ -89,6 +89,22 @@ Test(array_simple_usage, Test_simple_array_pop) {
  	teardown();
 }
 
+Test(array_simple_usage, Test_array_copy_array) {
+	int		a[12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+	int		count;
+	t_array *dest;
+	array = array_create(sizeof(int));
+	dest = array_create(sizeof(int));
+	count = -1;
+	while (++count < 11)
+		array_push(array, a + count);
+	count = -1;
+	cr_expect(array_copy(dest, array) != NULL, "Error in array_copy return");
+	while (++count < 11)
+		cr_expect(*(int *)array_get(dest, count) == a[count], "%d Array %d != %d with array_push(array, %d)", count, *(int*)array_get(dest, count), a[count], a[count]);
+	teardown();
+}
+
 // Test(array_simple_usage, Test_simple_array_pop) {
 // 	int a[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 // 	int count;
