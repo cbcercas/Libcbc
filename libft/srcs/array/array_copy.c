@@ -23,5 +23,5 @@
 t_array *array_copy(t_array *dest_array, t_array *src_array)
 {
 	dest_array->used = src_array->used;
-	return(ft_memmove(dest_array, src_array, src_array->used * src_array->elem_size));
+	return(ft_memmove(dest_array->array, src_array->array, src_array->used * src_array->elem_size));
 }
