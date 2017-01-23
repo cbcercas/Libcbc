@@ -26,13 +26,6 @@ t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
 	return (array);
 }
 
-t_array	*array_init(t_array *array, size_t size)
-{
-	if (!(array_init_cap(array, size, ARRAY_MIN_SIZE)))
-		return (NULL);
-	return (array);
-}
-
 t_array	*array_create_cap(size_t size, size_t cap)
 {
 	t_array *array;
