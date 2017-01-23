@@ -6,13 +6,22 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:25 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/22 15:26:50 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/23 21:46:45 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
+/**
+** @brief      Initialize the t_array with specified capacity
+**
+** @param      array  The array
+** @param[in]  size   The elemeny size
+** @param[in]  cap    The array capacity
+**
+** @return     The t_array pointer, NULL otherwise
+*/
+static t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
 {
 	if (size == 0)
 		return (NULL);
@@ -26,6 +35,14 @@ t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
 	return (array);
 }
 
+/**
+** @brief      Create a t_array with specified capacity
+**
+** @param[in]  size  The element size
+** @param[in]  cap   The array capacity
+**
+** @return     A t_array pointer on success, NULL otherwise
+*/
 t_array	*array_create_cap(size_t size, size_t cap)
 {
 	t_array *array;
@@ -42,6 +59,13 @@ t_array	*array_create_cap(size_t size, size_t cap)
 	return (array);
 }
 
+/**
+** @brief      Create a t_array with default capacity
+**
+** @param[in]  size  The element size
+**
+** @return     A t_array pointer on success, NULL otherwise
+*/
 t_array *array_create(size_t size)
 {
 	return(array_create_cap(size, ARRAY_MIN_SIZE));

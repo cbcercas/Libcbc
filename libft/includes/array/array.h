@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/22 15:24:50 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/23 21:57:02 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,42 +30,62 @@ struct  s_array
 	size_t	capacity;
 };
 
-/*
-**	array.c
+/**
+** @file       array.c
+**
+** @brief      Creation and initialisation for t_array
 */
-t_array	*array_init_cap(t_array *array, size_t size, size_t cap);
 t_array	*array_create_cap(size_t size, size_t cap);
-t_array	*array_push(t_array *array, const void *data);
-void	array_set_at(t_array *array, size_t pos, const void *data);
 t_array *array_create(size_t size);
 
-/*
-** array_growth.c
+/**
+** @file       array_growth.c
+**
+** @brief      enlarge the array capacity
 */
 t_array	*array_growth_cap(t_array *array, size_t cap);
 t_array	*array_growth(t_array *array);
 
-/*
-** array_setget.c
+/**
+** @file       array_setget.c
+**
+** @brief      Get and set the element at given position
+**             /!\ get_at and set_at don't check if pos are valid
+**             it is an internal fonction to the array lib /!\
 */
+void	*array_get_at(t_array *array, size_t pos);
 void	array_set_at(t_array *array, size_t pos, const void *data);
+void	*array_get(t_array *array, size_t pos);
+void	array_set(t_array *array, size_t pos, const void *data);
 
-/*
-** array_copy.c
+/**
+** @file       array_copy.c
+**
+** @brief      Copy an array into an other
 */
 t_array *array_copy(t_array *dest_array, t_array *src_array);
 
-/*
-** array_pushpop.c
+/**
+** @file       array_pushpop.c
+**
+** @brief      array_push: add an element at the end of the array
+**             array_pop: extract an element at the end of the array
 */
 t_array	*array_push(t_array *array, const void *data);
+void	*array_pop(t_array *array, size_t pos);
 
-/*
-**	array_destroy.c
+/**
+** @file       array_swap.c
+**
+** @brief      Swap two elements in the array
 */
-void	array_destroy(t_array *array);
-
 BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b);
 
+/**
+** @file       array_destroy.c
+**
+** @brief      Destroy a t_array
+*/
+void	array_destroy(t_array *array);
 
 #endif
