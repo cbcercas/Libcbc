@@ -22,13 +22,19 @@
 */
 t_array	*array_growth_cap(t_array *array, size_t cap)
 {
-	t_array	*new_array;
+	void	*new_array;
+	size_t	new_cap;
 
-	if (!(new_array = array_create_cap(array->elem_size, cap)))
+	new_cap = (cap / ARRAY_MIN_SIZE + 1) * ARRAY_MIN_SIZE;
+	if (new_cap < array->capacity)
 		return (NULL);
-	new_array = array_copy(new_array, array);
-	array_destroy(array);
-	return(new_array);
+	if (!(new_array = ft_memalloc(array->elem_size * new_cap)))
+		return (NULL);
+	new_array = ft_memcpy(new_array, array->array, array->elem_size * array->used);
+	ft_memdel(&array->array);
+	array->array = new_array;
+	array->capacity = new_cap;
+	return(array);
 }
 
 /*
