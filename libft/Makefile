@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/23 19:00:22 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/23 22:58:29 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -156,7 +156,10 @@ fclean: clean
 	@echo "\033[35mLIBFT  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
 
-.PHONY: re clean fclean all
+doc:
+	$(shell test -e `which doxygen` && doxygen Doxyfile || echo "Please install doxygen first (brew install doxygen)")
+
+.PHONY: re clean fclean all doc
 .PRECIOUS: $(DEPS_DIR)/core/%.d $(DEPS_DIR)/gnl/%.d $(DEPS_DIR)/ft_printf/%.d \
 	$(DEPS_DIR)/array/%.d
 .SUFFIXES: .c .h .o .d
