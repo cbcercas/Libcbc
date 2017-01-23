@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/22 15:47:47 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/23 18:59:37 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ INC			= -I includes
 ## libft includes
 INC			+= -I $(LIBFT_DIR)/includes -I $(LIBFT_DIR)/includes/ft_printf -I $(LIBFT_DIR)/includes/gnl
 # criterion includes
-INC			+= -I ../../../Criterion/include
+INC			+= -I ../../Criterion/include
 
 #Utils
 RM					= rm -rf
@@ -94,7 +94,7 @@ $(OBJS_DIR)/%.o: %.c $(DEPS_DIR)/%.d
 $(NAME): $(LIBFT_FILE) $(OBJS)
 	@echo "\033[K\033[35mLibft-test  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFT  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft -L ../../../Criterion/build -lcriterion $(INC)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft -L ../../Criterion/build -lcriterion $(INC)
 	@echo "[\033[35m--------------------------------\033[0m]"
 	@echo "[\033[36m------- Minishell Done ! -------\033[0m]"
 	@echo "[\033[35m--------------------------------\033[0m]"

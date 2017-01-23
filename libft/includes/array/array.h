@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <libft.h>
 #include <libftprintf.h>
+# include <types/bool.h>
 
 # define ARRAY_MIN_SIZE 4U
 
@@ -64,6 +65,7 @@ t_array	*array_push(t_array *array, const void *data);
 */
 void	array_destroy(t_array *array);
 
+BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b);
 
 
 #endif
