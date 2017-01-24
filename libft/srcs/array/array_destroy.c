@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 01:20:04 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 21:05:58 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 16:50:23 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,22 @@ void	array_destroy(t_array *array)
 {
 	free(array->array);
 	free(array);
+}
+
+/**
+** @brief      Reset an array to default
+**
+** @param      array  The t_array
+**
+** @return     The t_array on success, NULL otherwise
+*/
+t_array	*array_reset(t_array *array)
+{
+	ft_memdel(array->array);
+	if (!(array_init_cap(array, array->elem_size, ARRAY_MIN_SIZE)))
+	{
+		free(array);
+		return (NULL);
+	}
+	return(array);
 }

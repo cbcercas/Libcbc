@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:25 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 21:46:45 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 16:45:38 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **
 ** @return     The t_array pointer, NULL otherwise
 */
-static t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
+t_array	*array_init_cap(t_array *array, size_t size, size_t cap)
 {
 	if (size == 0)
 		return (NULL);

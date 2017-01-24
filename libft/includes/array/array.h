@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 16:27:26 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 16:47:37 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ struct  s_array
 */
 t_array	*array_create_cap(size_t size, size_t cap);
 t_array *array_create(size_t size);
+t_array	*array_init_cap(t_array *array, size_t size, size_t cap);
 
 /**
 ** @file       array_growth.c
@@ -99,5 +100,6 @@ BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b);
 ** @brief      Destroy a t_array
 */
 void	array_destroy(t_array *array);
+t_array	*array_reset(t_array *array);
 
 #endif
