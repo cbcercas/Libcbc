@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:07:19 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 22:45:00 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 15:02:23 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b)
 {
 	void	*tmp;
-	if ((pos_a >= array->used) || (pos_b >= array->used))
+	if ((pos_a >= array->capacity) || (pos_b >= array->capacity))
 		return (false);
 	if(!(tmp = ft_memalloc(array->elem_size)))
 		return (false);
