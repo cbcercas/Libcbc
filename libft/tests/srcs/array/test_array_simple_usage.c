@@ -107,16 +107,21 @@ Test(array_simple_usage, Test_array_copy_array) {
 	teardown();
 }
 
-// Test(array_simple_usage, Test_simple_array_pop) {
-// 	int a[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-// 	int count;
+Test(array_simple_usage, Test_simple_array_insert) {
+	int a[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	int count;
 
-// 	array = array_create(sizeof(int));
-// 	count = -1;
-// 	while (++count < 8)
-// 		array_push(array, a + count);
-// 	cr_expect(array_insert(array, 5, a[5]) == true, "array insert failed");
-// }
+	array = array_create(sizeof(int));
+	count = -1;
+	while (++count < 8)
+		array_push(array, a + count);
+	cr_expect(array->capacity == 8, "Bad array capacity");
+	cr_expect(array_insert(array, 5, a + 8) != NULL, "array insert failed");
+	cr_expect(array->capacity == 12, "Bad array capacity after array_insert");
+	cr_expect(*(int *)array_get_at(array, 5) == a[8], "Bad inserted value");
+	cr_expect(*(int *)array_get_at(array, 6) == a[5], "Bad vaule after the inserted element");
+	cr_expect(array_insert(array, 5, NULL) == NULL, "array insert failed");
+}
 
 Test(array_simple_usage, Test_array_shrink)
 {
