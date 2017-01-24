@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 13:32:48 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 15:09:24 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,13 @@ t_array *array_copy(t_array *dest_array, t_array *src_array);
 */
 t_array	*array_push(t_array *array, const void *data);
 void	*array_pop(t_array *array, size_t pos);
+
+/**
+** @file       array_insert.c
+**
+** @brief      add an element to the array at the given pos
+*/
+t_array	*array_insert(t_array *array, size_t pos, const void *data);
 
 /**
 ** @file       array_swap.c

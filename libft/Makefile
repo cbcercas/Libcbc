@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/24 08:08:28 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/24 15:10:40 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ printer_s.c printer_d.c printer_o.c printer_p.c printer_u.c printer_x.c \
 printer_c.c printer_per.c printer_def.c
 
 SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
-array_pushpop.c array_destroy.c array_swap.c
+array_pushpop.c array_insert.c array_destroy.c array_swap.c
 
 ###############################################################################
 #																			  #
