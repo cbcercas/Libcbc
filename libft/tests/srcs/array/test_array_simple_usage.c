@@ -28,6 +28,21 @@ Test(array_simple_usage, Test_simple_array) {
 	teardown();
 }
 
+Test(array_simple_usage, Test_array_get_first_last) {
+	int a[4] = {0, 1, 2, 3};
+	int count;
+
+	array = array_create(sizeof(int));
+	count = -1;
+	cr_expect(array_get_first(array) == NULL, "array_get_first when array have 0 element failed");
+	cr_expect(array_get_last(array) == NULL, "array_get_last when array have 0 element failed");
+	while (++count < 4)
+		array_push(array, a + count);
+	cr_expect(*(int *)array_get_first(array) == a[0], "array_get_first failed");
+	cr_expect(*(int *)array_get_last(array) == a[3], "array_get_last failed");
+	teardown();
+}
+
 Test(array_simple_usage, Test_array_auto_growth) {
 	int a[12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 	int count;

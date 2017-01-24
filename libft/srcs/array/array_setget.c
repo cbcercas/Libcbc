@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:22:15 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 13:40:36 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 16:17:45 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ void	*array_get_at(t_array *array, size_t pos)
 	if (pos > array->capacity)
 		return (NULL);
 	return (array->array + pos * array->elem_size);
+}
+
+void	*array_get_first(t_array *array)
+{
+	if (!array->used)
+		return(NULL);
+	return(array_get_at(array, 0));
+}
+
+void	*array_get_last(t_array *array)
+{
+	if (!array->used)
+		return(NULL);
+	return(array_get_at(array, array->used - 1));
 }
