@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 07:33:40 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 08:32:30 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 09:09:58 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_array	*array_shrink(t_array *array)
 	size_t	needed_cap;
 
 	needed_cap = (array->used / ARRAY_MIN_SIZE + 1) * ARRAY_MIN_SIZE;
+	if (needed_cap == array->used)
+		needed_cap += ARRAY_MIN_SIZE;
 	if (needed_cap < array->capacity)
 	{
 		if (!(new_array = ft_memalloc(array->elem_size * needed_cap)))
