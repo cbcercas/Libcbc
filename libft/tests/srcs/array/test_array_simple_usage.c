@@ -52,8 +52,10 @@ Test(array_simple_usage, Test_simple_array_swap) {
 	count = -1;
 	while (++count < 10)
 		array_push(array, a + count);
-	cr_expect(array_swap(array, 0, array->used) == false, "can swap array->used");
-	cr_expect(array_swap(array, array->used, 0) == false, "can swap array->used");
+	cr_expect(array_swap(array, 0, array->capacity) == false, "can swap array->capacity");
+	cr_expect(array_swap(array, 0, array->capacity + 4) == false, "can swap array->capacity + 4");
+	cr_expect(array_swap(array, array->capacity, 0) == false, "can swap array->capacity");
+	cr_expect(array_swap(array, array->capacity + 4, 0) == false, "can swap array->capacity + 4");
 	cr_expect(array_swap(array, 0, 7) == true, "Error when swappping!");
 	cr_expect(array_swap(array, 1, 6) == true, "Error when swappping!");
 	cr_expect(array_swap(array, 2, 5) == true, "Error when swappping!");
