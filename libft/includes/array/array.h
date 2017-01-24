@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 21:57:02 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 08:11:32 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define ARRAY_H
 # include <stdlib.h>
 # include <libft.h>
-#include <libftprintf.h>
 # include <types/bool.h>
+# include <libftprintf.h>
 
 # define ARRAY_MIN_SIZE 4U
 
@@ -45,6 +45,13 @@ t_array *array_create(size_t size);
 */
 t_array	*array_growth_cap(t_array *array, size_t cap);
 t_array	*array_growth(t_array *array);
+
+/**
+**@ file       array_shrink.c
+**
+** @brief      Reduce the array capacity if needed
+*/
+t_array	*array_shrink(t_array *array);
 
 /**
 ** @file       array_setget.c

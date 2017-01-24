@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/23 22:58:29 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/24 08:08:28 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS_FT_PRINTF	= ft_printf.c ft_parse_args.c ft_parse_args2.c utils.c \
 printer_s.c printer_d.c printer_o.c printer_p.c printer_u.c printer_x.c \
 printer_c.c printer_per.c printer_def.c
 
-SRCS_ARRAY		= array.c array_copy.c array_growth.c array_setget.c \
+SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_destroy.c array_swap.c
 
 ###############################################################################

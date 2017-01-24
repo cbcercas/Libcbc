@@ -115,3 +115,21 @@ Test(array_simple_usage, Test_array_copy_array) {
 // 		array_push(array, a + count);
 // 	cr_expect(array_insert(array, 5, a[5]) == true, "array insert failed");
 // }
+
+Test(array_simple_usage, Test_array_shrink)
+{
+	int		a[12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+	int		count;
+
+	array = array_create_cap(sizeof(int), 11);
+	cr_expect(array->capacity == 12, "Error when creating array with capacity 12, array->capacity = %zu", array->capacity);
+	count = -1;
+	while (++count < 3)
+		array_push(array, a + count);
+	cr_expect(array_shrink(array) != NULL, "Error on array_shrink return");
+	cr_expect(array->capacity == 4, "Error capacity not shrinked array->capacity = %zu", array->capacity);
+	count = -1;
+	while (++count < 5)
+		cr_expect(*(int *)array_get(array, count) == a[count], "New array value =! old array");
+	teardown();
+}
