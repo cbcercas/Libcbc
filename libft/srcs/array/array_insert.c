@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 12:42:54 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 15:34:00 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/24 15:40:56 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** @param[in]  pos    The element position
 ** @param[in]  data   The new data
 **
-** @return     A pointer to the element set if success, NULL otherwise
+** @return     A pointer to the element inserted if success, NULL otherwise
 */
 t_array	*array_insert(t_array *array, size_t pos, const void *data)
 {
