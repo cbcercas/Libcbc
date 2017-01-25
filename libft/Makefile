@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/24 15:10:40 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/01/25 01:29:36 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,8 @@ define DEPS-COMMAND
 	@$(CC) $(CFLAGS) $(INC) -MM -MT $(DEPS_DIR)/$(patsubst %.c,$(DEPS_DIR)/%.d, $(notdir $@)) $< -MF $@
 endef
 
+#Doxygen
+DOXYGEN := $(shell command -v doxygen 2> /dev/null)
 ###############################################################################
 #																			  #
 #								DOT NOT EDIT BELOW							  #
@@ -157,7 +159,15 @@ fclean: clean
 	@$(RM) $(NAME)
 
 doc:
-	$(shell test -e `which doxygen` && doxygen Doxyfile || echo "Please install doxygen first (brew install doxygen)")
+ifndef DOXYGEN
+	@echo "Please install doxygen first (brew install doxygen)."
+else
+	@doxygen Doxyfile 1> /dev/null
+	@echo "[\033[35m--------------------------\033[0m]"
+	@echo "[\033[36m------ Documentation -----\033[0m]"
+	@echo "[\033[36m------   generated   -----\033[0m]"
+	@echo "[\033[35m--------------------------\033[0m]"
+endif
 
 .PHONY: re clean fclean all doc
 .PRECIOUS: $(DEPS_DIR)/core/%.d $(DEPS_DIR)/gnl/%.d $(DEPS_DIR)/ft_printf/%.d \

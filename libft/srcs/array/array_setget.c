@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:22:15 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 16:17:45 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/25 01:32:32 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void	*array_get_at(t_array *array, size_t pos)
 	return (array->array + pos * array->elem_size);
 }
 
+/**
+** @brief      Get the first element of the array
+**
+** @param      array  The t_array
+**
+** @return     The first element of the array
+*/
 void	*array_get_first(t_array *array)
 {
 	if (!array->used)
@@ -50,6 +57,13 @@ void	*array_get_first(t_array *array)
 	return(array_get_at(array, 0));
 }
 
+/**
+** @brief      Get the last element of the array
+**
+** @param      array  The t_array
+**
+** @return     The last element of the array
+*/
 void	*array_get_last(t_array *array)
 {
 	if (!array->used)

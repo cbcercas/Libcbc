@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/17 11:05:29 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/25 00:43:39 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
+
+# include <types/bool.h>
+# include <array/array.h>
 
 typedef struct	s_list
 {

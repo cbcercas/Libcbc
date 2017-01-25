@@ -6,22 +6,32 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 16:47:37 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/25 01:52:56 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_H
 # define ARRAY_H
-# include <stdlib.h>
 # include <libft.h>
-# include <types/bool.h>
-# include <libftprintf.h>
 
 # define ARRAY_MIN_SIZE 4U
 
-
 typedef struct  s_array t_array;
 
+/**
+** @struct    s_array
+**
+** @brief     The struct used in dynamic array lib
+**
+**  @var s_array::array
+**            A void* to the array data
+**  @var s_array::elem_size
+**            The size of the element stored in the arrray
+**  @var s_array::used
+**            The number of element stored in the array
+**  @var s_array::capacity
+**            The current capacity of the array
+*/
 struct  s_array
 {
 	void	*array;

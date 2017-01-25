@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:17:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 21:54:32 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/25 01:30:45 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_array	*array_growth_cap(t_array *array, size_t cap)
 	return(array);
 }
 
-/*
+/**
 ** @brief      Groth the array without capacity
 **
 ** @param      array  The t_array
