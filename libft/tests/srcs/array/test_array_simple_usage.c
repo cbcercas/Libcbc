@@ -13,6 +13,8 @@ static void teardown(void) {
 	}
 }
 
+TestSuite(array_simple_usage, .disabled = DISABLE_ARRAY_TEST, .fini = teardown);
+
 Test(array_simple_usage, Test_simple_array) {
 	int a[4] = {0, 1, 2, 3};
 	int count;
@@ -25,7 +27,7 @@ Test(array_simple_usage, Test_simple_array) {
 	count = -1;
 	while (++count < 4)
 		cr_expect(*(int *)array_get_at(array, count) == a[count], "Array %d != %d with array_push(array, %d)",((int*)array->array)[count], a[count], a[count]);
-	teardown();
+	//teardown();
 }
 
 Test(array_simple_usage, Test_array_get_first_last) {
@@ -40,7 +42,7 @@ Test(array_simple_usage, Test_array_get_first_last) {
 		array_push(array, a + count);
 	cr_expect(*(int *)array_get_first(array) == a[0], "array_get_first failed");
 	cr_expect(*(int *)array_get_last(array) == a[3], "array_get_last failed");
-	teardown();
+	//teardown();
 }
 
 Test(array_simple_usage, Test_array_auto_growth) {
@@ -55,7 +57,7 @@ Test(array_simple_usage, Test_array_auto_growth) {
 	cr_expect(array->used == 11, "Array->used incorect: %zu", array->used);
 	while (++count < 11)
 		cr_expect(*(int *)array_get_at(array, count) == a[count], "%d Array %d != %d with array_push(array, %d)", count, ((int*)array->array)[count], a[count], a[count]);
-	teardown();
+	//teardown();
 }
 
 Test(array_simple_usage, Test_simple_array_swap) {
@@ -83,7 +85,7 @@ Test(array_simple_usage, Test_simple_array_swap) {
 		count2++;
 	}
 	cr_expect(((int*)array->array)[8] == a[8], "Array[%d]-> %d != %d", 8, ((int*)array->array)[8], a[8]);
-	teardown();
+	//teardown();
 }
 
 Test(array_simple_usage, Test_simple_array_pop) {
@@ -103,7 +105,7 @@ Test(array_simple_usage, Test_simple_array_pop) {
 	cr_expect(*(int*)array_get_at(array, 6) == 7, "array not swapped after poping");
 	// cr_expect(array_get(array, 8) == NULL, "array not swapped after poping");
 	cr_expect(*(int*)array_get_at(array, 8) != 7, "array not swapped after poping");
- 	teardown();
+ 	//teardown();
 }
 
 Test(array_simple_usage, Test_array_copy_array) {
@@ -119,7 +121,7 @@ Test(array_simple_usage, Test_array_copy_array) {
 	cr_expect(array_copy(dest, array) != NULL, "Error in array_copy return");
 	while (++count < 11)
 		cr_expect(*(int *)array_get_at(dest, count) == a[count], "%d Array %d != %d with array_push(array, %d)", count, *(int*)array_get_at(dest, count), a[count], a[count]);
-	teardown();
+	//teardown();
 }
 
 Test(array_simple_usage, Test_simple_array_insert) {
@@ -153,5 +155,5 @@ Test(array_simple_usage, Test_array_shrink)
 	count = -1;
 	while (++count < 3)
 		cr_expect(*(int *)array_get_at(array, count) == a[count], "New array value %d =! old array %d", *(int *)array_get_at(array, count), a[count]);
-	teardown();
+	//teardown();
 }
