@@ -61,7 +61,7 @@ SRCS		+= $(patsubst %.c,$(SRCS_DIR)/ft_printf/%.c, $(SRCS_FT_PRINTF))
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/array/%.c, $(SRCS_ARRAY))
 OBJS		= $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS))
 DEPS		= $(patsubst $(SRCS_DIR)%.c,$(DEPDIR)%.d,$(SRCS))
-INC			= -I includes -I includes/ft_printf -I includes/gnl
+INC			= -I includes -I includes/gnl
 
 #Utils
 RM					= rm -rf

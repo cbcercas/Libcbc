@@ -6,15 +6,15 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/11/18 23:01:13 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:42:55 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <inttypes.h>
-#include "type.h"
-#include "libft.h"
-#include "utils.h"
+#include <ft_printf/printf_type.h>
+#include <ft_printf/printf_utils.h>
+#include <libft.h>
 
 static char	*ft_get_nbstr(t_args *sarg, va_list *larg, char *sign)
 {
@@ -83,7 +83,7 @@ static void	put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
 	}
 }
 
-int			ft_print_d(t_args *sarg, va_list *larg)
+int			ft_print_d(int fd, t_args *sarg, va_list *larg)
 {
 	char		*str;
 	char		sign;
@@ -95,12 +95,12 @@ int			ft_print_d(t_args *sarg, va_list *larg)
 	put_sign(&sign, sarg, &len, &str);
 	if (!sarg->left_pad
 		&& sarg->preci_len < sarg->min_width && sarg->min_width > len)
-		len += ft_print_pad(len, sarg->min_width, ' ');
+		len += ft_print_pad(fd, len, sarg->min_width, ' ');
 	if (!(!ft_strcmp(str, "0")
 		&& sarg->precision && sarg->preci_len <= len))
-		ft_putstr(str);
+		ft_putstr_fd(str, fd);
 	if (sarg->left_pad && (sarg->min_width > 1))
-		len += ft_print_pad(len, sarg->min_width, ' ');
+		len += ft_print_pad(fd, len, sarg->min_width, ' ');
 	ft_strdel(&str);
 	return (len);
 }

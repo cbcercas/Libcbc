@@ -6,13 +6,14 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:43:38 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/11/18 23:17:17 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:42:06 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
-#include "libftprintf.h"
+#include <libft.h>
+#include <ft_printf/printf_type.h>
+#include <ft_printf/libftprintf.h>
 
 int		ft_get_args(char **format, va_list *larg, t_args *sarg)
 {
@@ -31,9 +32,9 @@ int		ft_get_args(char **format, va_list *larg, t_args *sarg)
 	return (0);
 }
 
-int		ft_print_args(t_args *sarg, va_list *larg)
+int		ft_print_args(int fd, t_args *sarg, va_list *larg)
 {
-	int	(*print[12])(t_args *sarg, va_list *larg);
+	int	(*print[12])(int fd, t_args *sarg, va_list *larg);
 
 	print[0] = ft_print_c;
 	print[1] = ft_print_wc;
@@ -48,12 +49,12 @@ int		ft_print_args(t_args *sarg, va_list *larg)
 	print[10] = ft_print_per;
 	print[11] = ft_print_def;
 	if ((sarg->conversion >= c) && (sarg->conversion <= def))
-		return (print[(sarg->conversion - 1)](sarg, larg));
+		return (print[(sarg->conversion - 1)](fd, sarg, larg));
 	else
 		return (0);
 }
 
-int		ft_print(va_list *larg, const char *format, int printed)
+int		ft_print(int fd, va_list *larg, const char *format, int printed)
 {
 	char	*next_arg;
 	t_args	sarg;
@@ -62,22 +63,22 @@ int		ft_print(va_list *larg, const char *format, int printed)
 	next_arg = ft_strchr(format, '%');
 	if (!next_arg)
 	{
-		ft_putstr(format);
+		ft_putstr_fd(format, fd);
 		return (printed + ft_strlen(format));
 	}
 	else if (next_arg > format)
 	{
-		ft_putnstr(format, next_arg - format);
-		return (ft_print(larg, next_arg, printed + (next_arg - format)));
+		ft_putnstr_fd(format, next_arg - format, fd);
+		return (ft_print(fd, larg, next_arg, printed + (next_arg - format)));
 	}
 	else
 	{
 		ft_bzero(&sarg, sizeof(sarg));
 		if ((ret = ft_get_args(&(next_arg), larg, &sarg)))
 			return (ret);
-		if ((ret = ft_print_args(&sarg, larg)) == -1)
+		if ((ret = ft_print_args(fd, &sarg, larg)) == -1)
 			return (-1);
-		return (ft_print(larg, next_arg, printed + ret));
+		return (ft_print(fd, larg, next_arg, printed + ret));
 	}
 }
 
@@ -87,6 +88,16 @@ int		ft_printf(const char *restrict format, ...)
 	va_list larg;
 
 	va_start(larg, format);
-	ret = ft_print(&larg, format, 0);
+	ret = ft_print(STDOUT_FILENO, &larg, format, 0);
+	return (ret);
+}
+
+int		ft_dprintf(int fd, const char *restrict format, ...)
+{
+	int		ret;
+	va_list larg;
+
+	va_start(larg, format);
+	ret = ft_print(fd, &larg, format, 0);
 	return (ret);
 }

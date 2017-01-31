@@ -6,21 +6,21 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/11/18 23:17:46 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:43:46 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "type.h"
+#include <libft.h>
+#include <ft_printf/printf_type.h>
 
-int			ft_print_pad(int len_res, int pad, char c)
+int			ft_print_pad(int fd, int len_res, int pad, char c)
 {
 	int i;
 
 	i = 0;
 	while (pad > len_res)
 	{
-		ft_putchar(c);
+		ft_putchar_fd(c, fd);
 		pad--;
 		i++;
 	}

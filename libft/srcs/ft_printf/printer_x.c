@@ -6,16 +6,16 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:37:55 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/11/18 22:49:54 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:43:40 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "type.h"
-#include "libft.h"
-#include "utils.h"
+#include <ft_printf/printf_type.h>
+#include <ft_printf/printf_utils.h>
+#include <libft.h>
 
-int	ft_print_wx(t_args *s, va_list *larg)
+int	ft_print_wx(int fd, t_args *s, va_list *larg)
 {
 	char		*str;
 	size_t		len;
@@ -29,19 +29,19 @@ int	ft_print_wx(t_args *s, va_list *larg)
 	if (s->alternate && ft_strncmp(str, "0\0", 2))
 		len += 2;
 	if (ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0)
-		ft_putstr("0X");
+		ft_putstr_fd("0X", fd);
 	if (!s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(len, s->min_width, s->zero_pad ? '0' : ' ');
+		len += ft_print_pad(fd, len, s->min_width, s->zero_pad ? '0' : ' ');
 	if (ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0)
-		ft_putstr("0X");
+		ft_putstr_fd("0X", fd);
 	(s->precision && !s->preci_len && unb == 0) ? 0 : ft_putstr(str);
 	if (s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(len, s->min_width, ' ');
+		len += ft_print_pad(fd, len, s->min_width, ' ');
 	ft_strdel(&str);
 	return (len);
 }
 
-int	ft_print_x(t_args *s, va_list *larg)
+int	ft_print_x(int fd, t_args *s, va_list *larg)
 {
 	char		*str;
 	size_t		len;
@@ -57,15 +57,15 @@ int	ft_print_x(t_args *s, va_list *larg)
 		len += 2;
 	if ((ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0)
 			|| (s->conversion == (enum e_conv)p && s->zero_pad))
-		ft_putstr("0x");
+		ft_putstr_fd("0x", fd);
 	if (!s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(len, s->min_width, s->zero_pad ? '0' : ' ');
+		len += ft_print_pad(fd, len, s->min_width, s->zero_pad ? '0' : ' ');
 	if ((ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0)
 			|| (s->conversion == (enum e_conv)p && !s->zero_pad))
-		ft_putstr("0x");
+		ft_putstr_fd("0x", fd);
 	(s->precision && !s->preci_len && unb == 0) ? 0 : ft_putstr(str);
 	if (s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(len, s->min_width, ' ');
+		len += ft_print_pad(fd, len, s->min_width, ' ');
 	ft_strdel(&str);
 	return (len);
 }

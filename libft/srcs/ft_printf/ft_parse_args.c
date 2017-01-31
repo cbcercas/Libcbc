@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:39:50 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/11/18 16:31:02 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:42:15 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libft.h"
-#include "type.h"
+#include <libft.h>
+#include <ft_printf/printf_type.h>
 
 char		*ft_get_flags(char **format, t_args *sarg)
 {
