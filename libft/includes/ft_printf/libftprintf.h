@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/31 18:41:12 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/01 02:49:21 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 
 int		ft_printf(const char *restrict format, ...);
 int		ft_dprintf(int fd, const char *restrict format, ...);
+int		ft_vdprintf(int fd, const char * restrict format, va_list ap);
 
 #endif

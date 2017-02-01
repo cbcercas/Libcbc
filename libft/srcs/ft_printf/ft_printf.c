@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:43:38 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/31 18:42:06 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/01 03:15:41 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,15 @@ int		ft_dprintf(int fd, const char *restrict format, ...)
 	va_list larg;
 
 	va_start(larg, format);
+	ret = ft_print(fd, &larg, format, 0);
+	return (ret);
+}
+int		ft_vdprintf(int fd, const char * restrict format, va_list ap)
+{
+	int		ret;
+	va_list	larg;
+
+	va_copy(larg, ap);
 	ret = ft_print(fd, &larg, format, 0);
 	return (ret);
 }
