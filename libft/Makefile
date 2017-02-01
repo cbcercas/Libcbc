@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/25 01:29:36 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/01 17:36:32 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ printer_c.c printer_per.c printer_def.c
 SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_insert.c array_destroy.c array_swap.c
 
+SRCS_LOGGER		= logger.c logger_utils.c
 ###############################################################################
 #																			  #
 #									CONFIG									  #
@@ -51,7 +52,8 @@ CFLAGS		= -Wall -Wextra -Werror
 SRCS_DIR	= srcs
 OBJS_DIR	= objs
 DEPS_DIR	= .deps
-VPATH 		= $(SRCS_DIR)/array $(SRCS_DIR)/core $(SRCS_DIR)/gnl $(SRCS_DIR)/ft_printf
+VPATH 		= $(SRCS_DIR)/array $(SRCS_DIR)/core
+VPATH		+= $(SRCS_DIR)/gnl $(SRCS_DIR)/ft_printf $(SRCS_DIR)/logger
 #$(DEPS_DIR)/core $(DEPS_DIR)/gnl $(DEPS_DIR)/ft_printf
 
 #Flags, Libraries, Objects and Includes
@@ -59,6 +61,8 @@ SRCS		+= $(patsubst %.c,$(SRCS_DIR)/core/%.c, $(SRCS_CORE))
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/gnl/%.c, $(SRCS_GNL))
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/ft_printf/%.c, $(SRCS_FT_PRINTF))
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/array/%.c, $(SRCS_ARRAY))
+SRCS		+= $(patsubst %.c,$(SRCS_DIR)/string/%.c, $(SRCS_STRING))
+SRCS		+= $(patsubst %.c,$(SRCS_DIR)/logger/%.c, $(SRCS_LOGGER))
 OBJS		= $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS))
 DEPS		= $(patsubst $(SRCS_DIR)%.c,$(DEPDIR)%.d,$(SRCS))
 INC			= -I includes -I includes/gnl
@@ -104,6 +108,9 @@ $(DEPS_DIR)/array/%.d: %.c
 	@$(MKDIR) $(dir $@)
 	@$(DEPS-COMMAND)
 
+$(DEPS_DIR)/logger/%.d: %.c
+	@$(MKDIR) $(dir $@)
+	@$(DEPS-COMMAND)
 # Add dependency as prerequisites
 -include $(DEPS)
 
@@ -139,6 +146,11 @@ $(OBJS_DIR)/array/%.o: %.c $(DEPS_DIR)/array/%.d
 	@$(MKDIR) $(dir $@)
 	$(CC-COMMAND)
 
+$(OBJS_DIR)/logger/%.o: %.c $(DEPS_DIR)/logger/%.d
+	@echo "\033[K\033[35mSTRING  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(dir $@)
+	$(CC-COMMAND)
+
 $(NAME): $(OBJS)
 	@echo "\033[K\033[35mLIBFT  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFT  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
@@ -171,5 +183,5 @@ endif
 
 .PHONY: re clean fclean all doc
 .PRECIOUS: $(DEPS_DIR)/core/%.d $(DEPS_DIR)/gnl/%.d $(DEPS_DIR)/ft_printf/%.d \
-	$(DEPS_DIR)/array/%.d
+	$(DEPS_DIR)/array/%.d $(DEPS_DIR)/logger/%.d
 .SUFFIXES: .c .h .o .d
