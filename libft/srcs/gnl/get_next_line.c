@@ -6,11 +6,11 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 16:50:35 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/15 14:27:19 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:45:19 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <gnl/get_next_line.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
