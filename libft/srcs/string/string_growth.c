@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 11:08:45 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 03:28:21 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/02 22:35:01 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_string	*string_growth_cap(t_string *string, size_t cap)
 
 	new_cap = (cap / ARRAY_MIN_SIZE + 1) * ARRAY_MIN_SIZE;
 	if (new_cap < string->capacity)
-		return (NULL);
+		return (string);
 	if (!(new_string = ft_memalloc(new_cap)))
 		return (NULL);
 	new_string = ft_memcpy(new_string, string->s, string->len);
