@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/01/26 23:57:45 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/02 02:54:24 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ NAME			= libft-test
 SRCS_MAIN		=
 
 SRCS_ARRAY		= test_array_create.c test_array_simple_usage.c
+
+SRCS_STRING		= test_string_create.c test_string_dup.c
+
+SRCS_LOGGER		= test_logger.c
 ###############################################################################
 #																			  #
 #									CONFIG									  #
@@ -30,11 +34,13 @@ SRCS_DIR	= srcs
 OBJS_DIR	= objs
 DEPS_DIR	= .deps
 LIBFT_DIR	= ../
-VPATH 		= $(SRCS_DIR) $(SRCS_DIR)/array
+VPATH 		= $(SRCS_DIR) $(SRCS_DIR)/array $(SRCS_DIR)/string
 
 #Flags, Libraries, Objects and Includes
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/%.c, $(SRCS_MAIN))
 SRCS		+= $(patsubst %.c,$(SRCS_DIR)/array/%.c, $(SRCS_ARRAY))
+SRCS		+= $(patsubst %.c,$(SRCS_DIR)/string/%.c, $(SRCS_STRING))
+SRCS		+= $(patsubst %.c,$(SRCS_DIR)/logger/%.c, $(SRCS_LOGGER))
 OBJS		= $(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS))
 DEPS		= $(patsubst $(SRCS_DIR)%.c,$(DEPDIR)%.d,$(SRCS))
 LIBFT_FILE	= $(LIBFT_DIR)/libft.a
@@ -71,6 +77,18 @@ $(DEPS_DIR)/%.d: %.c
 	@$(MKDIR) $(dir $@)
 	@$(DEPS-COMMAND)
 
+$(DEPS_DIR)/array/%.d: %.c
+	@$(MKDIR) $(dir $@)
+	@$(DEPS-COMMAND)
+
+$(DEPS_DIR)/string/%.d: %.c
+	@$(MKDIR) $(dir $@)
+	@$(DEPS-COMMAND)
+
+$(DEPS_DIR)/logger/%.d: %.c
+	@$(MKDIR) $(dir $@)
+	@$(DEPS-COMMAND)
+
 # Add dependency as prerequisites
 -include $(DEPS)
 
@@ -91,13 +109,28 @@ $(OBJS_DIR)/%.o: %.c $(DEPS_DIR)/%.d
 	@$(MKDIR) $(dir $@)
 	@$(CC-COMMAND)
 
+$(OBJS_DIR)/array/%.o: %.c $(DEPS_DIR)/array/%.d
+	@echo "\033[K\033[35mLibft-test-array  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(dir $@)
+	@$(CC-COMMAND)
+
+$(OBJS_DIR)/string/%.o: %.c $(DEPS_DIR)/string/%.d
+	@echo "\033[K\033[35mLibft-test-string  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(dir $@)
+	@$(CC-COMMAND)
+
+$(OBJS_DIR)/logger/%.o: %.c $(DEPS_DIR)/logger/%.d
+	@echo "\033[K\033[35mLibft-test-logger  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(dir $@)
+	@$(CC-COMMAND)
+
 $(NAME): $(LIBFT_FILE) $(OBJS)
 	@echo "\033[K\033[35mLibft-test  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
-	@echo "\033[35mLIBFT  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
+	@echo "\033[35mLIBFT-test  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft -L ../../Criterion/build -lcriterion $(INC)
-	@echo "[\033[35m--------------------------------\033[0m]"
-	@echo "[\033[36m------- Minishell Done ! -------\033[0m]"
-	@echo "[\033[35m--------------------------------\033[0m]"
+	@echo "[\033[35m---------------------------------\033[0m]"
+	@echo "[\033[36m------- Libft Test Done ! -------\033[0m]"
+	@echo "[\033[35m---------------------------------\033[0m]"
 
 $(LIBFT_FILE):
 	@make -C $(LIBFT_DIR)
@@ -115,5 +148,5 @@ fclean: clean
 	@make fclean -C $(LIBFT_DIR)
 
 .PHONY: re clean fclean all
-.PRECIOUS: $(DEPS_DIR)/%.d $(DEPS_DIR)/core/%.d $(DEPS_DIR)/environ/%.d $(DEPS_DIR)/builtins/%.d
+.PRECIOUS: $(DEPS_DIR)/%.d $(DEPS_DIR)/array/%.d $(DEPS_DIR)/string/%.d $(DEPS_DIR)/logger/%.d
 .SUFFIXES: .c .h .o .d
