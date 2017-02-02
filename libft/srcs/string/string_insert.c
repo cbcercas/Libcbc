@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 11:12:57 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 11:53:47 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/02 22:54:58 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ t_string	*string_insert(t_string *string, const char *str, size_t pos)
 	if (pos < len)
 		ft_memmove(string->s + pos + len, string->s + pos, len);
 	ft_memcpy(string->s + pos, str, len);
+	string->len += len;
 	return (string);
 }
