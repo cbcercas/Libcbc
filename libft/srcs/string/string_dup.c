@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 01:09:53 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 03:28:15 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/02 04:44:03 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_string	*string_ndup(const char *str, size_t n)
 	if (!(string = string_create_cap(n)))
 		return (NULL);
 	ft_memcpy(string->s, str, (n > strlen) ? strlen : n);
+	string->len = (n > strlen) ? strlen : n;
 	return (string);
 }
