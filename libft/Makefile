@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/01 17:36:32 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/02 02:59:16 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ printer_c.c printer_per.c printer_def.c
 SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_insert.c array_destroy.c array_swap.c
 
+SRCS_STRING		= string.c string_growth.c string_dup.c
+
 SRCS_LOGGER		= logger.c logger_utils.c
 ###############################################################################
 #																			  #
@@ -52,7 +54,7 @@ CFLAGS		= -Wall -Wextra -Werror
 SRCS_DIR	= srcs
 OBJS_DIR	= objs
 DEPS_DIR	= .deps
-VPATH 		= $(SRCS_DIR)/array $(SRCS_DIR)/core
+VPATH 		= $(SRCS_DIR)/string $(SRCS_DIR)/array $(SRCS_DIR)/core
 VPATH		+= $(SRCS_DIR)/gnl $(SRCS_DIR)/ft_printf $(SRCS_DIR)/logger
 #$(DEPS_DIR)/core $(DEPS_DIR)/gnl $(DEPS_DIR)/ft_printf
 
@@ -108,6 +110,10 @@ $(DEPS_DIR)/array/%.d: %.c
 	@$(MKDIR) $(dir $@)
 	@$(DEPS-COMMAND)
 
+$(DEPS_DIR)/string/%.d: %.c
+	@$(MKDIR) $(dir $@)
+	@$(DEPS-COMMAND)
+
 $(DEPS_DIR)/logger/%.d: %.c
 	@$(MKDIR) $(dir $@)
 	@$(DEPS-COMMAND)
@@ -143,6 +149,11 @@ $(OBJS_DIR)/ft_printf/%.o: %.c $(DEPS_DIR)/ft_printf/%.d
 
 $(OBJS_DIR)/array/%.o: %.c $(DEPS_DIR)/array/%.d
 	@echo "\033[K\033[35mARRAY  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
+	@$(MKDIR) $(dir $@)
+	$(CC-COMMAND)
+
+$(OBJS_DIR)/string/%.o: %.c $(DEPS_DIR)/string/%.d
+	@echo "\033[K\033[35mSTRING  :\033[0m [Compilation:\033[33m $^\033[0m]\033[1A"
 	@$(MKDIR) $(dir $@)
 	$(CC-COMMAND)
 
@@ -183,5 +194,5 @@ endif
 
 .PHONY: re clean fclean all doc
 .PRECIOUS: $(DEPS_DIR)/core/%.d $(DEPS_DIR)/gnl/%.d $(DEPS_DIR)/ft_printf/%.d \
-	$(DEPS_DIR)/array/%.d $(DEPS_DIR)/logger/%.d
+	$(DEPS_DIR)/array/%.d $(DEPS_DIR)/string/%.d $(DEPS_DIR)/logger/%.d
 .SUFFIXES: .c .h .o .d
