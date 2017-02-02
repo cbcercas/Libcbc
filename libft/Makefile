@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/02 02:59:16 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/02 04:04:41 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ printer_c.c printer_per.c printer_def.c
 SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_insert.c array_destroy.c array_swap.c
 
-SRCS_STRING		= string.c string_growth.c string_dup.c
+SRCS_STRING		= string.c string_growth.c string_dup.c string_clone.c
 
 SRCS_LOGGER		= logger.c logger_utils.c
 ###############################################################################

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cbc_string.h                                       :+:      :+:    :+:   */
+/*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 03:27:32 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/02 04:02:46 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,12 @@ t_string	*string_growth(t_string *array);
 */
 t_string	*string_ndup(const char *str, size_t n);
 t_string	*string_dup(const char *str);
+
+/**
+** @file       string_clone.c
+**
+** @brief      clone a t_string
+*/
+t_string	*string_clone(const t_string *string);
 
 #endif
