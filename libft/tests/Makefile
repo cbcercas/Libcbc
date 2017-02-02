@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/02 11:32:42 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/02 13:00:43 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS_MAIN		=
 SRCS_ARRAY		= test_array_create.c test_array_simple_usage.c
 
 SRCS_STRING		= test_string_create.c test_string_dup.c test_string_clone.c \
-test_string_insert.c
+test_string_insert.c test_string_join.c
 
 SRCS_LOGGER		= test_logger.c
 ###############################################################################

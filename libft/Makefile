@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/02 11:51:38 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/02 13:00:29 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS_ARRAY		= array.c array_copy.c array_growth.c array_shrink.c array_setget.c 
 array_pushpop.c array_insert.c array_destroy.c array_swap.c
 
 SRCS_STRING		= string.c string_growth.c string_dup.c string_clone.c \
-string_insert.c
+string_insert.c string_join.c
 
 SRCS_LOGGER		= logger.c logger_utils.c
 ###############################################################################

@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 12:05:33 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/02 12:53:28 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,12 @@ t_string	*string_clone(const t_string *string);
 t_string	*string_insert(t_string *string, const char *str, size_t pos);
 # define	string_insert_front(string, str) string_insert(string, str, 0)
 # define	string_insert_back(string, str) string_insert(string, str, string->len)
+
+/**
+** @file       string_join.c
+**
+** @brief      Join two t_string into an other
+*/
+t_string	*string_join(t_string *s1, t_string *s2);
 
 #endif
