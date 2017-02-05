@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:22:41 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 03:28:05 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/06 00:40:03 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,3 @@ t_string	*string_create_cap(size_t cap)
 	}
 	return (string);
 }
-
-/**
-** @brief      Create a t_string with default capacity
-**
-** @return     A t_array pointer on success, NULL otherwise
-*/
-t_string	*string_create(void)
-{
-	return (string_create_cap(1));
-}
-

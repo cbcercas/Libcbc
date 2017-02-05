@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 12:53:28 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/06 00:39:50 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ struct s_string
 */
 t_string	*string_init_cap(t_string *string, size_t cap);
 t_string	*string_create_cap(size_t cap);
-t_string	*string_create(void);
+# define	string_create() string_create_cap(1)
+# define	string_init(string) string_init_cap(string, 0)
 
 /**
 ** @file       string_growth.c
@@ -85,4 +86,11 @@ t_string	*string_insert(t_string *string, const char *str, size_t pos);
 */
 t_string	*string_join(t_string *s1, t_string *s2);
 
+/**
+** @file       string_clean.c
+**
+** @brief      Fonction to clear and destroy a t_string
+*/
+t_string	*string_reset(t_string *string);
+t_string	*string_del(t_string **string);
 #endif
