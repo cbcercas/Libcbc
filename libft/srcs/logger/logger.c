@@ -6,17 +6,29 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:26:23 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/01 17:43:39 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/01 18:14:07 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define LOGGER_MAIN
 #include <logger/logger_intern.h>
 #undef LOGGER_MAIN
+
 int				g_logger_fd;
 enum e_d_lvl	g_logger_lvl;
 char			*g_logger_pname;
 char			*g_logger_file;
 
+/**
+** @brief      Initialise the logger
+**             create file if missing
+**             clear the file if size > 512Ko
+**
+** @param[in]  lvl       The log level
+** @param[in]  pname     The programme name
+** @param[in]  filename  The filename
+**
+** @return     -1 on error or no log, the log fd otherwise
+*/
 int	logger_init(enum e_d_lvl lvl, const char *pname, const char *filename)
 {
 	char *log_start;
