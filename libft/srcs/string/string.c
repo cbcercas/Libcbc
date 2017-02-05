@@ -26,7 +26,7 @@ t_string	*string_init_cap(t_string *string, size_t cap)
 	if (string->capacity < STRING_MIN_SIZE)
 		string->capacity = STRING_MIN_SIZE;
 	if (!(string->s = ft_strnew(string->capacity)))
-		return (NULL);
+		return (string_del(&string));
 	string->len = 0;
 	return (string);
 }
