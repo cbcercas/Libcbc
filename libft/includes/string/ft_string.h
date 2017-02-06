@@ -6,13 +6,14 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 00:39:50 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/06 01:02:52 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 # include <libft.h>
+# include <types/bool.h>
 
 # define STRING_MIN_SIZE 8U
 
@@ -85,6 +86,7 @@ t_string	*string_insert(t_string *string, const char *str, size_t pos);
 ** @brief      Join two t_string into an other
 */
 t_string	*string_join(t_string *s1, t_string *s2);
+t_string	*string_join_cl(t_string **s1, t_string **s2, BOOL free);
 
 /**
 ** @file       string_clean.c
