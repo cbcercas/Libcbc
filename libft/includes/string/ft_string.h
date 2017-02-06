@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 02:44:30 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/06 03:19:58 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,13 @@ t_string	*string_create_cap(size_t cap);
 */
 t_string	*string_growth_cap(t_string *array, size_t cap);
 t_string	*string_growth(t_string *array);
+
+/**
+** @file       string_shrink.c
+**
+** @brief      reduce the string capacity to feet the string len
+*/
+t_string	*string_shrink(t_string *string);
 
 /**
 ** @file       string_dup.c
