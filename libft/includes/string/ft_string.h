@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 03:19:58 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/11 03:18:43 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <logger/logger.h>
 
 # define STRING_MIN_SIZE 8U
+# define STING_CAP_FROM_LEN(len) (len / STRING_MIN_SIZE + 1) * STRING_MIN_SIZE
 
 typedef struct	s_string t_string;
 
