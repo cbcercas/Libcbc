@@ -112,4 +112,11 @@ t_string	*string_del(t_string **string);
 */
 size_t	string_remove(t_string *s, size_t pos, size_t len);
 
+/**
+** @file       string_replace.c
+**
+** @brief      Replace string in t_string
+*/
+t_string	*string_replace(t_string *string, const char *str);
+
 #endif
