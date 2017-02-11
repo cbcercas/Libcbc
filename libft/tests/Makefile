@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/06 03:20:46 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/11 01:32:07 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,7 @@ $(OBJS_DIR)/logger/%.o: %.c $(DEPS_DIR)/logger/%.d
 	@$(MKDIR) $(dir $@)
 	@$(CC-COMMAND)
 
-$(NAME): $(LIBFT_FILE) $(OBJS)
+$(NAME): $(OBJS) | test
 	@echo "\033[K\033[35mLibft-test  :\033[0m [Compilation:\033[33m des .o\033[0m][\033[32mOK!\033[0m]"
 	@echo "\033[35mLIBFT-test  :\033[0m [Compilation:\033[33m $(NAME)\033[0m]"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft -L ../../Criterion/build -lcriterion $(INC)
@@ -134,8 +134,8 @@ $(NAME): $(LIBFT_FILE) $(OBJS)
 	@echo "[\033[36m------- Libft Test Done ! -------\033[0m]"
 	@echo "[\033[35m---------------------------------\033[0m]"
 
-$(LIBFT_FILE):
-	@make -C $(LIBFT_DIR)
+test:
+	make -C $(LIBFT_DIR)
 
 clean:
 	@echo "\033[35mLibft-test  :\033[0m [\033[31mSuppression des .o\033[0m]"
