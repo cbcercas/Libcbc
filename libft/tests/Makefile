@@ -6,11 +6,11 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/13 11:59:44 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/13 12:06:25 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= libft-test
+NAME		= libft-test
 
 SRCS		=
 
@@ -24,12 +24,12 @@ test_string_shrink.c test_string_replace.c
 
 SRC_SUBDIR	+= logger
 SRCS		+= test_logger.c
+
 ###############################################################################
 #																			  #
 #									CONFIG									  #
 #																			  #
 ###############################################################################
-
 #  Compiler
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
