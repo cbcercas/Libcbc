@@ -36,3 +36,9 @@ debug/
 
 # Auto deps
 .deps
+
+# Doc folder
+DOC/
+
+# log files
+*.log
