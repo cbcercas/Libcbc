@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/25 00:43:39 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/16 15:59:17 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_countchiffres(int nb);
 size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
-void			ft_freetab(char **tab, size_t nb);
+void			ft_freetab(char **array, size_t nb);
 int				ft_countdigit(intmax_t num);
-int				ft_tablen(char **tab);
-char			**ft_strtabdup(char **tab);
+int				ft_tablen(char **array);
+char			**ft_strtabdup(char **array);
 /*
 ** Make full test before use
 */
