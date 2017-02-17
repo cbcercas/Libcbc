@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2015/12/09 12:54:21 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/17 18:44:20 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,10 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+int		ft_putchar2(int c)
+{
+	ft_putchar(c);
+	return (c);
 }
