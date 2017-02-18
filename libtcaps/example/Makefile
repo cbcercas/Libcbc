@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/18 12:54:57 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/18 21:22:41 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ OBJS			= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 # Dependencies
 DEPS_DIR		= .deps
 DEPS			= $(SRCS:%.c=$(DEPS_DIR)/%.d)
-BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR)
+BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR) bin
 
 # Include
 INC				= -I includes
@@ -77,8 +77,8 @@ all: $(DEPS) $(NAME)
 # Add dependency as prerequisites
 -include $(DEPS)
 
-$(NAME): $(OBJS) libs
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INC) $(LIBS)
+$(NAME): $(OBJS) libs | bin
+	@$(CC) $(CFLAGS) -o bin/$(NAME) $(OBJS) $(INC) $(LIBS)
 	@echo "[\033[35m---------------------------------\033[0m]"
 	@echo "[\033[36m-------- Minishell Done ! -------\033[0m]"
 	@echo "[\033[35m---------------------------------\033[0m]"
