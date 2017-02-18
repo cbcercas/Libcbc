@@ -28,6 +28,10 @@
 *.i*86
 *.x86_64
 *.hex
+*.e
+
+# Auto deps
+.deps
 
 # Debug files
 *.dSYM/
