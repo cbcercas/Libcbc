@@ -32,7 +32,8 @@
 
 # Auto deps
 .deps
-
+# Doc
+DOC
 # Debug files
 *.dSYM/
 

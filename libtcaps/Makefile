@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/18 21:14:40 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/02/19 13:43:04 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,9 @@ LIBS		= -L $(LIBFT_DIR) -lft
 #Utils
 RM			= rm -rf
 MKDIR		= mkdir -p
+
+#Doxygen
+DOXYGEN := $(shell command -v doxygen 2> /dev/null)
 
 ###############################################################################
 #																			  #
@@ -90,5 +93,16 @@ fclean: clean
 	@echo "\033[35mLibtcaps  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
 
-.PHONY: re clean fclean all
+doc:
+ifndef DOXYGEN
+	@echo "Please install doxygen first (brew install doxygen)."
+else
+	@doxygen Doxyfile 1> /dev/null
+	@echo "[\033[35m--------------------------\033[0m]"
+	@echo "[\033[36m------ Documentation -----\033[0m]"
+	@echo "[\033[36m------   generated   -----\033[0m]"
+	@echo "[\033[35m--------------------------\033[0m]"
+endif
+
+.PHONY: re clean fclean all doc
 .SUFFIXES: .c .h .o .d
