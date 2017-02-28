@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2015/12/09 12:11:48 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/26 14:07:00 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	const char	*save;
 
-	i = 0;
-	while (str[0] != '\0')
-	{
+	if (!str)
+		return (0);
+	save = str;
+	while (*str)
 		str++;
-		i++;
-	}
-	return (i);
+	return (str - save);
 }
