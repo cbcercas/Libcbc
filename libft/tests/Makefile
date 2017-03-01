@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/13 12:06:25 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/03/01 13:52:59 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ test_string_shrink.c test_string_replace.c
 
 SRC_SUBDIR	+= logger
 SRCS		+= test_logger.c
+
+SRC_SUBDIR	+= stack
+SRCS		+= test_stack.c
 
 ###############################################################################
 #																			  #

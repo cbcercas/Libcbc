@@ -7,10 +7,13 @@
 # include <array/array.h>
 # include <string/ft_string.h>
 # include <logger/logger.h>
+# include <stack/stack.h>
 
 # define PROGNAME "test_libft"
 
-# define DISABLE_ARRAY_TEST true
-# define DISABLE_STRING_TEST true
-# define DISABLE_LOGGER_TEST true
+# define DISABLE_ARRAY_TEST false
+# define DISABLE_STRING_TEST false
+# define DISABLE_LOGGER_TEST false
+# define DISABLE_STACK_TEST false
+
 #endif
