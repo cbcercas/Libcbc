@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 21:51:03 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/25 01:52:56 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:20:48 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,10 @@ t_array *array_copy(t_array *dest_array, t_array *src_array);
 ** @file       array_pushpop.c
 **
 ** @brief      array_push: add an element at the end of the array
-**             array_pop: extract an element at the end of the array
+**             array_pop: pop the last element of the array, store it in poped
 */
 t_array	*array_push(t_array *array, const void *data);
-void	*array_pop(t_array *array, size_t pos);
+t_array	*array_pop(t_array *array, void *poped);
 
 /**
 ** @file       array_insert.c

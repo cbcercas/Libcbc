@@ -91,20 +91,18 @@ Test(array_simple_usage, Test_simple_array_swap) {
 Test(array_simple_usage, Test_simple_array_pop) {
 	int a[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	int count;
-	int *poped;
+	int poped;
 
 	array = array_create(sizeof(int));
 	count = -1;
 	while (++count < 8)
 		array_push(array, a + count);
-	poped = (int*)array_pop(array, 4);
-	cr_expect(*poped == 4, "pop failed failed %d", *poped);
-	cr_expect(array->used == 7, "array->used not decreased after poping");
-	cr_expect(*(int*)array_get_at(array, 4) == 5, "array not swapped after poping");
-	cr_expect(*(int*)array_get_at(array, 5) == 6, "array not swapped after poping");
-	cr_expect(*(int*)array_get_at(array, 6) == 7, "array not swapped after poping");
-	// cr_expect(array_get(array, 8) == NULL, "array not swapped after poping");
-	cr_expect(*(int*)array_get_at(array, 8) != 7, "array not swapped after poping");
+	array_pop(array, &poped);
+	cr_expect(poped == 7, "pop failed failed %d", poped);
+	cr_expect(array->used == 7, "array->used not decreased after poping: %zu", array->used);
+	array_pop(array, &poped);
+	cr_expect(poped == 6, "pop failed failed %d", poped);
+	cr_expect(array->used == 6, "array->used not decreased after poping: %zu", array->used);
  	//teardown();
 }
 

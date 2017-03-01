@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:26:18 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/23 21:06:15 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:19:41 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,18 @@ t_array	*array_push(t_array *array, const void *data)
 }
 
 /**
-** @brief      Extract an element of the array
+** @brief      Remove the last element of the array
 **
 ** @param      array  The t_array
-** @param[in]  pos    The element position
+** @param      pappod A pointer to store the poped element
 **
-** @return     A pointer to the popped element
+** @return     The t_array pointer on success, NULL otherwise
 */
-void	*array_pop(t_array *array, size_t pos)
+t_array	*array_pop(t_array *array, void *poped)
 {
-	void *poped;
-
-	if (pos > array->used - 1)
+	if (!array || array->used == 0)
 		return (NULL);
-	if (!(poped = ft_memalloc(array->elem_size)))
+	if (!(array_remove_at(array, array->used - 1, poped)))
 		return (NULL);
-	ft_memcpy(poped, array_get_at(array, pos), array->elem_size);
-	while (pos + 1 < array->used)
-	{
-		if (!array_swap(array, pos, pos + 1))
-		{
-			ft_memdel(&poped);
-			return (NULL);
-		}
-		pos++;
-	}
-	array->used -= 1;
-	ft_bzero(array_get_at(array, pos), array->elem_size);
-	//shrink
-	return (poped);
+	return (array);
 }
