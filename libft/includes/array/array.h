@@ -98,6 +98,13 @@ void	*array_pop(t_array *array, size_t pos);
 t_array	*array_insert(t_array *array, size_t pos, const void *data);
 
 /**
+** @file       array_remove.c
+**
+** @brief      remove an element at the given pos
+*/
+t_array	*array_remove_at(t_array *array, size_t pos, void *old);
+
+/**
 ** @file       array_swap.c
 **
 ** @brief      Swap two elements in the array
