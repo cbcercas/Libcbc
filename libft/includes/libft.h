@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/17 18:55:20 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/02/28 03:54:57 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ char			*ft_uitohex(uintmax_t nb, int uppercase);
 void			ft_putwchar(wchar_t c);
 void			ft_putwchar_fd(wchar_t c, int fd);
 char			*ft_strrev(char *str);
+char			*ft_strclean(char *str);
+
 
 char			*ft_ctostr(char c, int nb);
 char			*ft_wctostr(wchar_t c);
