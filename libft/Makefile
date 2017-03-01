@@ -39,7 +39,7 @@ printer_c.c printer_per.c printer_def.c
 
 SRC_SUBDIR		+= array
 SRCS			+= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
-array_pushpop.c array_insert.c array_destroy.c array_swap.c
+array_pushpop.c array_insert.c array_destroy.c array_swap.c array_remove.c
 
 SRC_SUBDIR		+= string
 SRCS			+= string.c string_growth.c string_dup.c string_clone.c \
