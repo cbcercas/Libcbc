@@ -54,22 +54,22 @@ int		ft_print_args(int fd, t_args *sarg, va_list *larg)
 		return (0);
 }
 
-int		ft_print(int fd, va_list *larg, const char *format, int printed)
+int		ft_print(int fd, va_list *larg, const char *fmt, int printed)
 {
 	char	*next_arg;
 	t_args	sarg;
 	int		ret;
 
-	next_arg = ft_strchr(format, '%');
+	next_arg = ft_strchr(fmt, '%');
 	if (!next_arg)
 	{
-		ft_putstr_fd(format, fd);
-		return (printed + ft_strlen(format));
+		ft_putstr_fd(fmt, fd);
+		return (printed + ft_strlen(fmt));
 	}
-	else if (next_arg > format)
+	else if (next_arg > fmt)
 	{
-		ft_putnstr_fd(format, next_arg - format, fd);
-		return (ft_print(fd, larg, next_arg, printed + (next_arg - format)));
+		ft_putnstr_fd(fmt, next_arg - fmt, fd);
+		return (ft_print(fd, larg, next_arg, printed + (next_arg - fmt)));
 	}
 	else
 	{
@@ -82,32 +82,32 @@ int		ft_print(int fd, va_list *larg, const char *format, int printed)
 	}
 }
 
-int		ft_printf(const char *restrict format, ...)
+int		ft_printf(const char *fmt, ...)
 {
 	int		ret;
 	va_list larg;
 
-	va_start(larg, format);
-	ret = ft_print(STDOUT_FILENO, &larg, format, 0);
+	va_start(larg, fmt);
+	ret = ft_print(STDOUT_FILENO, &larg, fmt, 0);
 	return (ret);
 }
 
-int		ft_dprintf(int fd, const char *restrict format, ...)
+int		ft_dprintf(int fd, const char *fmt, ...)
 {
 	int		ret;
 	va_list larg;
 
-	va_start(larg, format);
-	ret = ft_print(fd, &larg, format, 0);
+	va_start(larg, fmt);
+	ret = ft_print(fd, &larg, fmt, 0);
 	return (ret);
 }
 
-int		ft_vdprintf(int fd, const char * restrict format, va_list ap)
+int		ft_vdprintf(int fd, const char *fmt, va_list ap)
 {
 	int		ret;
 	va_list	larg;
 
 	va_copy(larg, ap);
-	ret = ft_print(fd, &larg, format, 0);
+	ret = ft_print(fd, &larg, fmt, 0);
 	return (ret);
 }

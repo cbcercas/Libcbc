@@ -17,8 +17,8 @@
 # include <ft_printf/printer.h>
 # include <ft_printf/ft_get.h>
 
-int		ft_printf(const char *restrict format, ...);
-int		ft_dprintf(int fd, const char *restrict format, ...);
-int		ft_vdprintf(int fd, const char * restrict format, va_list ap);
+int		ft_printf(const char *fmt, ...);
+int		ft_dprintf(int fd, const char *fmt, ...);
+int		ft_vdprintf(int fd, const char *fmt, va_list ap);
 
 #endif
