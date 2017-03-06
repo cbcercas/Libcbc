@@ -20,6 +20,7 @@
 
 # include <types/bool.h>
 # include <array/array.h>
+# include <inttypes.h>
 
 typedef struct	s_list
 {
