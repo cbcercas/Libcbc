@@ -28,6 +28,10 @@ extern char	*g_logger_pname;
 extern char	*g_logger_file;
 # endif
 
+# ifndef F_GETPATH
+#  define F_GETPATH	50
+# endif
+
 char	*get_log_format(enum e_d_lvl lvl);
 BOOL	is_valid_fd(void);
 void	logger_clear(BOOL force);
