@@ -17,7 +17,7 @@
 #include <types/bool.h>
 #include <stdlib.h>
 
-typedef struct s_array	*t_stack;
+typedef  t_array	t_stack;
 
 #define stack_create(size) (t_stack *)array_create(size)
 #define is_empty_stack(st) !(BOOL)st->used
