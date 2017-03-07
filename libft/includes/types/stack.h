@@ -25,5 +25,5 @@ typedef  t_array	t_stack;
 #define stack_pop(st) array_pop((t_array *)st, NULL)
 #define get_top_stack(st) array_get_last((t_array *)st)
 #define get_stack_length(st) st->used - 1
-
+#define stack_destroy(st) array_destroy((t_array *)st)
 #endif
