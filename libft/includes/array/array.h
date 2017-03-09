@@ -116,7 +116,7 @@ BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b);
 **
 ** @brief      Destroy a t_array
 */
-void	array_destroy(t_array *array);
+void	array_destroy(t_array **array);
 t_array	*array_reset(t_array *array);
 
 #endif

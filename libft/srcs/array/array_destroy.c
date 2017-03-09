@@ -18,10 +18,10 @@
 **
 ** @param      array  The t_array to be free
 */
-void	array_destroy(t_array *array)
+void	array_destroy(t_array **array)
 {
-	free(array->array);
-	free(array);
+	ft_memdel(&(*array)->array);
+	ft_memdel((void **) array);
 }
 
 /**
