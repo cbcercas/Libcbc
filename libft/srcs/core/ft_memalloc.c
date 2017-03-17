@@ -21,6 +21,6 @@ void	*ft_memalloc(size_t size)
 	mem = (char *)malloc(size);
 	if (!mem)
 		return (0);
-	bzero(mem, size);
+	ft_bzero(mem, size);
 	return ((char *)mem);
 }
