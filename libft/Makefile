@@ -48,6 +48,10 @@ string_replace.c
 
 SRC_SUBDIR		+= logger
 SRCS			+= logger.c logger_utils.c
+
+SRC_SUBDIR      += unistd
+SRCS            += ft_getopt.c
+
 ###############################################################################
 #																			  #
 #									CONFIG									  #
