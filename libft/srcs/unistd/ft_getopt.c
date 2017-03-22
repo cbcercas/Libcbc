@@ -16,7 +16,6 @@
 int		g_opterr = 1;
 int		g_optind = 1;
 int		g_optopt;
-int		g_optreset;
 char	*g_optarg;
 
 static int	go_init(int ac, char *const *av)
