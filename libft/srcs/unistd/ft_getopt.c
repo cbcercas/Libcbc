@@ -55,13 +55,13 @@ static int		go_err(int err, const char *c,const char *av, const char o)
 		if (err == GETOPT_ERR_ARG)
 		{
 			if (g_opterr && *c != ':')
-				ft_printf("%s: option requires an argument -- '%c'\n", av, o);
+				ft_dprintf(STDERR_FILENO, "%s: option requires an argument -- '%c'\n", av, o);
 			else
 				return (':');
 		}
 		else if (err == GETOPT_ERR_OPT)
 			if (g_opterr && *c != ':')
-				ft_printf("%s: invalid option -- '%c'\n", av, o);
+				ft_dprintf(STDERR_FILENO, "%s: invalid option -- '%c'\n", av, o);
 	}
 	return ('?');
 }
