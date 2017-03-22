@@ -25,6 +25,7 @@ static int	go_init(int ac, char *const *av)
 		|| av[g_optind][0] != '-'
 		|| ft_strequ(av[g_optind], "-"))
 		return (-1);
+	g_optopt = 0;
 	return (0);
 }
 
