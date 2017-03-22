@@ -18,9 +18,5 @@
 # define GETOPT_ERR_ARG 2
 
 int ft_getopt(int ac, char *const *av, const char *optstring);
-/*
-int ft_getopt_long(int ac, char * const av[], const char *optstring, const struct option *longopts, int *longindex);
-int ft_getopt_long_only(int ac, char * const av[], const char *optstring, const struct option *longopts, int *longindex);
-*/
 
 #endif
