@@ -19,38 +19,78 @@ int		g_optopt;
 int		g_optreset;
 char	*g_optarg;
 
-static int	get_char(char const *av)
+static int	go_init(int ac, char *const *av)
+{
+	if (g_optind >= ac
+		|| ft_strequ(av[g_optind], "--")
+		|| av[g_optind][0] != '-'
+		|| ft_strequ(av[g_optind], "-"))
+		return (-1);
+	return (0);
+}
+
+static const char	*go_char(const char **nextchar, char *const *av)
+{
+	const char *opt;
+
+	g_optarg = NULL;
+	if (*nextchar)
+		opt = *nextchar;
+	else
+		opt = av[g_optind] + 1;
+	if (*(opt + 1))
+		*nextchar = opt + 1;
+	else
+	{
+		*nextchar = NULL;
+		g_optind += 1;
+	}
+	return (opt);
+}
+
+static int		go_err(int err, const char *c,const char *av, const char o)
+{
+	g_optopt = (int)o;
+	{
+		if (err == GETOPT_ERR_ARG)
+		{
+			if (g_opterr && *c != ':')
+				ft_printf("%s: option requires an argument -- '%c'\n", av, o);
+			else
+				return (':');
+		}
+		else if (err == GETOPT_ERR_OPT)
+			if (g_opterr && *c != ':')
+				ft_printf("%s: invalid option -- '%c'\n", av, o);
+	}
+	return ('?');
+}
+
+int 		ft_getopt(int ac, char *const *av, const char *optstring)
 {
 	static const char	*nextchar = NULL;
 	const char			*opt;
+	const char 			*c;
 
-	if (nextchar)
-		opt = nextchar;
-	else
-		opt = av + 1;
-	if (*(opt + 1))
-		nextchar = opt + 1;
-	else
-	{
-		nextchar = NULL;
-		g_optind += 1;
-	}
-	return ((int)*opt);
-}
-
-int 		ft_getopt(int ac, char const *av[], const char *optstring)
-{
-	(void)optstring;
-	int	opt;
-
-	if (g_optind >= ac || !ft_strncmp(av[g_optind], "--", 2) || av[g_optind][0] != '-')
+	if (go_init(ac, av))
 		return (-1);
-	opt = get_char(av[g_optind]);
-	if (ft_isalnum(opt) && ft_strchr(optstring, opt))
-		return (opt);
-	if (g_opterr)
-		ft_printf("%s: invalid option -- '%c'\n", av[0], opt);
-	return ('?');
+	opt = go_char(&nextchar, av);
+	if (ft_isalnum(*opt) && (c = ft_strchr(optstring, *opt)))
+	{
+		if (*(c + 1) == ':')
+		{
+			if (*(opt + 1) != '\0')
+				g_optarg = (char *) (opt + 1);
+			else if (g_optind < ac)
+				g_optarg = (char *) av[g_optind];
+			else
+				return (go_err(GETOPT_ERR_ARG, optstring, av[0], *opt));
+			g_optind += 1;
+			nextchar = NULL;
+		}
+		return ((int) *opt);
+	}
+	return (go_err(GETOPT_ERR_OPT, optstring, av[0], *opt));
 };
 
 /*int ft_getopt_long(int ac, char * const av[], const char *optstring, const struct option *longopts, int *longindex)
