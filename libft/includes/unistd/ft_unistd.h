@@ -12,10 +12,14 @@
 
 #ifndef FT_UNISTD
 # define FT_UNISTD
-# include <libft.h>
 
-# define GETOPT_ERR_OPT 1
-# define GETOPT_ERR_ARG 2
+# ifndef LOGGER_MAIN
+#  include <libft.h>
+#  include <ft_printf/libftprintf.h>
+#  define GETOPT_ERR_OPT 1
+#  define GETOPT_ERR_ARG 2
+# endif
+
 
 int ft_getopt(int ac, char *const *av, const char *optstring);
 

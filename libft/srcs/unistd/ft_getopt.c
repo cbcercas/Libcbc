@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd/ft_unistd.h>
-#include <ft_printf/libftprintf.h>
+#define FT_GETOPT_MAIN
+# include <unistd/ft_unistd.h>
+#undef FT_GETOPT_MAIN
 
 int		g_opterr = 1;
 int		g_optind = 1;
