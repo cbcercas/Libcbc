@@ -21,7 +21,7 @@ typedef  t_array	t_stack;
 
 #define stack_init(st, size) (t_stack *)array_init((t_array *)st, size)
 #define stack_create(size) (t_stack *)array_create(size)
-#define is_empty_stack(st) !(BOOL)st->used
+#define is_empty_stack(st) !(BOOL)((t_array *)st)->used
 #define stack_push(st, data) array_push((t_array *)st, (void*)data)
 #define stack_pop(st) array_pop((t_array *)st, NULL)
 #define get_top_stack(st) array_get_last((t_array *)st)
