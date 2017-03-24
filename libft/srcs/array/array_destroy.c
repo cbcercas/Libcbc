@@ -33,7 +33,7 @@ void	array_destroy(t_array **array)
 */
 t_array	*array_reset(t_array *array)
 {
-	ft_memdel(array->array);
+	ft_memdel(&array->array);
 	if (!(array_init_cap(array, array->elem_size, ARRAY_MIN_SIZE)))
 	{
 		free(array);
