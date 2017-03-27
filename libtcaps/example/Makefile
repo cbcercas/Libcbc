@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/18 21:22:41 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/03/27 11:19:16 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ INC				= -I includes
 
 # Libraries
 ## libft includes
-LIBFT_DIR		= ../../libft
+LIBFT_DIR		= ../libft
 INC				+= -I $(LIBFT_DIR)/includes
 LIBS				= -L $(LIBFT_DIR) -lft
 ## Libtcaps

@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/19 13:43:04 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/03/27 11:19:18 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 # Libraries
 ## libft includes
-LIBFT_DIR	= ../libft
+LIBFT_DIR	= libft
 INC			+= -I $(LIBFT_DIR)/includes
 LIBS		= -L $(LIBFT_DIR) -lft
 
