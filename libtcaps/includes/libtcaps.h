@@ -119,7 +119,28 @@ BOOL	is_ctrl_d(const char *buff);
 BOOL	is_ctrl_z(const char *buff);
 BOOL	is_ctrl_a(const char *buff);
 BOOL	is_ctrl_e(const char *buff);
+
+/*
+** @file		tcaps_ctrl_1.c
+**
+** @brief		Determines if crtl+*.
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+
 BOOL	is_ctrl_l(const char *buff);
+
+/*
+** @file tcaps_backspace.c
+**
+** @brief Determines if backspace is pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
 
 BOOL	is_backspace(const char *buff);
 
