@@ -6,14 +6,14 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/03/30 13:42:12 by jlasne           ###   ########.fr        #
+#    Updated: 2017/03/30 13:50:36 by jlasne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= libtcaps.a
 
 SRCS			= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
-				  tcaps_backspace.c
+				  tcaps_backspace.c tcaps_tab.c
 
 ###############################################################################
 #																			  #

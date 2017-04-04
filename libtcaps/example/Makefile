@@ -16,7 +16,7 @@ SRCS			+= main.c
 
 SRC_SUBDIR		+= exec
 SRCS			+= tcaps_key_exec.c tcaps_exec_ctrl_1.c tcaps_exec_arrow.c\
-				   tcaps_exec_backspace.c
+				   tcaps_exec_backspace.c tcaps_exec_tab.c
 
 SRC_SUBDIR		+= term
 SRCS			+= term_modes.c

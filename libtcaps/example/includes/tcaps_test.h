@@ -6,9 +6,10 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 18:02:09 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/27 12:41:44 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/03/30 13:50:36 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef TCAPS_TEST_H
 # define TCAPS_TEST_H
 
@@ -35,6 +36,8 @@ BOOL	exec_ctrl_e(const t_key *key);
 BOOL	exec_ctrl_l(const t_key *key);
 
 BOOL	exec_backspace(const t_key *key);
+
+BOOL	exec_tab(const t_key *key);
 
 BOOL	exec_arrow(const t_key *key);
 

@@ -6,9 +6,10 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 21:44:30 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/27 12:41:05 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/03/30 13:50:36 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <libtcaps.h>
 
 t_key	key_new(char *key_code, const char *buff)
@@ -36,6 +37,7 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_CTRL_E, &is_ctrl_e},
 		{KEY_CODE_CTRL_L, &is_ctrl_l},
 		{KEY_CODE_BACKSPACE, &is_backspace},
+		{KEY_CODE_TAB, &is_tab},
 		{KEY_CODE_NONE, NULL}
 	};
 
