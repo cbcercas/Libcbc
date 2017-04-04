@@ -18,3 +18,10 @@ BOOL	is_ctrl_l(const char *buff)
 		return (true);
 	return (false);
 }
+
+BOOL    is_ctrl_j(const char *buff)
+{
+        if (ft_strequ(buff, KEY_CODE_ENTER))
+                return (true);
+        return (false);
+}

@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 18:02:09 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 13:50:36 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/03/30 14:29:32 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ BOOL	exec_ctrl_z(const t_key *key);
 BOOL	exec_ctrl_a(const t_key *key);
 BOOL	exec_ctrl_e(const t_key *key);
 BOOL	exec_ctrl_l(const t_key *key);
+BOOL	exec_ctrl_j(const t_key *key);
 
 BOOL	exec_backspace(const t_key *key);
 
