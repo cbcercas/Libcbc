@@ -34,6 +34,11 @@
 .deps
 # Doc
 DOC
+
 # Debug files
 *.dSYM/
 .swp
+
+#Clion and Cmake file
+.idea
+cmake-build-debug
