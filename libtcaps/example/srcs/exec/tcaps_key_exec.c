@@ -24,6 +24,7 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_CTRL_A, &exec_ctrl_a},
 		{KEY_CODE_CTRL_E, &exec_ctrl_e},
 		{KEY_CODE_CTRL_L, &exec_ctrl_l},
+		{KEY_CODE_BACKSPACE, &exec_backspace},
 		{KEY_CODE_NONE, NULL}
 	};
 	int				i;

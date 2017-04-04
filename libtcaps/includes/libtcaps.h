@@ -32,6 +32,7 @@
 # define KEY_CODE_CTRL_A "\x01\0\0\0\0"
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
+# define KEY_CODE_BACKSPACE "\x8\0\0\0\0"
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -117,5 +118,7 @@ BOOL	is_ctrl_z(const char *buff);
 BOOL	is_ctrl_a(const char *buff);
 BOOL	is_ctrl_e(const char *buff);
 BOOL	is_ctrl_l(const char *buff);
+
+BOOL	is_backspace(const char *buff);
 
 #endif

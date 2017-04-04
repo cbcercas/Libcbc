@@ -35,6 +35,7 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_CTRL_A, &is_ctrl_a},
 		{KEY_CODE_CTRL_E, &is_ctrl_e},
 		{KEY_CODE_CTRL_L, &is_ctrl_l},
+		{KEY_CODE_BACKSPACE, &is_backspace},
 		{KEY_CODE_NONE, NULL}
 	};
 
