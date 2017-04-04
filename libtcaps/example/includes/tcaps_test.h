@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 18:02:09 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/18 12:41:53 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/27 12:41:44 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef TCAPS_TEST_H
@@ -29,6 +29,7 @@ BOOL	key_exec(t_key *key);
 
 BOOL	exec_ctrl_c(const t_key *key);
 BOOL	exec_ctrl_d(const t_key *key);
+BOOL	exec_ctrl_z(const t_key *key);
 
 BOOL	exec_arrow(const t_key *key);
 

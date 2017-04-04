@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/18 12:37:13 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/18 12:45:30 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/27 12:42:58 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <tcaps_test.h>
@@ -20,6 +20,7 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_UARROW, &exec_arrow},
 		{KEY_CODE_CTRL_C, &exec_ctrl_c},
 		{KEY_CODE_CTRL_D, &exec_ctrl_d},
+		{KEY_CODE_CTRL_Z, &exec_ctrl_z},
 		{KEY_CODE_NONE, NULL}
 	};
 	int				i;

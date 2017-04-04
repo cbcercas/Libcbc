@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 21:44:30 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/17 23:50:18 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/27 12:41:05 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <libtcaps.h>
@@ -31,6 +31,7 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_UARROW, &is_up_arrow},
 		{KEY_CODE_CTRL_C, &is_ctrl_c},
 		{KEY_CODE_CTRL_D, &is_ctrl_d},
+		{KEY_CODE_CTRL_Z, &is_ctrl_z},
 		{KEY_CODE_NONE, NULL}
 	};
 

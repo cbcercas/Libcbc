@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:38:32 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/19 17:02:35 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/27 14:37:02 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CBC_TERMCAPS_H
@@ -28,6 +28,7 @@
 # define KEY_CODE_UARROW "ku"
 # define KEY_CODE_CTRL_C "\x3\0\0\0\0\0"
 # define KEY_CODE_CTRL_D "\x4\0\0\0\0\0"
+# define KEY_CODE_CTRL_Z "\x1A\0\0\0\0"
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -109,5 +110,6 @@ BOOL	is_up_arrow(const char *buff);
 */
 BOOL	is_ctrl_c(const char *buff);
 BOOL	is_ctrl_d(const char *buff);
+BOOL	is_ctrl_z(const char *buff);
 
 #endif
