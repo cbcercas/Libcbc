@@ -49,7 +49,7 @@ INC				= -I includes
 
 # Libraries
 ## libft includes
-LIBFT_DIR		= ../libft
+LIBFT_DIR		= ../../libft
 INC				+= -I $(LIBFT_DIR)/includes
 LIBS				= -L $(LIBFT_DIR) -lft
 ## Libtcaps

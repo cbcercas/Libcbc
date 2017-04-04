@@ -40,7 +40,7 @@ BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 # Libraries
 ## libft includes
-LIBFT_DIR	= libft
+LIBFT_DIR	= ../libft
 INC			+= -I $(LIBFT_DIR)/includes
 LIBS		= -L $(LIBFT_DIR) -lft
 
