@@ -36,4 +36,4 @@
 DOC
 # Debug files
 *.dSYM/
-
+.swp

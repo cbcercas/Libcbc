@@ -6,9 +6,10 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:38:32 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/19 17:02:35 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/03/30 14:33:43 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef CBC_TERMCAPS_H
 # define CBC_TERMCAPS_H
 
@@ -28,6 +29,13 @@
 # define KEY_CODE_UARROW "ku"
 # define KEY_CODE_CTRL_C "\x3\0\0\0\0\0"
 # define KEY_CODE_CTRL_D "\x4\0\0\0\0\0"
+# define KEY_CODE_CTRL_Z "\x1A\0\0\0\0"
+# define KEY_CODE_CTRL_A "\x01\0\0\0\0"
+# define KEY_CODE_CTRL_E "\x05\0\0\0\0"
+# define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
+# define KEY_CODE_BACKSPACE "\x8\0\0\0\0"
+# define KEY_CODE_TAB "\x9\0\0\0\0"
+# define KEY_CODE_ENTER "\xA\0\0\0\0"
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -109,5 +117,45 @@ BOOL	is_up_arrow(const char *buff);
 */
 BOOL	is_ctrl_c(const char *buff);
 BOOL	is_ctrl_d(const char *buff);
+BOOL	is_ctrl_z(const char *buff);
+BOOL	is_ctrl_a(const char *buff);
+BOOL	is_ctrl_e(const char *buff);
+
+/*
+** @file		tcaps_ctrl_1.c
+**
+** @brief		Determines if crtl+*.
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+
+BOOL	is_ctrl_l(const char *buff);
+BOOL	is_ctrl_j(const char *buff);
+
+/*
+** @file tcaps_backspace.c
+**
+** @brief Determines if backspace is pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+
+BOOL	is_backspace(const char *buff);
+
+/*
+** @file tcaps_tab.c
+**
+** @brief Determines if tab is pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+
+BOOL	is_tab(const char *buff);
 
 #endif
