@@ -42,3 +42,7 @@ DOC/
 
 # log files
 *.log
+
+# Clion Files
+.idea/
+cmake-build-debug/
