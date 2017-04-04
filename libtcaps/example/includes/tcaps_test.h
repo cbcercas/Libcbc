@@ -30,6 +30,9 @@ BOOL	key_exec(t_key *key);
 BOOL	exec_ctrl_c(const t_key *key);
 BOOL	exec_ctrl_d(const t_key *key);
 BOOL	exec_ctrl_z(const t_key *key);
+BOOL	exec_ctrl_a(const t_key *key);
+BOOL	exec_ctrl_e(const t_key *key);
+BOOL	exec_ctrl_l(const t_key *key);
 
 BOOL	exec_arrow(const t_key *key);
 

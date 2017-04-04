@@ -21,6 +21,9 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_CTRL_C, &exec_ctrl_c},
 		{KEY_CODE_CTRL_D, &exec_ctrl_d},
 		{KEY_CODE_CTRL_Z, &exec_ctrl_z},
+		{KEY_CODE_CTRL_A, &exec_ctrl_a},
+		{KEY_CODE_CTRL_E, &exec_ctrl_e},
+		{KEY_CODE_CTRL_L, &exec_ctrl_l},
 		{KEY_CODE_NONE, NULL}
 	};
 	int				i;

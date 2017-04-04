@@ -32,3 +32,27 @@ BOOL	exec_ctrl_z(const t_key *key)
 	exec_ctrl_c(key);
 	return (false);
 }
+
+BOOL	exec_ctrl_a(const t_key *key)
+{
+	(void)key;
+	write(1, "User pressed CTRL+A\n", 20);
+	exec_ctrl_c(key);
+	return (false);
+}
+
+BOOL	exec_ctrl_e(const t_key *key)
+{
+	(void)key;
+	write(1, "User pressed CTRL+E\n", 20);
+	exec_ctrl_c(key);
+	return (false);
+}
+
+BOOL	exec_ctrl_l(const t_key *key)
+{
+	(void)key;
+	write(1, "User pressed CTRL+L\n", 20);
+	exec_ctrl_c(key);
+	return (false);
+}

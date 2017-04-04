@@ -29,6 +29,9 @@
 # define KEY_CODE_CTRL_C "\x3\0\0\0\0\0"
 # define KEY_CODE_CTRL_D "\x4\0\0\0\0\0"
 # define KEY_CODE_CTRL_Z "\x1A\0\0\0\0"
+# define KEY_CODE_CTRL_A "\x01\0\0\0\0"
+# define KEY_CODE_CTRL_E "\x05\0\0\0\0"
+# define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -111,5 +114,8 @@ BOOL	is_up_arrow(const char *buff);
 BOOL	is_ctrl_c(const char *buff);
 BOOL	is_ctrl_d(const char *buff);
 BOOL	is_ctrl_z(const char *buff);
+BOOL	is_ctrl_a(const char *buff);
+BOOL	is_ctrl_e(const char *buff);
+BOOL	is_ctrl_l(const char *buff);
 
 #endif
