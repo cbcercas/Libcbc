@@ -12,4 +12,5 @@ set(SOURCE_FILES
         srcs/tcaps_tab.c
         srcs/tcaps_utils.c)
 
+include_directories(includes)
 add_library(libtcaps ${SOURCE_FILES})
