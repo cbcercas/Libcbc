@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(libtcaps)
+project(tcaps)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -13,4 +13,4 @@ set(SOURCE_FILES
         srcs/tcaps_utils.c)
 
 include_directories(includes)
-add_library(libtcaps ${SOURCE_FILES})
+add_library(tcaps ${SOURCE_FILES})
