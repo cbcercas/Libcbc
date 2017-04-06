@@ -13,7 +13,7 @@
 #ifndef BOOL_H
 # define BOOL_H
 
-# ifdef __STDBOOL_H
+# ifdef _STDBOOL_H
 #  define BOOL bool
 # else
 #  define BOOL t_bool
