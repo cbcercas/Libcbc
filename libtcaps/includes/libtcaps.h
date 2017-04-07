@@ -23,10 +23,10 @@
 
 # define MAX_KEY_STRING_LEN 3
 
-# define KEY_CODE_RARROW "kr"
-# define KEY_CODE_LARROW "kl"
-# define KEY_CODE_DARROW "kd"
-# define KEY_CODE_UARROW "ku"
+# define KEY_CODE_RARROW "\x43\0\0\0\0"
+# define KEY_CODE_LARROW "\x44\0\0\0\0"
+# define KEY_CODE_DARROW "\x41\0\0\0\0"
+# define KEY_CODE_UARROW "\x41\0\0\0\0"
 # define KEY_CODE_CTRL_C "\x3\0\0\0\0\0"
 # define KEY_CODE_CTRL_D "\x4\0\0\0\0\0"
 # define KEY_CODE_CTRL_Z "\x1A\0\0\0\0"

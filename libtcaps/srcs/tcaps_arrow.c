@@ -13,56 +13,28 @@
 
 BOOL	is_right_arrow(const char *buff)
 {
-	static char	*arrow = NULL;
-
-	if (arrow == NULL)
-	{
-		arrow = tgetstr(KEY_CODE_RARROW, NULL);
-		arrow[1] = 91;
-	}
-	if (ft_strequ(buff, arrow))
+	if (ft_strequ(buff, KEY_CODE_RARROW))
 		return (true);
 	return (false);
 }
 
 BOOL	is_left_arrow(const char *buff)
 {
-	static char	*arrow = NULL;
-
-	if (arrow == NULL)
-	{
-		arrow = tgetstr(KEY_CODE_LARROW, NULL);
-		arrow[1] = 91;
-	}
-	if (ft_strequ(buff, arrow))
+	if (ft_strequ(buff, KEY_CODE_LARROW))
 		return (true);
 	return (false);
 }
 
 BOOL	is_down_arrow(const char *buff)
 {
-	static char	*arrow = NULL;
-
-	if (arrow == NULL)
-	{
-		arrow = tgetstr(KEY_CODE_DARROW, NULL);
-		arrow[1] = 91;
-	}
-	if (ft_strequ(buff, arrow))
+	if (ft_strequ(buff, KEY_CODE_DARROW))
 		return (true);
 	return (false);
 }
 
 BOOL	is_up_arrow(const char *buff)
 {
-	static char	*arrow = NULL;
-
-	if (arrow == NULL)
-	{
-		arrow = tgetstr(KEY_CODE_UARROW, NULL);
-		arrow[1] = 91;
-	}
-	if (ft_strequ(buff, arrow))
+	if (ft_strequ(buff, KEY_CODE_UARROW))
 		return (true);
 	return (false);
 }
