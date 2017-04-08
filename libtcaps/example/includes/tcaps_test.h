@@ -17,6 +17,8 @@
 #include <libtcaps.h>
 #include <types/bool.h>
 
+#define PROGNAME "tcapstest"
+
 typedef struct	s_key_exec
 {
 	char	*key_code;

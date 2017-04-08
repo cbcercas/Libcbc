@@ -13,6 +13,7 @@
 
 BOOL	exec_arrow(const t_key *key)
 {
+	log_dbg1("exec arrow.");
 	tputs(tgetstr(key->key_code, NULL), 0, &ft_putchar2);
 	return (false);
 }

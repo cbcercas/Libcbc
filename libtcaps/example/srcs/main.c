@@ -22,6 +22,7 @@ int main(int ac, char const *av[])
 	int		i = 0;
 
 	raw_terminal_mode();
+	logger_init(D_MAX - 1, PROGNAME, "test.log");
 	stop = false;
 	while (stop == false)
 	{
@@ -40,5 +41,6 @@ int main(int ac, char const *av[])
 	}
 	tputs(tgetstr("cl", NULL), 0, &ft_putchar2);
 	default_terminal_mode();
+	logger_close();
 	return 0;
 }

@@ -20,6 +20,7 @@
 # include <libft.h>
 # include <types/bool.h>
 # include <ft_printf/libftprintf.h>
+# include <logger/logger.h>
 
 # define MAX_KEY_STRING_LEN 3
 
