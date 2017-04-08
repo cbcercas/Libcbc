@@ -48,16 +48,19 @@ BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR) bin
 INC				= -I includes
 
 # Libraries
-## libft includes
-LIBFT_DIR		= ../../libft
-INC				+= -I $(LIBFT_DIR)/includes
-LIBS				= -L $(LIBFT_DIR) -lft
 ## Libtcaps
 LIBTCAPS_DIR	= ..
 INC				+= -I $(LIBTCAPS_DIR)/includes
 LIBS				+= -L$(LIBTCAPS_DIR) -ltcaps
+
 ## Curses
 LIBS				+= -lcurses
+
+## libft includes
+LIBFT_DIR		= ../../libft
+INC				+= -I $(LIBFT_DIR)/includes
+LIBS				+= -L $(LIBFT_DIR) -lft
+
 
 #Utils
 RM				= rm -rf
