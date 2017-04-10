@@ -16,7 +16,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <logger/logger.h>
+
 
 static t_fd	*ft_fd_add(int fd)
 {
@@ -58,7 +58,7 @@ RETURN_TYPE	ft_next_line(t_fd *elem, char **line, const char c, size_t b_size)
 	ft_bzero(buf, b_size + 1);
 	while(ret > 0 && !*line)
 		if (ft_in_rest(elem, line, c))
-			return (1);
+			ret = 0;
 		else
 		{
 			ret = read(elem->fd, buf, b_size);
@@ -75,7 +75,7 @@ RETURN_TYPE	ft_next_line(t_fd *elem, char **line, const char c, size_t b_size)
 				return (-1);
 		}
 	ret = ((RETURN_LEN && *line) ? ft_strlen(*line) : 1);
-	return ((*line) ? ret : 0);
+	return ((*line) ? (RETURN_TYPE)ret : (RETURN_TYPE)0);
 }
 
 RETURN_TYPE	gnp(int const fd, char **line, const char c, size_t b_size)
