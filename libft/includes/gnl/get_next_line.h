@@ -30,6 +30,7 @@ typedef struct	s_fd
 	struct s_fd *next;
 }				t_fd;
 
-int				get_next_line(int const fd, char **line);
+RETURN_TYPE		gnp(int const fd, char **line, char c, size_t b_size);
+#define			get_next_line(fd, line) gnp(fd, line, '\n', BUFF_SIZE)
 
 #endif

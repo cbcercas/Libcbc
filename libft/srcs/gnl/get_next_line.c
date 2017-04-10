@@ -16,6 +16,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <logger/logger.h>
 
 static t_fd	*ft_fd_add(int fd)
 {
@@ -29,16 +30,16 @@ static t_fd	*ft_fd_add(int fd)
 	return (elem);
 }
 
-int			ft_in_rest(t_fd *elem, char **line)
+int			ft_in_rest(t_fd *elem, char **line, const char c)
 {
 	char *tmp;
 
 	tmp = NULL;
-	if (elem->rest && ft_strchr(elem->rest, '\n'))
+	if (elem->rest && ft_strchr(elem->rest, c))
 	{
-		*line = ft_strsub(elem->rest, 0, ft_strchr(elem->rest, '\n') - elem->rest);
+		*line = ft_strsub(elem->rest, 0, ft_strchr(elem->rest, c) - elem->rest);
 		if ((ft_strlen(*line) + 1) != ft_strlen(elem->rest))
-			tmp = ft_strdup(ft_strchr(elem->rest, '\n') + 1);
+			tmp = ft_strdup(ft_strchr(elem->rest, c) + 1);
 		ft_strdel(&elem->rest);
 		elem->rest = tmp;
 		return (1);
@@ -48,19 +49,19 @@ int			ft_in_rest(t_fd *elem, char **line)
 }
 
 
-RETURN_TYPE	ft_next_line(t_fd *elem, char **line)
+RETURN_TYPE	ft_next_line(t_fd *elem, char **line, const char c, size_t b_size)
 {
-	char	buf[BUFF_SIZE + 1];
+	char	buf[b_size + 1];
 	ssize_t	ret;
 
 	ret = 1;
-	ft_bzero(buf, BUFF_SIZE + 1);
+	ft_bzero(buf, b_size + 1);
 	while(ret > 0 && !*line)
-		if (ft_in_rest(elem, line))
+		if (ft_in_rest(elem, line, c))
 			return (1);
 		else
 		{
-			ret = read(elem->fd, buf, BUFF_SIZE);
+			ret = read(elem->fd, buf, b_size);
 			buf[ret] = '\0';
 			if (ret > 0)
 				elem->rest = ft_strjoincl(elem->rest, buf, 1);
@@ -77,7 +78,7 @@ RETURN_TYPE	ft_next_line(t_fd *elem, char **line)
 	return ((*line) ? ret : 0);
 }
 
-RETURN_TYPE	get_next_line(int const fd, char **line)
+RETURN_TYPE	gnp(int const fd, char **line, const char c, size_t b_size)
 {
 	static t_fd	*fd_list = NULL;
 	t_fd		*elem;
@@ -94,5 +95,5 @@ RETURN_TYPE	get_next_line(int const fd, char **line)
 			return (-1);
 		elem = elem->next;
 	}
-	return (ft_next_line(elem, line));
+	return (ft_next_line(elem, line, c, b_size));
 }
