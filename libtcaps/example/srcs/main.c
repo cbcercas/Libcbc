@@ -32,6 +32,7 @@ int main(int ac, char const *av[])
 	stop = false;
 	while (stop == false)
 	{
+		raw_terminal_mode();
 		(void)ft_bzero((void *)buff, MAX_KEY_STRING_LEN);
 		res = read(STDIN_FILENO, buff, MAX_KEY_STRING_LEN);
 		buff[res] = '\0';
@@ -44,6 +45,7 @@ int main(int ac, char const *av[])
 		key_del(&key);
 		if (stop == false && i++ == 10)
 			stop = true;
+		default_terminal_mode();
 	}
 	tputs(tgetstr("cl", NULL), 0, &ft_putchar2);
 	default_terminal_mode();
