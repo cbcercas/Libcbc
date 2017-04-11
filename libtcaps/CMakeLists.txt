@@ -10,7 +10,10 @@ set(SOURCE_FILES
         srcs/tcaps_ctrl_1.c
         srcs/tcaps_ctrl_2.c
         srcs/tcaps_tab.c
-        srcs/tcaps_utils.c)
+        srcs/tcaps_utils.c
+        srcs/tcaps_size.c)
 
 include_directories(includes)
+include_directories(../libft/includes)
+
 add_library(tcaps ${SOURCE_FILES})

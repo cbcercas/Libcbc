@@ -20,8 +20,14 @@ int main(int ac, char const *av[])
 	int		res;
 	t_key	key;
 	int		i = 0;
+	t_ts	ts;
+	t_cpos	cpos;
 
 	raw_terminal_mode();
+	ts = get_term_size();
+	cpos = get_cursor_pos();
+	log_info("Terminal size: %lux%lu", ts.ts_cols, ts.ts_lines);
+	log_info("Cursor position: %dx%d", cpos.cp_col, cpos.cp_line);
 	logger_init(D_MAX - 1, PROGNAME, "test.log");
 	stop = false;
 	while (stop == false)

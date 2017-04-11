@@ -13,7 +13,7 @@
 NAME			= libtcaps.a
 
 SRCS			= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
-				  tcaps_backspace.c tcaps_tab.c
+				  tcaps_backspace.c tcaps_tab.c tcaps_size.c
 
 ###############################################################################
 #																			  #

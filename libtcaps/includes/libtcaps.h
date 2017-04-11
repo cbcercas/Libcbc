@@ -21,6 +21,55 @@
 # include <types/bool.h>
 # include <ft_printf/libftprintf.h>
 # include <logger/logger.h>
+# include <gnl/get_next_line.h>
+
+/**
+** @struct     s_ts
+**
+** @brief      This struct is the terminal size
+**
+** @var        s_ts::ts_cols
+**                   The column number
+** @var        s_ts::ts_lines
+**                   The line number
+*/
+typedef struct s_ts	t_ts;
+struct	s_ts
+{
+	unsigned short ts_cols;
+	unsigned short ts_lines;
+};
+
+t_ts	get_term_size(void);
+
+/**
+** @struct     s_ts
+**
+** @brief      This struct is the terminal size
+**
+** @var        s_cpos::cp_col
+**                   The column position
+** @var        s_cpos::cp_line
+**                   The line position
+*/
+typedef struct s_cpos t_cpos;
+struct s_cpos
+{
+	unsigned short cp_col;
+	unsigned short cp_line;
+};
+
+/**
+** @file       tcaps_size.c
+**
+** @brief      cursor position and teminal size.
+**
+** @return     get_cursor_pos return struct s_cpos
+**             get_term_size return struct s_ts,
+**             On error structs are filled with 0.
+*/
+t_cpos	get_cursor_pos(void);
+t_ts	get_term_size(void);
 
 # define MAX_KEY_STRING_LEN 3
 
