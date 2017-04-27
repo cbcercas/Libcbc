@@ -171,7 +171,7 @@ BOOL	is_ctrl_z(const char *buff);
 BOOL	is_ctrl_a(const char *buff);
 BOOL	is_ctrl_e(const char *buff);
 
-/*
+/**
 ** @file		tcaps_ctrl_1.c
 **
 ** @brief		Determines if crtl+*.
@@ -184,7 +184,7 @@ BOOL	is_ctrl_e(const char *buff);
 BOOL	is_ctrl_l(const char *buff);
 BOOL	is_ctrl_j(const char *buff);
 
-/*
+/**
 ** @file tcaps_backspace.c
 **
 ** @brief Determines if backspace is pressed
@@ -196,7 +196,7 @@ BOOL	is_ctrl_j(const char *buff);
 
 BOOL	is_backspace(const char *buff);
 
-/*
+/**
 ** @file tcaps_tab.c
 **
 ** @brief Determines if tab is pressed
