@@ -19,8 +19,8 @@ BOOL	is_right_arrow(const char *buff)
 	{
 		if((arrow = tgetstr(KEY_CODE_RARROW, NULL)) == NULL)
 		{
-			log_fatal("Lib_tcaps: failed to arrow code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to arrow code.");
+			log_fatal("Lib_tcaps: failed to get right arrow code.");
+			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get right arrow code.");
 		}
 		else
 			arrow[1] = 91;
@@ -38,8 +38,8 @@ BOOL	is_left_arrow(const char *buff)
 	{
 		if ((arrow = tgetstr(KEY_CODE_LARROW, NULL)) == NULL)
 		{
-			log_fatal("Lib_tcaps: failed to arrow code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to arrow code.");
+			log_fatal("Lib_tcaps: failed to get arrow code.");
+			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get arrow code.");
 		}
 		else
 			arrow[1] = 91;
@@ -57,8 +57,8 @@ BOOL	is_down_arrow(const char *buff)
 	{
 		if ((arrow = tgetstr(KEY_CODE_DARROW, NULL)) == NULL)
 		{
-			log_fatal("Lib_tcaps: failed to arrow code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to arrow code.");
+			log_fatal("Lib_tcaps: failed to get arrow code.");
+			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get arrow code.");
 		}
 		else
 			arrow[1] = 91;
@@ -76,8 +76,8 @@ BOOL	is_up_arrow(const char *buff)
 	{
 		if ((arrow = tgetstr(KEY_CODE_UARROW, NULL)) == NULL)
 		{
-			log_fatal("Lib_tcaps: failed to arrow code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to arrow code.");
+			log_fatal("Lib_tcaps: failed to get arrow code.");
+			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get arrow code.");
 		}
 		else
 			arrow[1] = 91;
