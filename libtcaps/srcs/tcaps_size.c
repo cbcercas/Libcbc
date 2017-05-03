@@ -47,8 +47,8 @@ t_cpos	get_cursor_pos(void)
 		log_fatal("Libtcaps: Failed to read cursor pos from STDIN_FILENO");
 	else
 	{
-		cpos.cp_col = (unsigned short)ft_atoi(&buff[2]);
-		cpos.cp_line = (unsigned short)ft_atoi(ft_strchr(buff, ';') + 1);
+		cpos.cp_line = (unsigned short)ft_atoi(&buff[2]);
+		cpos.cp_col = (unsigned short)ft_atoi(ft_strchr(buff, ';') + 1);
 		log_dbg3("Libtcaps: cursor pos: col: %hu, line: %hu", cpos.cp_col, cpos.cp_line);
 	}
 	return (cpos);
