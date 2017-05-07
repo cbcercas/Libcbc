@@ -44,7 +44,7 @@ t_string	*string_create_cap(size_t cap)
 	size_t new_cap;
 
 	new_cap = (cap / STRING_MIN_SIZE + 1) * STRING_MIN_SIZE;
-	if (!(string = ft_memalloc(sizeof(*string))))
+	if (!(string = ft_strnew(sizeof(*string))))
 		return (NULL);
 	if (!(string = string_init_cap(string, new_cap)))
 	{
