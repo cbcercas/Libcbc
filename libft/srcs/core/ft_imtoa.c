@@ -71,7 +71,7 @@ char		*ft_uimtoa(uintmax_t num)
 	int			i;
 	uintmax_t	numtmp;
 
-	if (!(str = ft_strnew(ft_countdigit_unsigned(num))))
+	if (!(str = ft_strnew(ft_countdigit_unsigned(num) + 1)))
 		return (NULL);
 	numtmp = num;
 	i = 0;
