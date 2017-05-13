@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/02/28 03:59:38 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/13 23:11:37 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c \
 ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strrev.c \
 ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtabdup.c ft_strtrim.c ft_tablen.c \
 ft_tolower.c ft_toupper.c ft_uitobase.c ft_uitohex.c ft_uitooctal.c \
-ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c
+ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c ft_sqrt.c
 
 SRC_SUBDIR		+= gnl
 SRCS			+= get_next_line.c

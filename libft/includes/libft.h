@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/28 03:54:57 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 23:12:28 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,6 @@ char			*ft_wstostr(wchar_t *ws);
 void			ft_lstpush_back(t_list **head, t_list *lst);
 void			ft_lstpush_front(t_list **head, t_list *lst);
 t_list			*ft_lstpush(t_list **head, t_list *lst, int place);
+
+double			ft_sqrt(double i);
 #endif
