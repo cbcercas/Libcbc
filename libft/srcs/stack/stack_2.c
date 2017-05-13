@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bool.h                                             :+:      :+:    :+:   */
+/*   stack_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 22:35:44 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 15:45:17 by chbravo-         ###   ########.fr       */
+/*   Created: 2017/05/13 22:06:18 by chbravo-          #+#    #+#             */
+/*   Updated: 2017/05/13 22:09:14 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOOL_H
-# define BOOL_H
+#include <types/stack.h>
 
-# if defined(_STDBOOL_H) || defined(__STDBOOL_H)
-#  define BOOL bool
-# else
-#  define BOOL t_bool
-
-typedef enum	e_bool
+t_stack		*get_top_stack(t_stack *st)
 {
-	false = (1 == 0),
-	true = (!false)
-}				t_bool;
-# endif
+	return (array_get_last((t_array *)st));
+}
 
-#endif
+size_t		get_stack_length(t_stack *st)
+{
+	return ((st->used) ? st->used - 1 : 0);
+}
+
+void		stack_destroy(t_stack *st)
+{
+	return (array_destroy((t_array **)st));
+}
+
+t_stack		*stack_reset(t_stack *st)
+{
+	return (array_reset((t_array *)st));
+}

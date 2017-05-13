@@ -6,11 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/15 21:47:53 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/15 21:48:05 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:14:41 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_tablen(char **tab)
+#include <libft.h>
+
+size_t		ft_tablen(char **tab)
 {
 	char	**save;
 

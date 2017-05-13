@@ -6,27 +6,27 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 12:44:49 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/04 08:10:10 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 22:05:12 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-#include <array/array.h>
-#include <types/bool.h>
-#include <stdlib.h>
+# include <array/array.h>
+# include <types/bool.h>
+# include <stdlib.h>
 
-typedef  t_array	t_stack;
+typedef t_array	t_stack;
 
-#define stack_init(st, size) (t_stack *)array_init((t_array *)st, size)
-#define stack_create(size) (t_stack *)array_create(size)
-#define is_empty_stack(st) !(BOOL)((t_array *)st)->used
-#define stack_push(st, data) array_push((t_array *)st, (void*)data)
-#define stack_pop(st) array_pop((t_array *)st, NULL)
-#define get_top_stack(st) array_get_last((t_array *)st)
-#define get_stack_length(st) st->used - 1
-#define stack_destroy(st) array_destroy((t_array **)st)
-#define stack_reset(st) array_reset((t_array *)st)
+t_stack	*stack_init(t_stack *st, size_t size);
+t_stack	*stack_create(size_t size);
+BOOL	is_empty_stack(t_stack *st);
+t_stack	*stack_push(t_stack *st, void *data);
+t_stack	*stack_pop(t_stack *st);
+t_stack	*get_top_stack(t_stack *st);
+size_t	get_stack_length(t_stack *st);
+void	stack_destroy(t_stack *st);
+t_stack	*stack_reset(t_stack *st);
 
 #endif

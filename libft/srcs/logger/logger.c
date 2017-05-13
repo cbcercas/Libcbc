@@ -6,9 +6,10 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:26:23 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/01 18:14:07 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:28:11 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #define LOGGER_MAIN
 #include <logger/logger_intern.h>
 #undef LOGGER_MAIN
@@ -18,7 +19,7 @@ enum e_d_lvl	g_logger_lvl;
 char			*g_logger_pname;
 char			*g_logger_file;
 
-/**
+/*
 ** @brief      Initialise the logger
 **             create file if missing
 **             clear the file if size > 512Ko
@@ -29,7 +30,8 @@ char			*g_logger_file;
 **
 ** @return     -1 on error or no log, the log fd otherwise
 */
-int	logger_init(enum e_d_lvl lvl, const char *pname, const char *filename)
+
+int		logger_init(enum e_d_lvl lvl, const char *pname, const char *filename)
 {
 	char *log_start;
 
@@ -49,10 +51,10 @@ int	logger_init(enum e_d_lvl lvl, const char *pname, const char *filename)
 	return (g_logger_fd);
 }
 
-int	logger_close()
+int		logger_close(void)
 {
-	char *log_start;
-	int ret;
+	char	*log_start;
+	int		ret;
 
 	log_start = ft_strjoin("end of intance ", g_logger_pname);
 	ft_dprintf(g_logger_fd, "##########################################\n");
@@ -74,7 +76,7 @@ void	logger_log(enum e_d_lvl lvl, const char *format, ...)
 
 	if (!is_valid_fd() || g_logger_fd == -1
 		|| lvl == D_OFF || lvl >= D_MAX || lvl > g_logger_lvl)
-		return;
+		return ;
 	now = time(0);
 	now_tm = gmtime(&now);
 	va_start(list, format);

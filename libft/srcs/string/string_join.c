@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 12:11:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 01:01:45 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:31:39 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Join two t_string into an other
 **
 ** @param      s1    The first string
@@ -20,6 +20,7 @@
 **
 ** @return     return the new t_string
 */
+
 t_string	*string_join(t_string *s1, t_string *s2)
 {
 	t_string	*string;
@@ -36,7 +37,7 @@ t_string	*string_join(t_string *s1, t_string *s2)
 	return (string);
 }
 
-/**
+/*
 ** @brief      Join two t_string into an other.
 **             And free source string if needed
 **
@@ -46,6 +47,7 @@ t_string	*string_join(t_string *s1, t_string *s2)
 **
 ** @return     return the new t_string
 */
+
 t_string	*string_join_cl(t_string **s1, t_string **s2, BOOL free)
 {
 	t_string	*string;

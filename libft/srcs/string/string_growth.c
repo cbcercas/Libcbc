@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 11:08:45 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 22:35:01 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:32:15 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Growth the string with capacity
 **
 ** @param      string  The t_string
@@ -20,6 +20,7 @@
 **
 ** @return     The t_string pointer on success, NULL otherwise
 */
+
 t_string	*string_growth_cap(t_string *string, size_t cap)
 {
 	char	*new_string;
@@ -34,17 +35,18 @@ t_string	*string_growth_cap(t_string *string, size_t cap)
 	ft_strdel(&string->s);
 	string->s = new_string;
 	string->capacity = new_cap;
-	return(string);
+	return (string);
 }
 
-/**
+/*
 ** @brief      Groth the string without capacity
 **
 ** @param      string  The t_string
 **
 ** @return     The t_string pointer on success, NULL otherwise
 */
+
 t_string	*string_growth(t_string *string)
 {
-	return(string_growth_cap(string, string->capacity + 1));
+	return (string_growth_cap(string, string->capacity + 1));
 }

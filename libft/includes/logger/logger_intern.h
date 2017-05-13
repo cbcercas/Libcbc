@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:37:10 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/01 17:46:01 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 15:36:01 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # include <ft_printf/libftprintf.h>
 
 # ifndef LOGGER_MAIN
+
 extern int	g_logger_fd;
-extern enum	e_d_lvl	g_logger_lvl;
+extern enum e_d_lvl	g_logger_lvl;
 extern char	*g_logger_pname;
 extern char	*g_logger_file;
 # endif
@@ -37,4 +38,3 @@ BOOL	is_valid_fd(void);
 void	logger_clear(BOOL force);
 
 #endif
-

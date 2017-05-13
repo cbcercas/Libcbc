@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:29:40 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/31 18:43:27 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:24:19 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int			ft_print_ws(int fd, t_args *sarg, va_list *larg)
 		len = sarg->preci_len;
 	len_save = len;
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
+		len += ft_print_pad(fd, len, sarg->min_width, \
+			(sarg->zero_pad) ? '0' : ' ');
 	ft_putnstr_fd(s, len_save, fd);
 	ft_strdel(&s);
 	if (sarg->left_pad && (sarg->min_width > len))
@@ -77,7 +78,8 @@ int			ft_print_s(int fd, t_args *sarg, va_list *larg)
 		len = sarg->preci_len;
 	len_save = len;
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, len, sarg->min_width, (sarg->zero_pad) ? '0' : ' ');
+		len += ft_print_pad(fd, len, sarg->min_width, \
+			(sarg->zero_pad) ? '0' : ' ');
 	ft_putnstr_fd(s, len_save, fd);
 	ft_strdel(&s);
 	if (sarg->left_pad && (sarg->min_width > len))

@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/13 23:11:37 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/13 21:32:40 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c \
 ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strrev.c \
 ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtabdup.c ft_strtrim.c ft_tablen.c \
 ft_tolower.c ft_toupper.c ft_uitobase.c ft_uitohex.c ft_uitooctal.c \
-ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c ft_sqrt.c
+ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c
 
 SRC_SUBDIR		+= gnl
 SRCS			+= get_next_line.c
 
 SRC_SUBDIR		+= ft_printf
-SRCS			+= ft_printf.c ft_parse_args.c ft_parse_args2.c utils.c \
+SRCS			+= ft_printf.c ft_printf_2.c ft_parse_args.c ft_parse_args2.c utils.c \
 printer_s.c printer_d.c printer_o.c printer_p.c printer_u.c printer_x.c \
 printer_c.c printer_per.c printer_def.c
 
@@ -47,10 +47,13 @@ string_insert.c string_join.c string_clean.c string_remove.c string_shrink.c \
 string_replace.c
 
 SRC_SUBDIR		+= logger
-SRCS			+= logger.c logger_utils.c
+SRCS			+= logger.c logger_utils.c logger_log.c logger_log_dbg.c
 
 SRC_SUBDIR      += unistd
 SRCS            += ft_getopt.c
+
+SRC_SUBDIR      += stack
+SRCS            += stack.c
 
 ###############################################################################
 #																			  #
@@ -60,7 +63,7 @@ SRCS            += ft_getopt.c
 
 #  Compiler
 CC			= clang
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -g -Wall -Wextra -Werror
 
 #The Directories, Source, Includes, Objects and Libraries
 INC			= -I includes
@@ -109,7 +112,7 @@ $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 $(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
-	$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
+	@$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
 
 $(BUILD_DIR):
 	@$(MKDIR) -p $@

@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:26:18 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/01 15:19:41 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:08:37 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      Add an element at the and of the array
 **
 ** @param      array  The t_array
@@ -20,6 +20,7 @@
 **
 ** @return     The t_array pointer on success, NULL otherwise
 */
+
 t_array	*array_push(t_array *array, const void *data)
 {
 	if (array->used == array->capacity)
@@ -30,7 +31,7 @@ t_array	*array_push(t_array *array, const void *data)
 	return (array);
 }
 
-/**
+/*
 ** @brief      Remove the last element of the array
 **
 ** @param      array  The t_array
@@ -38,6 +39,7 @@ t_array	*array_push(t_array *array, const void *data)
 **
 ** @return     The t_array pointer on success, NULL otherwise
 */
+
 t_array	*array_pop(t_array *array, void *poped)
 {
 	if (!array || array->used == 0)

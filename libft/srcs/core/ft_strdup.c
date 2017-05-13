@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2016/10/30 01:41:59 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:16:07 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,44 @@
 
 char	*ft_strdup(char const *src)
 {
-	char *dup;
+	char	*dup;
+	size_t	size;
 
-	dup = malloc((unsigned int)ft_strlen(src) + 1);
-	if (dup)
+	size = ft_strlen(src);
+	if ((dup = ft_strnew(size)))
 	{
-		ft_strcpy(dup, src);
+		ft_memcpy(dup, src, size);
 		return (dup);
 	}
-	return (0);
+	return (NULL);
+}
+
+char	*ft_strdup_free(char *src, int free)
+{
+	char	*dup;
+	size_t	size;
+
+	size = ft_strlen(src);
+	if ((dup = ft_strnew(size)))
+	{
+		ft_memcpy(dup, src, size);
+		if (free)
+			ft_strdel(&src);
+		return (dup);
+	}
+	return (NULL);
+}
+
+char	*ft_strndup_free(char *src, size_t start, size_t size, int free)
+{
+	char	*dup;
+
+	if ((dup = ft_strnew(size)))
+	{
+		ft_memcpy(dup, src + start, size);
+		if (free)
+			ft_strdel(&src);
+		return (dup);
+	}
+	return (NULL);
 }

@@ -5,38 +5,82 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2015/12/09 13:04:59 by chbravo-         ###   ########.fr       */
+/*   Created: 2017/05/13 20:17:44 by chbravo-          #+#    #+#             */
+/*   Updated: 2017/05/13 20:18:09 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int num)
+char		*ft_uitoa_base(unsigned long long nb, int base)
+{
+	char					*str;
+	int						size;
+	unsigned long long		s;
+
+	size = 1;
+	s = nb;
+	while (nb > (unsigned long long int)base - 1)
+	{
+		nb = nb / base;
+		size++;
+	}
+	if (!(str = (char *)malloc(sizeof(*str) * (size + 1))))
+		return (NULL);
+	str[size] = '\0';
+	while (size--)
+	{
+		str[size] = (s % base < 10) ? (s % base) + '0' : (s % base) - 10 + 'a';
+		s = s / base;
+	}
+	return (str);
+}
+
+static char	*ft_convert(long long int n, int base, char *str, int i)
+{
+	long long int	d;
+	char			temp;
+
+	d = 1;
+	if (n < 0)
+	{
+		n = -n;
+		str[i] = '-';
+		i++;
+	}
+	while (n / d >= base)
+		d *= base;
+	while (d > 0)
+	{
+		temp = '0' + n / d;
+		if (temp > '9')
+			str[i] = (temp + 39);
+		else
+			str[i] = temp;
+		n %= d;
+		d /= base;
+		i++;
+	}
+	return (str);
+}
+
+char		*ft_itoa_base(long long int n, int base)
 {
 	char	*str;
-	int		sign;
 	int		i;
-	int		numtmp;
 
-	if (!(str = ft_strnew(ft_countchiffres(num))))
-		return (NULL);
-	if (num == -2147483648)
-		ft_strcpy(str, "8463847412-");
-	else
+	str = (char *)malloc(sizeof(*str) * 21);
+	i = 0;
+	while (i < 21)
 	{
-		sign = (num < 0);
-		numtmp = ((num < 0)) ? -num : num;
-		i = 0;
-		(num == 0) ? str[i++] = '0' : 0;
-		while (numtmp > 0)
-		{
-			str[i++] = '0' + (numtmp % 10);
-			numtmp /= 10;
-		}
-		if (sign)
-			str[i++] = '-';
 		str[i] = '\0';
+		i++;
 	}
-	return (ft_strrev(str));
+	i = 0;
+	if (base == 16)
+		return (ft_convert((unsigned int)n, base, str, i));
+	else if (base == 8)
+		return (ft_convert((unsigned long long int)n, base, str, i));
+	else
+		return (ft_convert(n, base, str, i));
 }

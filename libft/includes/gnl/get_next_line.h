@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 15:42:12 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/15 17:29:52 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 16:36:12 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # define RETURN_LEN 0
 
 # if RETURN_LEN == 1
-# define RETURN_TYPE size_t
+#  define RETURN_TYPE size_t
 # else
-# define RETURN_TYPE int
+#  define RETURN_TYPE int
 # endif
 
 typedef struct	s_fd
@@ -31,6 +31,6 @@ typedef struct	s_fd
 }				t_fd;
 
 RETURN_TYPE		gnp(int const fd, char **line, char c, size_t b_size);
-#define			get_next_line(fd, line) gnp(fd, line, '\n', BUFF_SIZE)
+RETURN_TYPE		get_next_line(int const fd, char **line);
 
 #endif

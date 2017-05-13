@@ -6,19 +6,20 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 03:53:54 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/02 04:49:34 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:32:04 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Copy a t_string into a new t_string
 **
 ** @param[in]  string  The string to clone
 **
 ** @return     The new malloced t_string
 */
+
 t_string	*string_clone(const t_string *string)
 {
 	t_string	*nstring;

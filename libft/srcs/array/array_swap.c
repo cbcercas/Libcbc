@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:07:19 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 15:02:23 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:23:11 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      Swap two elements in the array
 **
 ** @param      array  The t_array
@@ -21,16 +21,18 @@
 **
 ** @return     A bool: true on success, false otherwise
 */
-BOOL	array_swap(t_array *array, size_t pos_a, size_t pos_b)
+
+BOOL	array_swap(t_array *ar, size_t pos_a, size_t pos_b)
 {
 	void	*tmp;
-	if ((pos_a >= array->capacity) || (pos_b >= array->capacity))
+
+	if ((pos_a >= ar->capacity) || (pos_b >= ar->capacity))
 		return (false);
-	if(!(tmp = ft_memalloc(array->elem_size)))
+	if (!(tmp = ft_memalloc(ar->elem_size)))
 		return (false);
-	ft_memcpy(tmp, array_get_at(array, pos_a), array->elem_size);
-	ft_memcpy(array_get_at(array, pos_a), array_get_at(array, pos_b), array->elem_size);
-	ft_memcpy(array_get_at(array, pos_b), tmp, array->elem_size);
+	ft_memcpy(tmp, array_get_at(ar, pos_a), ar->elem_size);
+	ft_memcpy(array_get_at(ar, pos_a), array_get_at(ar, pos_b), ar->elem_size);
+	ft_memcpy(array_get_at(ar, pos_b), tmp, ar->elem_size);
 	ft_memdel(&tmp);
 	return (true);
 }

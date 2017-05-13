@@ -6,19 +6,20 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 02:51:58 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 03:19:45 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:31:31 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Reduce the string capacity if needed
 **
 ** @param      string  The t_t_string
 **
 ** @return     The t_string on success or NULL otherwise
 */
+
 t_string	*string_shrink(t_string *string)
 {
 	char	*new_str;

@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/31 18:43:09 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:19:46 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	ft_print_o(int fd, t_args *sarg, va_list *larg)
 	(sarg->precision && nb != 0) ?
 		put_uprecision(sarg, &len, &str) : 0;
 	if (!sarg->left_pad && (sarg->min_width > 1))
-		len += ft_print_pad(fd, len, sarg->min_width, sarg->zero_pad ? '0' : ' ');
+		len += ft_print_pad(fd, len, sarg->min_width, \
+			sarg->zero_pad ? '0' : ' ');
 	if (sarg->precision && !sarg->preci_len && nb == 0 && !sarg->alternate)
 		(sarg->min_width) ? ft_putchar_fd(' ', fd) : len--;
 	else

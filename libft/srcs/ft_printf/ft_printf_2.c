@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer_def.c                                      :+:      :+:    :+:   */
+/*   ft_printf_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 02:58:21 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:19:28 by chbravo-         ###   ########.fr       */
+/*   Created: 2017/05/13 20:21:26 by chbravo-          #+#    #+#             */
+/*   Updated: 2017/05/13 21:17:32 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include <stdlib.h>
 #include <libft.h>
 #include <ft_printf/printf_type.h>
 #include <ft_printf/printf_utils.h>
+#include <ft_printf/libftprintf.h>
 
-int	ft_print_def(int fd, t_args *sarg, va_list *larg)
+int		ft_dprintf(int fd, const char *fmt, ...)
 {
-	size_t	len;
+	int		ret;
+	va_list larg;
 
-	(void)larg;
-	len = 1;
-	if (!sarg->left_pad && (sarg->min_width > 1))
-		len += ft_print_pad(fd, len, sarg->min_width, \
-			(sarg->zero_pad) ? '0' : ' ');
-	ft_putchar_fd(sarg->defchar, fd);
-	if (sarg->left_pad && (sarg->min_width > 1))
-		len += ft_print_pad(fd, len, sarg->min_width, ' ');
-	return (len);
+	va_start(larg, fmt);
+	ret = ft_print(fd, &larg, fmt, 0);
+	return (ret);
+}
+
+int		ft_vdprintf(int fd, const char *fmt, va_list ap)
+{
+	int		ret;
+	va_list	larg;
+
+	va_copy(larg, ap);
+	ret = ft_print(fd, &larg, fmt, 0);
+	return (ret);
 }

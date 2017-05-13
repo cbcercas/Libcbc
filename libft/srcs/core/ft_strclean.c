@@ -6,9 +6,10 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 03:53:42 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/28 03:59:31 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:16:42 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <libft.h>
 
 char	*ft_strclean(char *str)
@@ -37,5 +38,5 @@ char	*ft_strclean(char *str)
 	}
 	tmp = ft_strdup(tmp_save);
 	ft_strdel(&tmp_save);
-	return(tmp);
+	return (tmp);
 }

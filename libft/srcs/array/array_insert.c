@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 12:42:54 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/01/24 15:40:56 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:08:32 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      add an element to the array at the given pos
 **
 ** @param      array  The t_array
@@ -21,9 +21,11 @@
 **
 ** @return     A pointer to the element inserted if success, NULL otherwise
 */
+
 t_array	*array_insert(t_array *array, size_t pos, const void *data)
 {
 	size_t count;
+
 	if (!data)
 		return (NULL);
 	if (array->used >= array->capacity)

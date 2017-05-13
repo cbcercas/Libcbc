@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:22:41 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/06 00:40:03 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 22:04:44 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Initialize the t_string with specified capacity
 **
 ** @param[out] string The t_string
@@ -20,6 +20,7 @@
 **
 ** @return     The t_string pointer, NULL otherwise
 */
+
 t_string	*string_init_cap(t_string *string, size_t cap)
 {
 	string->capacity = cap;
@@ -31,17 +32,18 @@ t_string	*string_init_cap(t_string *string, size_t cap)
 	return (string);
 }
 
-/**
+/*
 ** @brief      Create a t_string with specified capacity
 **
 ** @param[in]  cap   The array capacity
 **
 ** @return     A t_string pointer on success, NULL otherwise
 */
+
 t_string	*string_create_cap(size_t cap)
 {
 	t_string	*string;
-	size_t new_cap;
+	size_t		new_cap;
 
 	new_cap = (cap / STRING_MIN_SIZE + 1) * STRING_MIN_SIZE;
 	if (!(string = ft_memalloc(sizeof(*string))))
@@ -52,4 +54,14 @@ t_string	*string_create_cap(size_t cap)
 		return (NULL);
 	}
 	return (string);
+}
+
+t_string	*string_create(void)
+{
+	return (string_create_cap(1));
+}
+
+t_string	*string_init(t_string *string)
+{
+	return (string_init_cap(string, 0));
 }

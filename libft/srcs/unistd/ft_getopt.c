@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unistd.c                                        :+:      :+:    :+:   */
+/*   ft_getopt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 16:08:00 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/21 16:08:00 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:38:11 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define FT_GETOPT_MAIN
-# include <unistd/ft_unistd.h>
+#include <unistd/ft_unistd.h>
 #undef FT_GETOPT_MAIN
 
-int		g_opterr = 1;
-int		g_optind = 1;
-int		g_optopt;
-char	*g_optarg;
+int					g_opterr = 1;
+int					g_optind = 1;
+int					g_optopt;
+char				*g_optarg;
 
-static int	go_init(int ac, char *const *av)
+static int			go_init(int ac, char *const *av)
 {
 	if (g_optind >= ac
 		|| ft_strequ(av[g_optind], "--")
@@ -32,7 +32,7 @@ static int	go_init(int ac, char *const *av)
 
 static const char	*go_char(const char **nextchar, char *const *av)
 {
-	const char *opt;
+	const char	*opt;
 
 	g_optarg = NULL;
 	if (*nextchar)
@@ -49,29 +49,31 @@ static const char	*go_char(const char **nextchar, char *const *av)
 	return (opt);
 }
 
-static int		go_err(int err, const char *c,const char *av, const char o)
+static int			go_err(int err, const char *c, const char *av, const char o)
 {
 	g_optopt = (int)o;
 	{
 		if (err == GETOPT_ERR_ARG)
 		{
 			if (g_opterr && *c != ':')
-				ft_dprintf(STDERR_FILENO, "%s: option requires an argument -- '%c'\n", av, o);
+				ft_dprintf(STDERR_FILENO, "%s: option requires an argument \
+					-- '%c'\n", av, o);
 			else
 				return (':');
 		}
 		else if (err == GETOPT_ERR_OPT)
 			if (g_opterr && *c != ':')
-				ft_dprintf(STDERR_FILENO, "%s: invalid option -- '%c'\n", av, o);
+				ft_dprintf(STDERR_FILENO, "%s: invalid option \
+					-- '%c'\n", av, o);
 	}
 	return ('?');
 }
 
-int 		ft_getopt(int ac, char *const *av, const char *optstring)
+int					ft_getopt(int ac, char *const *av, const char *optstring)
 {
 	static const char	*nextchar = NULL;
 	const char			*opt;
-	const char 			*c;
+	const char			*c;
 
 	if (go_init(ac, av))
 		return (-1);
@@ -81,15 +83,15 @@ int 		ft_getopt(int ac, char *const *av, const char *optstring)
 		if (*(c + 1) == ':')
 		{
 			if (*(opt + 1) != '\0')
-				g_optarg = (char *) (opt + 1);
+				g_optarg = (char *)(opt + 1);
 			else if (g_optind < ac)
-				g_optarg = (char *) av[g_optind];
+				g_optarg = (char *)av[g_optind];
 			else
 				return (go_err(GETOPT_ERR_ARG, optstring, av[0], *opt));
 			g_optind += 1;
 			nextchar = NULL;
 		}
-		return ((int) *opt);
+		return ((int)*opt);
 	}
 	return (go_err(GETOPT_ERR_OPT, optstring, av[0], *opt));
-};
+}
