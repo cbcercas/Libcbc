@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/13 21:32:40 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/15 01:50:27 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,6 @@ ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c
 SRC_SUBDIR		+= gnl
 SRCS			+= get_next_line.c
 
-SRC_SUBDIR		+= ft_printf
-SRCS			+= ft_printf.c ft_printf_2.c ft_parse_args.c ft_parse_args2.c utils.c \
-printer_s.c printer_d.c printer_o.c printer_p.c printer_u.c printer_x.c \
-printer_c.c printer_per.c printer_def.c
-
 SRC_SUBDIR		+= array
 SRCS			+= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_insert.c array_destroy.c array_swap.c array_remove.c
@@ -45,9 +40,6 @@ SRC_SUBDIR		+= string
 SRCS			+= string.c string_growth.c string_dup.c string_clone.c \
 string_insert.c string_join.c string_clean.c string_remove.c string_shrink.c \
 string_replace.c
-
-SRC_SUBDIR		+= logger
-SRCS			+= logger.c logger_utils.c logger_log.c logger_log_dbg.c
 
 SRC_SUBDIR      += unistd
 SRCS            += ft_getopt.c
