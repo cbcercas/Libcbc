@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/14 21:50:50 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/15 04:55:23 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,25 +87,28 @@ $(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
 
+libs:
+	@make -C $(LIBFT_DIR)
+	@make -C $(LIBFTPRINTF_DIR)
+	
 re: clean fclean all
 
 clean:
+ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLIBLOGGER  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
-	@echo "\033[35mLIBLOGGER  :\033[0m [\033[31mSuppression des .d\033[0m]"
+endif
+ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
 	@$(RM) $(DEPS_DIR)
+endif
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(LIBFTPRINTF_DIR)
 
 fclean: clean
+ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLIBLOGGER  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
-	@make fclean -C $(LIBFT_DIR)
-	@make fclean -C $(LIBFTPRINTF_DIR)
-
-libs:
-	@make -C $(LIBFT_DIR)
-	@make -C $(LIBFTPRINTF_DIR)
+endif
 
 doc:
 ifndef DOXYGEN
