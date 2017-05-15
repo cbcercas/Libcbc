@@ -6,12 +6,12 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:26:23 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/14 20:06:33 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:24:06 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LOGGER_MAIN
-#include <logger_intern.h>
+#include <intern/logger_intern.h>
 #undef LOGGER_MAIN
 
 int				g_logger_fd;

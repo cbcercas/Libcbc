@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:37:10 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 15:36:01 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:23:01 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <time.h>
 # include <sys/stat.h>
 # include <libft.h>
-# include <logger/logger.h>
-# include <ft_printf/libftprintf.h>
+# include <logger.h>
+# include <ftprintf.h>
 
 # ifndef LOGGER_MAIN
 

@@ -6,11 +6,11 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 17:34:40 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:28:47 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:23:57 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <logger/logger_intern.h>
+#include <intern/logger_intern.h>
 
 char	*get_log_format(enum e_d_lvl lvl)
 {
