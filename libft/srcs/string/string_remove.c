@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 01:08:49 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:31:42 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:31:47 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ size_t	string_remove(t_string *s, size_t pos, size_t n)
 {
 	size_t	rem;
 
-	if (!s)
-		log_dbg1("string_remove: No string given");
 	if (!s || pos >= s->len)
 		return (0);
 	if (s->len > pos + n)

@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 16:08:00 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:38:11 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:48:14 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,26 @@ static const char	*go_char(const char **nextchar, char *const *av)
 static int			go_err(int err, const char *c, const char *av, const char o)
 {
 	g_optopt = (int)o;
+	if (err == GETOPT_ERR_ARG)
 	{
-		if (err == GETOPT_ERR_ARG)
+		if (g_opterr && *c != ':')
 		{
-			if (g_opterr && *c != ':')
-				ft_dprintf(STDERR_FILENO, "%s: option requires an argument \
-					-- '%c'\n", av, o);
-			else
-				return (':');
+			ft_putstr_fd(av, STDERR_FILENO);
+			ft_putstr_fd(": option requires an argument -- '", STDERR_FILENO);
+			ft_putchar_fd(o, STDERR_FILENO);
+			ft_putendl_fd("'", STDERR_FILENO);
 		}
-		else if (err == GETOPT_ERR_OPT)
-			if (g_opterr && *c != ':')
-				ft_dprintf(STDERR_FILENO, "%s: invalid option \
-					-- '%c'\n", av, o);
+		else
+			return (':');
 	}
+	else if (err == GETOPT_ERR_OPT)
+		if (g_opterr && *c != ':')
+		{
+			ft_putstr_fd(av, STDERR_FILENO);
+			ft_putstr_fd(": invalid option -- '", STDERR_FILENO);
+			ft_putchar_fd(o, STDERR_FILENO);
+			ft_putendl_fd("'", STDERR_FILENO);
+		}
 	return ('?');
 }
 

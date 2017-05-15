@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:51:00 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:33:00 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_STRING_H
 # include <libft.h>
 # include <types/bool.h>
-# include <logger/logger.h>
 
 # define STRING_MIN_SIZE 8U
 # define STING_CAP_FROM_LEN(len) (len / STRING_MIN_SIZE + 1) * STRING_MIN_SIZE

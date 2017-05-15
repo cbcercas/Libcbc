@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 02:51:58 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:31:31 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:32:20 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ t_string	*string_shrink(t_string *string)
 	char	*new_str;
 	size_t	needed_cap;
 
-	if (!string)
-		log_dbg1("string_shrink: No string given");
 	needed_cap = (string->len / STRING_MIN_SIZE + 1) * STRING_MIN_SIZE;
 	if (needed_cap == string->len)
 		needed_cap += STRING_MIN_SIZE;
