@@ -1,24 +1,10 @@
 cmake_minimum_required(VERSION 3.6)
-project(ft)
+project(ftcbc)
 
 set(CMAKE_C_STANDARD 11)
 set (CMAKE_C_FLAGS "-Wall -Werror -Wextra")
 
 set(SOURCE_FILES
-        includes/array/array.h
-        includes/ft_printf/ft_get.h
-        includes/ft_printf/libftprintf.h
-        includes/ft_printf/printer.h
-        includes/ft_printf/printf_type.h
-        includes/ft_printf/printf_utils.h
-        includes/gnl/get_next_line.h
-        includes/logger/logger.h
-        includes/logger/logger_intern.h
-        includes/string/ft_string.h
-        includes/types/bool.h
-        includes/types/stack.h
-        includes/unistd/ft_unistd.h
-        includes/libft.h
         srcs/array/array.c
         srcs/array/array_copy.c
         srcs/array/array_destroy.c
@@ -109,22 +95,7 @@ set(SOURCE_FILES
         srcs/core/ft_wctostr.c
         srcs/core/ft_wordlen.c
         srcs/core/ft_wstostr.c
-        srcs/ft_printf/ft_parse_args.c
-        srcs/ft_printf/ft_parse_args2.c
-        srcs/ft_printf/ft_printf.c
-        srcs/ft_printf/printer_c.c
-        srcs/ft_printf/printer_d.c
-        srcs/ft_printf/printer_def.c
-        srcs/ft_printf/printer_o.c
-        srcs/ft_printf/printer_p.c
-        srcs/ft_printf/printer_per.c
-        srcs/ft_printf/printer_s.c
-        srcs/ft_printf/printer_u.c
-        srcs/ft_printf/printer_x.c
-        srcs/ft_printf/utils.c
         srcs/gnl/get_next_line.c
-        srcs/logger/logger.c
-        srcs/logger/logger_utils.c
         srcs/string/string.c
         srcs/string/string_clean.c
         srcs/string/string_clone.c
@@ -139,4 +110,4 @@ set(SOURCE_FILES
 
 include_directories(includes)
 
-add_library(ft ${SOURCE_FILES})
+add_library(ftcbc ${SOURCE_FILES})
