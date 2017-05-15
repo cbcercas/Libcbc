@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/12 21:39:21 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 01:59:31 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
 char			*ft_strdup(const char *src);
 char			*ft_strdup_free(char *src, int free);
-char			*ft_strndup_free(char *src, size_t start, size_t size, int free);
-
+char			*ft_strndup_free(char *src, size_t start, size_t size, \
+																int free);
 void			*ft_memcpy(void *s1, const void *s2, size_t n);
 void			*ft_memccpy(void *s1, const void *s2, int c, size_t n);
 void			*ft_memmove(void *s1, const void *s2, size_t n);
@@ -76,7 +76,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-#define ft_itoa(n) ft_itoa_base(n, 10);
+char			*ft_itoa(int nb);
 char			*ft_itoa_base(long long int n, int base);
 char			*ft_uitoa_base(unsigned long long nb, int base);
 void			ft_putchar(char c);
@@ -99,7 +99,7 @@ size_t			ft_wordlen(char const *s, char c);
 size_t			ft_nbword(char const *s, char c);
 void			ft_freetab(char **array, size_t nb);
 int				ft_countdigit(intmax_t num);
-size_t ft_tablen(char **array);
+size_t			ft_tablen(char **array);
 char			**ft_strtabdup(char **array);
 /*
 ** Make full test before use
@@ -119,7 +119,6 @@ void			ft_putwchar(wchar_t c);
 void			ft_putwchar_fd(wchar_t c, int fd);
 char			*ft_strrev(char *str);
 char			*ft_strclean(char *str);
-
 
 char			*ft_ctostr(char c, int nb);
 char			*ft_wctostr(wchar_t c);

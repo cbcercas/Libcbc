@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 20:17:44 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:18:09 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:00:26 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,9 @@ char		*ft_itoa_base(long long int n, int base)
 		return (ft_convert((unsigned long long int)n, base, str, i));
 	else
 		return (ft_convert(n, base, str, i));
+}
+
+char		*ft_itoa(int nb)
+{
+	return (ft_itoa_base((long long int)nb, 10));
 }
