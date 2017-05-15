@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/15 00:22:07 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/15 04:43:40 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,26 +80,31 @@ $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 $(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
-	$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
+	@$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
 
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
 
 libs:
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 re: clean fclean all
 
 clean:
+ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
-	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression des .d\033[0m]"
+endif
+ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
 	@$(RM) $(DEPS_DIR)
+endif
 	@make fclean -C $(LIBFT_DIR)
 
 fclean: clean
+ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLIBFTPRINTF  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
+endif
 	@make fclean -C $(LIBFT_DIR)
 
 doc:
