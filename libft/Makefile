@@ -6,11 +6,11 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/15 01:50:27 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/15 04:44:48 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	libft.a
+NAME			=	libftcbc.a
 
 SRC_SUBDIR		+= core
 SRCS			+= ft_atoi.c ft_bzero.c ft_countchiffres.c ft_ctostr.c \
@@ -96,9 +96,9 @@ all: $(DEPS) $(NAME)
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 	ranlib $@
-	@echo "[\033[35m--------------------------\033[0m]"
-	@echo "[\033[36m------- OK - LIBFT -------\033[0m]"
-	@echo "[\033[35m--------------------------\033[0m]"
+	@echo "[\033[35m-----------------------------\033[0m]"
+	@echo "[\033[36m------- OK - LIBFTCBC -------\033[0m]"
+	@echo "[\033[35m-----------------------------\033[0m]"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
@@ -112,14 +112,19 @@ $(BUILD_DIR):
 re: clean fclean all
 
 clean:
-	@echo "\033[35mLIBFT  :\033[0m [\033[31mSuppression des .o\033[0m]"
+ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
+	@echo "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
-	@echo "\033[35mLIBFT  :\033[0m [\033[31mSuppression des .d\033[0m]"
+endif
+ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
 	@$(RM) $(DEPS_DIR)
+endif
 
 fclean: clean
-	@echo "\033[35mLIBFT  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
+ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
+	@echo "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
+endif
 
 doc:
 ifndef DOXYGEN
