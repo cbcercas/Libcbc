@@ -6,15 +6,15 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 03:28:33 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:19:13 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/15 02:47:37 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <libft.h>
-#include <ft_printf/printf_type.h>
-#include <ft_printf/printer.h>
-#include <ft_printf/printf_utils.h>
+#include <intern/printf_type.h>
+#include <intern/printer.h>
+#include <intern/printf_utils.h>
 #include <wchar.h>
 
 int	ft_print_wc(int fd, t_args *sarg, va_list *larg)
