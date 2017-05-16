@@ -1,0 +1,9 @@
+[submodule "libft_cbc"]
+	path = libft_cbc
+	url = https://mongit.mesamis.org/cbcercas/Libft_corrige.git
+[submodule "libftprintfcbc"]
+	path = libftprintfcbc
+	url = https://mongit.mesamis.org/cbcercas/Ft_printf.git
+[submodule "lib_logger_cbc"]
+	path = lib_logger_cbc
+	url = https://mongit.mesamis.org/cbcercas/logger
