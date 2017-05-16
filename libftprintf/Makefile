@@ -43,7 +43,7 @@ DEPS		= $(SRCS:%.c=$(DEPS_DIR)/%.d)
 BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 ## libft
-LIBFT_DIR	= ../Libft_corrige
+LIBFT_DIR	= ../libft_cbc
 INC			+= -I $(LIBFT_DIR)/includes
 LIBS		+= -L $(LIBFT_DIR) -lft
 
