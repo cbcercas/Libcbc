@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/17 15:56:51 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/17 16:01:47 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,14 +96,20 @@ $(BUILD_DIR):
 re: clean fclean all
 
 clean:
+ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLibtcaps  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
+endif
+ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLibtcaps  :\033[0m [\033[31mSuppression des .d\033[0m]"
 	@$(RM) $(DEPS_DIR)
+endif
 
 fclean: clean
+ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
 	@echo "\033[35mLibtcaps  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
+endif
 
 doc:
 ifndef DOXYGEN
