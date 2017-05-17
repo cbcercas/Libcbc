@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/15 04:55:23 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/17 13:26:05 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ DOXYGEN := $(shell command -v doxygen 2> /dev/null)
  #########
 .SECONDARY: $(OBJS)
 
-all: $(DEPS) $(NAME)
+all: $(NAME)
 
 # Add dependency as prerequisites
 -include $(DEPS)
