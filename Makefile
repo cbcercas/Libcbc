@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/16 20:37:34 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/05/17 13:23:39 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,6 @@ LIBLOGGER_FILE		= $(LIBLOGGER_DIR)/liblogger.a
 #									CONFIG									  #
 #																			  #
 ###############################################################################
-
-
-LIBTOOL = libtool
-
-UNAME := $(shell uname -s)
-
-ifeq ($(UNAME), Linux)
-	LT_FLAG := --tag=cc --mode=link cc -static
-else ifeq ($(OS), Darwin)
-	LT_FLAG := -static
-endif
 
 ifeq ($(WITH_LIBFT),yes)
 	LIBS	+= $(LIBFT_FILE)
@@ -69,7 +58,7 @@ MKDIR				= mkdir -p
 all: $(NAME)
 
 $(NAME): libs $(LIBS)
-	$(LIBTOOL) $(LT_FLAG) -o $(NAME) $(LIBS)
+	ar -rcT $(NAME) $(LIBS)
 	ranlib $@
 	@echo "[\033[35m--------------------------\033[0m]"
 	@echo "[\033[36m----- OK - LIBCBBC -----\033[0m]"
