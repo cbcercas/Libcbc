@@ -6,12 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 20:37:10 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 16:50:14 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/05/17 19:23:49 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LOGGER_H
 # define LOGGER_H
+# include "stdarg.h"
 
 enum	e_d_lvl
 {
@@ -27,7 +28,7 @@ enum	e_d_lvl
 };
 
 int		logger_init(enum e_d_lvl lvl, const char *pname, const char *filename);
-void	logger_log(enum e_d_lvl lvl, const char *fmt, ...);
+void	logger_log(enum e_d_lvl lvl, const char *fmt,  va_list list);
 int		logger_close();
 
 void	log_fatal(const char *fmt, ...);
