@@ -66,6 +66,7 @@ MKDIR				= mkdir -p
 all: $(NAME)
 
 $(NAME): libs $(LIBS)
+	@$(RM) $(NAME)
 	ar -rcT $(NAME) $(LIBS)
 	ranlib $@
 	@echo "[\033[35m--------------------------\033[0m]"
