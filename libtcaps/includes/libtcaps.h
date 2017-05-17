@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:38:32 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 14:33:43 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/05/17 15:54:23 by chbravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 # include <libft.h>
 # include <types/bool.h>
-# include <ft_printf/libftprintf.h>
-# include <logger/logger.h>
+# include <ftprintf.h>
+# include <logger.h>
 # include <gnl/get_next_line.h>
 
 /**

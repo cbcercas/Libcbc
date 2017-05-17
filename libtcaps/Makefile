@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/03/30 13:50:36 by jlasne           ###   ########.fr        #
+#    Updated: 2017/05/17 15:56:51 by chbravo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,21 @@ DEPS		= $(SRCS:%.c=$(DEPS_DIR)/%.d)
 BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 # Libraries
-## libft includes
-LIBFT_DIR	= ../libft
+## libft
+LIBFT_DIR	= ../libft_cbc
 INC			+= -I $(LIBFT_DIR)/includes
-LIBS		= -L $(LIBFT_DIR) -lft
+LIBS		+= -L $(LIBFT_DIR) -lft
+
+## libftprinft
+LIBFTPRINTF_DIR	= ../libftprintfcbc
+INC			+= -I $(LIBFTPRINTF_DIR)/includes
+LIBS		+= -L $(LIBFTPRINTF_DIR) -lftprintf
+
+## libft
+LIBLOGGER_DIR	= ../lib_logger_cbc
+INC			+= -I $(LIBLOGGER_DIR)/includes
+LIBS		+= -L $(LIBLOGGER_DIR) -lft
+
 
 #Utils
 RM			= rm -rf
