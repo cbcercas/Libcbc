@@ -20,5 +20,5 @@ set(SOURCE_FILES
         srcs/ft_printf/printer_x.c
         srcs/ft_printf/utils.c)
 
-include_directories(includes ../Libft_corrige/includes)
+include_directories(includes ../libft_cbc/includes)
 add_library(ftprintf ${SOURCE_FILES})
