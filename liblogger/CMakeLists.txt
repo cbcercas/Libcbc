@@ -10,5 +10,5 @@ set(SOURCE_FILES
         srcs/logger/logger_log_dbg.c
         srcs/logger/logger_utils.c)
 
-include_directories(includes ../Libft_corrige/includes)
+include_directories(includes ../libft_cbc/includes)
 add_library(logger ${SOURCE_FILES})
