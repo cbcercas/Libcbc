@@ -11,7 +11,8 @@ set(SOURCE_FILES
         srcs/tcaps_ctrl_2.c
         srcs/tcaps_tab.c
         srcs/tcaps_utils.c
-        srcs/tcaps_size.c)
+        srcs/tcaps_size.c
+        srcs/tcaps_delete.c)
 
 include_directories(includes)
 include_directories(../libft/includes)

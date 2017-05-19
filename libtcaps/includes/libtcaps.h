@@ -71,7 +71,7 @@ struct s_cpos
 t_cpos	get_cursor_pos(void);
 t_ts	get_term_size(void);
 
-# define MAX_KEY_STRING_LEN 3
+# define MAX_KEY_STRING_LEN 10
 
 # define KEY_CODE_RARROW "kr"
 # define KEY_CODE_LARROW "kl"
@@ -84,6 +84,7 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
 # define KEY_CODE_BACKSPACE "\x8\0\0\0\0"
+# define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
 # define KEY_CODE_OTHER ""
@@ -195,6 +196,18 @@ BOOL	is_ctrl_j(const char *buff);
 */
 
 BOOL	is_backspace(const char *buff);
+
+/**
+** @file tcaps_delete.c
+**
+** @brief Determines if delete is pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+
+BOOL	is_delete(const char *buff);
 
 /**
 ** @file tcaps_tab.c
