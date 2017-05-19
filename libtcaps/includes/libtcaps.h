@@ -83,7 +83,7 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_A "\x01\0\0\0\0"
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
-# define KEY_CODE_BACKSPACE "\x8\0\0\0\0"
+# define KEY_CODE_BACKSPACE "kb"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
