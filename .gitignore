@@ -14,6 +14,7 @@
 *.a
 *.la
 *.lo
+*.cbp
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -28,7 +29,6 @@
 *.i*86
 *.x86_64
 *.hex
-minishell
 
 # Debug files
 *.dSYM/
@@ -40,3 +40,7 @@ debug/
 # Clion Files
 .idea/
 cmake-build-debug/
+
+# Cmake files
+CMakeFiles/
+cmake_install.cmake
