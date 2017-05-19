@@ -63,7 +63,7 @@ SRCS			+= logger.c logger_utils.c logger_log.c logger_log_dbg.c
 # Tcaps sources
 SRC_SUBDIR		+= lib_tcaps/srcs
 SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
-				  tcaps_backspace.c tcaps_tab.c tcaps_size.c
+				  tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c
 
 
 ###############################################################################
