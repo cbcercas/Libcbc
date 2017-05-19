@@ -110,6 +110,7 @@ t_string	*string_del(t_string **string);
 ** @brief      Remove part of t_string
 */
 size_t		string_remove(t_string *s, size_t pos, size_t len);
+size_t		string_remove_char(t_string *s, size_t pos);
 
 /*
 ** @file       string_replace.c

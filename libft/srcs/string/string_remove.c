@@ -39,3 +39,17 @@ size_t	string_remove(t_string *s, size_t pos, size_t n)
 	ft_bzero(s->s + s->len, s->capacity - s->len);
 	return (rem);
 }
+
+/*
+** @brief      remove a char of a t_string at pos
+**
+** @param      s     The t_string
+** @param[in]  pos   The position of the removed char
+**
+** @return     The number of removed char
+*/
+
+size_t	string_remove_char(t_string *s, size_t pos)
+{
+	return (string_remove(s, pos, 1));
+}
