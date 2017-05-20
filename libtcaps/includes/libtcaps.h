@@ -221,4 +221,15 @@ BOOL	is_delete(const char *buff);
 
 BOOL	is_tab(const char *buff);
 
+/**
+** @file tcaps_moving.c
+**
+** @brief moving cursor
+**
+** @param[in]	cpos  The cursor position
+** @param[in]	ts    The teminal size
+*/
+void	move_cursor_left(t_cpos *cpos, t_ts *ts);
+void	move_cursor_right(t_cpos *cpos, t_ts *ts);
+
 #endif
