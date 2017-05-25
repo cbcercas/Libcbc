@@ -141,7 +141,8 @@ set(SOURCE_FILES
         lib_tcaps/srcs/tcaps_tab.c
         lib_tcaps/srcs/tcaps_utils.c
         lib_tcaps/srcs/tcaps_size.c
-        lib_tcaps/srcs/tcaps_delete.c)
+        lib_tcaps/srcs/tcaps_delete.c
+        lib_tcaps/srcs/tcaps_moving.c)
 
 
 include_directories(libft_cbc/includes libftprintfcbc/includes lib_logger_cbc/includes lib_tcaps/includes)
