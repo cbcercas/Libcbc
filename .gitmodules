@@ -1,12 +1,12 @@
-[submodule "libft_cbc"]
-	path = libft_cbc
-	url = https://mongit.mesamis.org/cbcercas/Libft_corrige.git
-[submodule "libftprintfcbc"]
-	path = libftprintfcbc
-	url = https://mongit.mesamis.org/cbcercas/Ft_printf.git
-[submodule "lib_logger_cbc"]
-	path = lib_logger_cbc
-	url = https://mongit.mesamis.org/cbcercas/logger
-[submodule "Lib_tcaps"]
-	path = lib_tcaps
-	url = https://mongit.mesamis.org/cbcercas/Lib_tcaps.git
+[submodule "libft"]
+	path = libft
+	url = https://github.com/cbcercas/Libft.git
+[submodule "libftprintf"]
+	path = libftprintf
+	url = https://github.com/cbcercas/libftprintf.git
+[submodule "liblogger"]
+	path = liblogger
+	url = https://github.com/cbcercas/liblogger.git
+[submodule "libtcaps"]
+	path = libtcaps
+	url = https://github.com/cbcercas/Libtcaps.git

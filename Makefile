@@ -13,7 +13,7 @@
 NAME			=	libcbc.a
 
 # Libft sources
-SRC_SUBDIR		+= libft_cbc/srcs/core
+SRC_SUBDIR		+= libft/srcs/core
 SRCS			+= ft_atoi.c ft_bzero.c ft_countchiffres.c ft_ctostr.c \
 ft_freetab.c ft_imtoa.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 ft_isprint.c ft_iswhitespace.c ft_itoa.c ft_lstadd.c ft_lstdel.c \
@@ -30,38 +30,38 @@ ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtabdup.c ft_strtrim.c ft_tablen.c \
 ft_tolower.c ft_toupper.c ft_uitobase.c ft_uitohex.c ft_uitooctal.c \
 ft_wcslen.c ft_wctostr.c ft_wordlen.c ft_wstostr.c ft_strclean.c
 
-SRC_SUBDIR		+= libft_cbc/srcs/gnl
+SRC_SUBDIR		+= libft/srcs/gnl
 SRCS			+= get_next_line.c
 
-SRC_SUBDIR		+= libft_cbc/srcs/array
+SRC_SUBDIR		+= libft/srcs/array
 SRCS			+= array.c array_copy.c array_growth.c array_shrink.c array_setget.c \
 array_pushpop.c array_insert.c array_destroy.c array_swap.c array_remove.c
 
-SRC_SUBDIR		+= libft_cbc/srcs/string
+SRC_SUBDIR		+= libft/srcs/string
 SRCS			+= string.c string_growth.c string_dup.c string_clone.c \
 string_insert.c string_join.c string_clean.c string_remove.c string_shrink.c \
 string_replace.c
 
-SRC_SUBDIR      += libft_cbc/srcs/unistd
+SRC_SUBDIR      += libft/srcs/unistd
 SRCS            += ft_getopt.c
 
-SRC_SUBDIR      += libft_cbc/srcs/stack
+SRC_SUBDIR      += libft/srcs/stack
 SRCS            += stack.c stack_2.c
 
 # Ft printf sources
 
-SRC_SUBDIR		+= libftprintfcbc/srcs/ft_printf
+SRC_SUBDIR		+= libftprintf/srcs/ft_printf
 SRCS			+= ft_printf.c ft_printf_2.c ft_parse_args.c ft_parse_args2.c \
 					utils.c printer_s.c printer_d.c printer_o.c printer_p.c \
 					printer_u.c printer_x.c printer_c.c printer_per.c \
 					printer_def.c
 
 # Logger sources
-SRC_SUBDIR		+= lib_logger_cbc/srcs/logger
+SRC_SUBDIR		+= liblogger/srcs/logger
 SRCS			+= logger.c logger_utils.c logger_log.c logger_log_dbg.c
 
 # Tcaps sources
-SRC_SUBDIR		+= lib_tcaps/srcs
+SRC_SUBDIR		+= libtcaps/srcs
 SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 				  tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c\
 				  tcaps_moving.c
@@ -92,19 +92,19 @@ DEPS		= $(SRCS:%.c=$(DEPS_DIR)/%.d)
 BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 ## libft
-LIBFT_DIR	= libft_cbc
+LIBFT_DIR	= libft
 INC			+= -I $(LIBFT_DIR)/includes
 
 ## libftprinft
-LIBFTPRINTF_DIR	= libftprintfcbc
+LIBFTPRINTF_DIR	= libftprintf
 INC			+= -I $(LIBFTPRINTF_DIR)/includes
 
 ## lib_logger
-LIBLOGGER_DIR	= lib_logger_cbc
+LIBLOGGER_DIR	= liblogger
 INC			+= -I $(LIBLOGGER_DIR)/includes
 
 ## lib_tcaps
-LIBTCAPS_DIR	= lib_tcaps
+LIBTCAPS_DIR	= libtcaps
 INC			+= -I $(LIBTCAPS_DIR)/includes
 
 #Utils
