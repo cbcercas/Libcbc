@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      Reset a t_string to the default states
 **
 ** @param      string  The string to reset
@@ -28,7 +28,7 @@ t_string	*string_reset(t_string *string)
 	return (string_init(string));
 }
 
-/*
+/**
 ** @brief      Delete a t_string
 **
 ** @param      string  The string to delete

@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      Join two t_string into an other
 **
 ** @param      s1    The first string
@@ -37,7 +37,7 @@ t_string	*string_join(t_string *s1, t_string *s2)
 	return (string);
 }
 
-/*
+/**
 ** @brief      Join two t_string into an other.
 **             And free source string if needed
 **

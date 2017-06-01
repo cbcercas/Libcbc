@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      insert str to the t_string at given position
 **
 ** @param      string  The string

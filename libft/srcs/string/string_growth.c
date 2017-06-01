@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      Growth the string with capacity
 **
 ** @param      string  The t_string
@@ -38,7 +38,7 @@ t_string	*string_growth_cap(t_string *string, size_t cap)
 	return (string);
 }
 
-/*
+/**
 ** @brief      Groth the string without capacity
 **
 ** @param      string  The t_string

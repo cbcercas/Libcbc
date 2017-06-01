@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      Replace the string in t_string by the str given
 **
 ** @param      string  The t_string to replace

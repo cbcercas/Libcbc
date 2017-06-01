@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      remove n char of a t_string from pos
 **
 ** @param      s     The t_string
@@ -40,7 +40,7 @@ size_t	string_remove(t_string *s, size_t pos, size_t n)
 	return (rem);
 }
 
-/*
+/**
 ** @brief      remove a char of a t_string at pos
 **
 ** @param      s     The t_string

@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @name       string_dup
 **
 ** @brief      copies at most n characters from the string str
@@ -32,7 +32,7 @@ t_string	*string_dup(const char *str)
 	return (string_ndup(str, ft_strlen(str)));
 }
 
-/*
+/**
 ** @name       string_ndup
 **
 ** @brief      copies at most n characters from the string str

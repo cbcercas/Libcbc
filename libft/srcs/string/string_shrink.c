@@ -12,7 +12,7 @@
 
 #include <string/ft_string.h>
 
-/*
+/**
 ** @brief      Reduce the string capacity if needed
 **
 ** @param      string  The t_t_string
