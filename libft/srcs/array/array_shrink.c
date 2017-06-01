@@ -12,10 +12,10 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Reduce the array capacity if needed
 **
-** @param      array  The t_array
+** @param      ar  The t_array
 **
 ** @return     The t_array on success or NULL otherwise
 */

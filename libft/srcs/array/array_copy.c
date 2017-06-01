@@ -12,11 +12,11 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Copy an array into an other
 **             enlarge the destination array if needed
-** @param      dest_array  The destination array
-** @param      src_array   The source array
+** @param      d_array  The destination array
+** @param      s_array   The source array
 **
 ** @return     The destination array or NULL otherwise
 */

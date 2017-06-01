@@ -12,7 +12,7 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      add an element to the array at the given pos
 **
 ** @param      array  The t_array

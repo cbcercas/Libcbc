@@ -12,7 +12,7 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Growth the array with capacity
 **
 ** @param      array  The t_array
@@ -38,7 +38,7 @@ t_array	*array_growth_cap(t_array *array, size_t cap)
 	return (array);
 }
 
-/*
+/**
 ** @brief      Groth the array without capacity
 **
 ** @param      array  The t_array

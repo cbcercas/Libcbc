@@ -12,7 +12,7 @@
 
 #include "array/array.h"
 
-/*
+/**
 ** @brief      Destroy a t_array
 **
 ** @param      array  The t_array to be free

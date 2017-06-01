@@ -12,7 +12,7 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Initialize the t_array with specified capacity
 **
 ** @param      array  The array
@@ -41,7 +41,7 @@ t_array	*array_init(t_array *array, size_t size)
 	return (array_init_cap(array, size, ARRAY_MIN_SIZE));
 }
 
-/*
+/**
 ** @brief      Create a t_array with specified capacity
 **
 ** @param[in]  size  The element size
@@ -66,7 +66,7 @@ t_array	*array_create_cap(size_t size, size_t cap)
 	return (array);
 }
 
-/*
+/**
 ** @brief      Create a t_array with default capacity
 **
 ** @param[in]  size  The element size

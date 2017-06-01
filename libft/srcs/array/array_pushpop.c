@@ -12,7 +12,7 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Add an element at the and of the array
 **
 ** @param      array  The t_array
@@ -31,11 +31,11 @@ t_array	*array_push(t_array *array, const void *data)
 	return (array);
 }
 
-/*
+/**
 ** @brief      Remove the last element of the array
 **
 ** @param      array  The t_array
-** @param      pappod A pointer to store the poped element
+** @param      poped A pointer to store the poped element
 **
 ** @return     The t_array pointer on success, NULL otherwise
 */

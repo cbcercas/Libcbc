@@ -12,10 +12,10 @@
 
 #include <array/array.h>
 
-/*
+/**
 ** @brief      Swap two elements in the array
 **
-** @param      array  The t_array
+** @param      ar  The t_array
 ** @param[in]  pos_a  The first element position
 ** @param[in]  pos_b  The second element position
 **
