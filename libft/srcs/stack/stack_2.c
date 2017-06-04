@@ -22,12 +22,12 @@ size_t		get_stack_length(t_stack *st)
 	return ((st->used) ? st->used - 1 : 0);
 }
 
-void		stack_destroy(t_stack **st)
+void		stack_destroy(t_stack **st, void fn(void *))
 {
-	return (array_destroy((t_array **)st));
+	return (array_destroy((t_array **)st, fn));
 }
 
-t_stack		*stack_reset(t_stack *st)
+t_stack		*stack_reset(t_stack *st, void fn(void *))
 {
-	return (array_reset((t_array *)st));
+	return (array_reset((t_array *)st, fn));
 }
