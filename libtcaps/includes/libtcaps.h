@@ -83,6 +83,7 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_A "\x01\0\0\0\0"
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
+# define KEY_CODE_CTRL_R "\x12\0\0\0\0"
 # define KEY_CODE_BACKSPACE "kb"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
@@ -173,7 +174,7 @@ BOOL	is_ctrl_a(const char *buff);
 BOOL	is_ctrl_e(const char *buff);
 
 /**
-** @file		tcaps_ctrl_1.c
+** @file		tcaps_ctrl_2.c
 **
 ** @brief		Determines if crtl+*.
 **
@@ -184,6 +185,7 @@ BOOL	is_ctrl_e(const char *buff);
 
 BOOL	is_ctrl_l(const char *buff);
 BOOL	is_ctrl_j(const char *buff);
+BOOL    is_ctrl_r(const char *buff);
 
 /**
 ** @file tcaps_backspace.c

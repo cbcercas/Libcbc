@@ -25,3 +25,10 @@ BOOL    is_ctrl_j(const char *buff)
                 return (true);
         return (false);
 }
+
+BOOL    is_ctrl_r(const char *buff)
+{
+	if (ft_strequ(buff, KEY_CODE_CTRL_R))
+		return (true);
+	return (false);
+}
