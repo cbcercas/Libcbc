@@ -13,7 +13,7 @@
 #ifndef BOOL_H
 # define BOOL_H
 
-# if defined(_STDBOOL_H) || defined(__STDBOOL_H)
+# if defined(_STDBOOL_H) || defined(__STDBOOL_H) || defined(__bool_true_false_are_defined) 
 #  define BOOL bool
 # else
 #  define BOOL t_bool
