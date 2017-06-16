@@ -19,6 +19,7 @@
 #  define GETOPT_ERR_ARG 2
 # endif
 
-int ft_getopt(int ac, char *const *av, const char *optstring);
+int 	ft_getopt(int ac, char *const *av, const char *optstring);
+void 	ft_getopt_reset(void);
 
 #endif

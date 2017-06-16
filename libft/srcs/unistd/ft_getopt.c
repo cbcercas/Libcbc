@@ -101,3 +101,11 @@ int					ft_getopt(int ac, char *const *av, const char *optstring)
 	}
 	return (go_err(GETOPT_ERR_OPT, optstring, av[0], *opt));
 }
+
+void 				ft_getopt_reset(void)
+{
+	g_opterr = 1;
+	g_optind = 1;
+	g_optopt = 0;
+	g_optarg = NULL;
+}
