@@ -9,40 +9,18 @@
 /*   Updated: 2017/03/30 14:32:44 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <libtcaps.h>
 
-BOOL	is_ctrl_l(const char *buff)
+BOOL    is_home(const char *buff)
 {
-	if (ft_strequ(buff, KEY_CODE_CTRL_L))
+	if (ft_strequ(buff, KEY_CODE_HOME))
 		return (true);
 	return (false);
 }
 
-BOOL    is_ctrl_j(const char *buff)
+BOOL    is_end(const char *buff)
 {
-        if (ft_strequ(buff, KEY_CODE_ENTER))
-                return (true);
-        return (false);
-}
-
-BOOL    is_ctrl_r(const char *buff)
-{
-	if (ft_strequ(buff, KEY_CODE_CTRL_R))
-		return (true);
-	return (false);
-}
-
-BOOL    is_ctrl_up(const char *buff)
-{
-	if (ft_strequ(buff, KEY_CODE_CTRL_UP))
-		return (true);
-	return (false);
-}
-
-BOOL    is_ctrl_down(const char *buff)
-{
-	if (ft_strequ(buff, KEY_CODE_CTRL_DOWN))
+	if (ft_strequ(buff, KEY_CODE_END))
 		return (true);
 	return (false);
 }

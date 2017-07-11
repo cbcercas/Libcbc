@@ -84,10 +84,16 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
 # define KEY_CODE_CTRL_R "\x12\0\0\0\0"
+# define KEY_CODE_CTRL_UP "\x1b\x5b\x31\x3b\41\0"
+# define KEY_CODE_CTRL_DOWN "\x1b\x5b\x31\x3b\42\0"
 # define KEY_CODE_BACKSPACE "kb"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
+# define KEY_CODE_END "\x1b\x5b\x46\0\0"
+# define KEY_CODE_HOME "\x1b\x5b\x31\x3b\41\0"
+
+
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -186,6 +192,8 @@ BOOL	is_ctrl_e(const char *buff);
 BOOL	is_ctrl_l(const char *buff);
 BOOL	is_ctrl_j(const char *buff);
 BOOL    is_ctrl_r(const char *buff);
+BOOL    is_ctrl_up(const char *buff);
+BOOL    is_ctrl_down(const char *buff);
 
 /**
 ** @file tcaps_backspace.c
@@ -222,6 +230,18 @@ BOOL	is_delete(const char *buff);
 */
 
 BOOL	is_tab(const char *buff);
+
+/**
+** @file tcaps_home_end.c
+**
+** @brief Determines if home or is pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if control, False otherwise
+*/
+BOOL    is_home(const char *buff);
+BOOL    is_end(const char *buff);
 
 /**
 ** @file tcaps_moving.c
