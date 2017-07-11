@@ -142,7 +142,7 @@ set(SOURCE_FILES
         libtcaps/srcs/tcaps_utils.c
         libtcaps/srcs/tcaps_size.c
         libtcaps/srcs/tcaps_delete.c
-        libtcaps/srcs/tcaps_moving.c)
+        libtcaps/srcs/tcaps_moving.c libtcaps/srcs/tcaps_home_end.c)
 
 
 include_directories(libft/includes libftprintf/includes liblogger/includes libtcaps/includes)
