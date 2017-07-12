@@ -97,6 +97,11 @@ t_ts	get_term_size(void);
 # define KEY_CODE_END "\x1b\x5b\x46\0"
 # define KEY_CODE_HOME "\x1b\x5b\x48\0"
 # define KEY_CODE_INSERT "kI"
+
+# define KEY_CODE_ALT_C "\x1B\x63\0"
+# define KEY_CODE_ALT_V "\x1B\x76\0"
+# define KEY_CODE_ALT_X "\x1B\x78\0"
+
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -271,6 +276,19 @@ BOOL    is_end(const char *buff);
 ** @return True if insert, False otherwise
 */
 BOOL	is_insert(const char *buff);
+
+/**
+** @file tcaps_alt.c
+**
+** @brief Determines if alt combination pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if true, False otherwise
+*/
+BOOL	is_alt_c(const char *buff);
+BOOL	is_alt_v(const char *buff);
+BOOL	is_alt_x(const char *buff);
 
 /**
 ** @file tcaps_moving.c

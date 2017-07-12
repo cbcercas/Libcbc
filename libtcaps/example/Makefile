@@ -18,7 +18,7 @@ SRC_SUBDIR		+= exec
 SRCS			+= tcaps_key_exec.c tcaps_exec_ctrl_1.c tcaps_exec_ctrl_2.c\
                     tcaps_exec_arrow.c tcaps_exec_delete.c tcaps_exec_tab.c\
                     tcaps_exec_ctrl_arrow.c tcaps_exec_home_end.c\
-                    tcaps_exec_insert.c
+                    tcaps_exec_insert.c tcaps_exec_alt.c
 
 SRC_SUBDIR		+= term
 SRCS			+= term_modes.c
