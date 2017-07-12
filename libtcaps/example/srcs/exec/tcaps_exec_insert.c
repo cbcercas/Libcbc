@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tcaps_home_end.c                                     :+:      :+:    :+:   */
+/*   tcaps_exec_inset.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 12:43:21 by jlasne            #+#    #+#             */
-/*   Updated: 2017/03/30 14:32:44 by jlasne           ###   ########.fr       */
+/*   Created: 2017/02/17 15:47:35 by chbravo-          #+#    #+#             */
+/*   Updated: 2017/03/30 14:30:38 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libtcaps.h>
+#include <tcaps_test.h>
 
-BOOL    is_home(const char *buff)
+BOOL	exec_insert(const t_key *key)
 {
-	if (ft_strequ(buff, KEY_CODE_HOME))
-		return (true);
-	return (false);
-}
-
-BOOL    is_end(const char *buff)
-{
-	if (ft_strequ(buff, KEY_CODE_END))
-		return (true);
+	(void)key;
+	write(1, "User pressed insert", 19);
+	exec_ctrl_c(key);
 	return (false);
 }

@@ -37,11 +37,23 @@ BOOL	exec_ctrl_a(const t_key *key);
 BOOL	exec_ctrl_e(const t_key *key);
 BOOL	exec_ctrl_l(const t_key *key);
 BOOL	exec_ctrl_j(const t_key *key);
+BOOL	exec_ctrl_r(const t_key *key);
+BOOL	exec_ctrl_v(const t_key *key);
+BOOL	exec_ctrl_w(const t_key *key);
 
 BOOL	exec_backspace(const t_key *key);
+BOOL	exec_delete(const t_key *key);
+BOOL	exec_insert(const t_key *key);
+BOOL	exec_home(const t_key *key);
+BOOL	exec_end(const t_key *key);
 
 BOOL	exec_tab(const t_key *key);
 
 BOOL	exec_arrow(const t_key *key);
+
+BOOL	exec_ctrl_left_arrow(const t_key *key);
+BOOL	exec_ctrl_right_arrow(const t_key *key);
+BOOL	exec_ctrl_up_arrow(const t_key *key);
+BOOL	exec_ctrl_down_arrow(const t_key *key);
 
 #endif

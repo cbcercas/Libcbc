@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tcaps_exec_backspace.c                             :+:      :+:    :+:   */
+/*   tcaps_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 13:04:39 by jlasne            #+#    #+#             */
-/*   Updated: 2017/03/30 13:41:30 by jlasne           ###   ########.fr       */
+/*   Created: 2017/03/30 12:57:56 by jlasne            #+#    #+#             */
+/*   Updated: 2017/03/30 13:42:12 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <tcaps_test.h>
+#include <libtcaps.h>
 
-BOOL	exec_backspace(const t_key *key)
+BOOL	is_insert(const char *buff)
 {
-	(void)key;
-	write(1, "User pressed backspace\n", 22);
-	exec_ctrl_c(key);
+	static char     *insert = NULL;
+
+	if (insert == NULL)
+	{
+		if((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
+		{
+			log_fatal("Lib_tcaps: failed to get insert code.");
+			ft_dprintf(STDERR_FILENO,
+					   "Lib_tcaps: failed to get insert code.");
+		}
+	}
+	if (ft_strequ(buff, insert))
+	{
+		return (true);
+	}
 	return (false);
 }

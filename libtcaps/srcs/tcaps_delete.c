@@ -15,7 +15,6 @@
 BOOL	is_delete(const char *buff)
 {
 	static char     *delete = NULL;
-log_dbg3("is delete");
 	if (delete == NULL)
 	{
 		if((delete = tgetstr(KEY_CODE_DELETE, NULL)) == NULL)

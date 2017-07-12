@@ -84,16 +84,19 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_E "\x05\0\0\0\0"
 # define KEY_CODE_CTRL_L "\x0C\0\0\0\0"
 # define KEY_CODE_CTRL_R "\x12\0\0\0\0"
+# define KEY_CODE_CTRL_V "\x16\0"
+# define KEY_CODE_CTRL_W "\x17\0"
 # define KEY_CODE_CTRL_UARROW "\x1B\x5B\x31\x3B\x35\x41\0"
 # define KEY_CODE_CTRL_DARROW "\x1B\x5B\x31\x3B\x35\x42\0"
+# define KEY_CODE_CTRL_RARROW "\x1B\x5B\x31\x3B\x35\x43\0"
+# define KEY_CODE_CTRL_LARROW "\x1B\x5B\x31\x3B\x35\x44\0"
 # define KEY_CODE_BACKSPACE "kb"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
 # define KEY_CODE_END "\x1b\x5b\x46\0"
 # define KEY_CODE_HOME "\x1b\x5b\x48\0"
-
-
+# define KEY_CODE_INSERT "kI"
 # define KEY_CODE_OTHER ""
 # define KEY_CODE_NONE ""
 
@@ -165,6 +168,21 @@ BOOL	is_down_arrow(const char *buff);
 BOOL	is_up_arrow(const char *buff);
 
 /**
+** @file       tcaps_ctrl_arrow.c
+**
+** @brief      Determines if ctrl+arrow.
+**
+** @param[in]  buff  The buffer
+**
+** @return     True if ctrl+arrow, False otherwise.
+*/
+BOOL	is_ctrl_right_arrow(const char *buff);
+BOOL	is_ctrl_left_arrow(const char *buff);
+BOOL	is_ctrl_up_arrow(const char *buff);
+BOOL	is_ctrl_down_arrow(const char *buff);
+
+
+/**
 ** @file       tcaps_ctrl_1.c
 **
 ** @brief      Determines if ctrl+*.
@@ -192,8 +210,8 @@ BOOL	is_ctrl_e(const char *buff);
 BOOL	is_ctrl_l(const char *buff);
 BOOL	is_ctrl_j(const char *buff);
 BOOL    is_ctrl_r(const char *buff);
-BOOL    is_ctrl_up(const char *buff);
-BOOL    is_ctrl_down(const char *buff);
+BOOL    is_ctrl_v(const char *buff);
+BOOL    is_ctrl_w(const char *buff);
 
 /**
 ** @file tcaps_backspace.c
@@ -234,14 +252,25 @@ BOOL	is_tab(const char *buff);
 /**
 ** @file tcaps_home_end.c
 **
-** @brief Determines if home or is pressed
+** @brief Determines if home or end is pressed
 **
 ** @param[in]	buff  The buffer
 **
-** @return True if control, False otherwise
+** @return True if true, False otherwise
 */
 BOOL    is_home(const char *buff);
 BOOL    is_end(const char *buff);
+
+/**
+** @file tcaps_insert.c
+**
+** @brief Determines if insert pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if insert, False otherwise
+*/
+BOOL	is_insert(const char *buff);
 
 /**
 ** @file tcaps_moving.c

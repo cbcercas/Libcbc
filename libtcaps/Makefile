@@ -14,7 +14,8 @@ NAME			= libtcaps.a
 
 SRCS			= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 				  tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c\
-				   tcaps_moving.c tcaps_home_end.c
+				  tcaps_moving.c tcaps_home_end.c tcaps_ctrl_arrow.c\
+				  tcaps_insert.c
 
 ###############################################################################
 #																			  #
@@ -40,20 +41,23 @@ DEPS		= $(SRCS:%.c=$(DEPS_DIR)/%.d)
 BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
 
 # Libraries
+
 ## libft
-LIBFT_DIR	= ../libft_cbc
+LIBFT_DIR	= ../libft
 INC			+= -I $(LIBFT_DIR)/includes
 LIBS		+= -L $(LIBFT_DIR) -lft
 
 ## libftprinft
-LIBFTPRINTF_DIR	= ../libftprintfcbc
+LIBFTPRINTF_DIR	= ../libftprintf
 INC			+= -I $(LIBFTPRINTF_DIR)/includes
 LIBS		+= -L $(LIBFTPRINTF_DIR) -lftprintf
 
-## libft
-LIBLOGGER_DIR	= ../lib_logger_cbc
+
+LIBLOGGER_DIR	= ../liblogger
 INC			+= -I $(LIBLOGGER_DIR)/includes
-LIBS		+= -L $(LIBLOGGER_DIR) -lft
+LIBS		+= -L $(LIBLOGGER_DIR) -llogger
+
+
 
 
 #Utils

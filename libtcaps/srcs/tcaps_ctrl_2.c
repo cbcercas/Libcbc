@@ -33,16 +33,16 @@ BOOL    is_ctrl_r(const char *buff)
 	return (false);
 }
 
-BOOL    is_ctrl_up(const char *buff)
+BOOL    is_ctrl_v(const char *buff)
 {
-	if (ft_strequ(buff, KEY_CODE_CTRL_UP))
+	if (ft_strequ(buff, KEY_CODE_CTRL_V))
 		return (true);
 	return (false);
 }
 
-BOOL    is_ctrl_down(const char *buff)
+BOOL    is_ctrl_w(const char *buff)
 {
-	if (ft_strequ(buff, KEY_CODE_CTRL_DOWN))
+	if (ft_strequ(buff, KEY_CODE_CTRL_W))
 		return (true);
 	return (false);
 }

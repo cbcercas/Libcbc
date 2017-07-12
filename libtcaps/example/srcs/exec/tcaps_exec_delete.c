@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tcaps_home_end.c                                     :+:      :+:    :+:   */
+/*   tcaps_exec_backspace.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 12:43:21 by jlasne            #+#    #+#             */
-/*   Updated: 2017/03/30 14:32:44 by jlasne           ###   ########.fr       */
+/*   Created: 2017/03/30 13:04:39 by jlasne            #+#    #+#             */
+/*   Updated: 2017/03/30 13:41:30 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libtcaps.h>
 
-BOOL    is_home(const char *buff)
+#include <tcaps_test.h>
+
+BOOL	exec_backspace(const t_key *key)
 {
-	if (ft_strequ(buff, KEY_CODE_HOME))
-		return (true);
+	(void)key;
+	write(1, "User pressed backspace\n", 22);
+	exec_ctrl_c(key);
 	return (false);
 }
 
-BOOL    is_end(const char *buff)
+BOOL	exec_delete(const t_key *key)
 {
-	if (ft_strequ(buff, KEY_CODE_END))
-		return (true);
+	(void)key;
+	write(1, "User pressed delete", 19);
+	exec_ctrl_c(key);
 	return (false);
 }

@@ -15,8 +15,10 @@ NAME			= test.e
 SRCS			+= main.c
 
 SRC_SUBDIR		+= exec
-SRCS			+= tcaps_key_exec.c tcaps_exec_ctrl_1.c tcaps_exec_ctrl_2.c tcaps_exec_arrow.c\
-				   tcaps_exec_backspace.c tcaps_exec_tab.c
+SRCS			+= tcaps_key_exec.c tcaps_exec_ctrl_1.c tcaps_exec_ctrl_2.c\
+                    tcaps_exec_arrow.c tcaps_exec_delete.c tcaps_exec_tab.c\
+                    tcaps_exec_ctrl_arrow.c tcaps_exec_home_end.c\
+                    tcaps_exec_insert.c
 
 SRC_SUBDIR		+= term
 SRCS			+= term_modes.c
@@ -44,23 +46,31 @@ DEPS_DIR		= .deps
 DEPS			= $(SRCS:%.c=$(DEPS_DIR)/%.d)
 BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR) bin
 
-# Include
-INC				= -I includes
+## lib_logger
+LIBLOGGER_DIR	= ../../liblogger
+INC			+= -I $(LIBLOGGER_DIR)/includes
+
+## libftprinft
+LIBFTPRINTF_DIR	= ../../libftprintf
+INC			+= -I $(LIBFTPRINTF_DIR)/includes
+
+
+## libft
+LIBFT_DIR	= ../../libft
+INC			+= -I $(LIBFT_DIR)/includes
+
+LIBCBC_DIR	= ../..
+LIBS        += -L $(LIBCBC_DIR) -lcbc
+
+INC         += -I includes
 
 # Libraries
 ## Libtcaps
 LIBTCAPS_DIR	= ..
 INC				+= -I $(LIBTCAPS_DIR)/includes
-LIBS				+= -L$(LIBTCAPS_DIR) -ltcaps
 
 ## Curses
 LIBS				+= -lcurses
-
-## libft includes
-LIBFT_DIR		= ../../libft
-INC				+= -I $(LIBFT_DIR)/includes
-LIBS				+= -L $(LIBFT_DIR) -lft
-
 
 #Utils
 RM				= rm -rf
@@ -97,8 +107,7 @@ $(BUILD_DIR):
 	@$(MKDIR) -p $@
 
 libs:
-	@make -C $(LIBFT_DIR)
-	@make -C ../
+	@make -C $(LIBCBC_DIR)
 
 re: clean fclean all
 
@@ -113,8 +122,7 @@ clean:
 fclean: clean
 	@echo "\033[35mMinishell  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
-	@make fclean -C $(LIBFT_DIR)
-	@make fclean -C $(LIBTCAPS_DIR)
+	@make fclean -C $(LIBCBC_DIR)
 
 
 .PHONY: re clean fclean all libs
