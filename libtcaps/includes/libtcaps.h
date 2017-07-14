@@ -90,6 +90,10 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_DARROW "\x1B\x5B\x31\x3B\x35\x42\0"
 # define KEY_CODE_CTRL_RARROW "\x1B\x5B\x31\x3B\x35\x43\0"
 # define KEY_CODE_CTRL_LARROW "\x1B\x5B\x31\x3B\x35\x44\0"
+# define KEY_CODE_ALT_UARROW "\x1B\x5B\x31\x3B\x33\x41\0"
+# define KEY_CODE_ALT_DARROW "\x1B\x5B\x31\x3B\x33\x42\0"
+# define KEY_CODE_ALT_RARROW "\x1B\x5B\x31\x3B\x33\x43\0"
+# define KEY_CODE_ALT_LARROW "\x1B\x5B\x31\x3B\x33\x44\0"
 # define KEY_CODE_BACKSPACE "kb"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
@@ -185,6 +189,20 @@ BOOL	is_ctrl_right_arrow(const char *buff);
 BOOL	is_ctrl_left_arrow(const char *buff);
 BOOL	is_ctrl_up_arrow(const char *buff);
 BOOL	is_ctrl_down_arrow(const char *buff);
+
+/**
+** @file       tcaps_alt_arrow.c
+**
+** @brief      Determines if alt+arrow.
+**
+** @param[in]  buff  The buffer
+**
+** @return     True if alt+arrow, False otherwise.
+*/
+BOOL	is_alt_right_arrow(const char *buff);
+BOOL	is_alt_left_arrow(const char *buff);
+BOOL	is_alt_up_arrow(const char *buff);
+BOOL	is_alt_down_arrow(const char *buff);
 
 
 /**
