@@ -9,4 +9,4 @@
 	url = https://github.com/cbcercas/liblogger.git
 [submodule "libtcaps"]
 	path = libtcaps
-	url = https://github.com/cbcercas/Libtcaps.git
+	url = https://github.com/cbcercas/libtcaps
