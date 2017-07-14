@@ -134,15 +134,22 @@ set(SOURCE_FILES
         liblogger/srcs/logger/logger_utils.c
 
         # tcaps
+
+        libtcaps/srcs/tcaps_alt.c
+        libtcaps/srcs/tcaps_alt_arrow.c
         libtcaps/srcs/tcaps_arrow.c
         libtcaps/srcs/tcaps_backspace.c
         libtcaps/srcs/tcaps_ctrl_1.c
         libtcaps/srcs/tcaps_ctrl_2.c
+        libtcaps/srcs/tcaps_ctrl_arrow.c
+        libtcaps/srcs/tcaps_delete.c
+        libtcaps/srcs/tcaps_home_end.c
+        libtcaps/srcs/tcaps_insert.c
+        libtcaps/srcs/tcaps_moving.c
+        libtcaps/srcs/tcaps_size.c
         libtcaps/srcs/tcaps_tab.c
         libtcaps/srcs/tcaps_utils.c
-        libtcaps/srcs/tcaps_size.c
-        libtcaps/srcs/tcaps_delete.c
-        libtcaps/srcs/tcaps_moving.c libtcaps/srcs/tcaps_home_end.c)
+        )
 
 
 include_directories(libft/includes libftprintf/includes liblogger/includes libtcaps/includes)
