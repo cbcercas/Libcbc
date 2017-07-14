@@ -65,7 +65,7 @@ SRC_SUBDIR		+= libtcaps/srcs
 SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 				  tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c\
 				  tcaps_moving.c tcaps_home_end.c tcaps_ctrl_arrow.c \
-				  tcaps_insert.c tcaps_alt.c
+				  tcaps_insert.c tcaps_alt.c tcaps_alt_arrow.c
 
 
 ###############################################################################
