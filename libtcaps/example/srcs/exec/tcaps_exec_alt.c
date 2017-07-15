@@ -20,6 +20,14 @@ BOOL	exec_alt_c(const t_key *key)
 	return (false);
 }
 
+BOOL	exec_alt_i(const t_key *key)
+{
+	(void)key;
+	write(1, "User pressed ALT+I", 18);
+	exec_ctrl_c(key);
+	return (false);
+}
+
 BOOL	exec_alt_v(const t_key *key)
 {
 	(void)key;

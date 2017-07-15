@@ -55,6 +55,7 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_END, &is_end},
 		{KEY_CODE_INSERT, &is_insert},
 		{KEY_CODE_ALT_C, &is_alt_c},
+		{KEY_CODE_ALT_I, &is_alt_i},
 		{KEY_CODE_ALT_V, &is_alt_v},
 		{KEY_CODE_ALT_X, &is_alt_x},
 		{KEY_CODE_NONE, NULL}
