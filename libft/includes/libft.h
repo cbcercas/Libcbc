@@ -35,6 +35,7 @@ int				ft_isdigit(int n);
 int				ft_isalnum(int n);
 int				ft_isascii(int nb);
 int				ft_isprint(int nb);
+BOOL			ft_isprintstr(char const *str);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_strcmp(const char *s1, const char *s2);

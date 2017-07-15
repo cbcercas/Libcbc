@@ -12,9 +12,16 @@
 
 #include "libft.h"
 
-int	ft_isprint(int nb)
+int		ft_isprint(int nb)
 {
 	if (nb >= 32 && nb <= 126)
 		return (1);
 	return (0);
+}
+
+BOOL	ft_isprintstr(char const *str)
+{
+	while (str && ft_isprint(*str))
+		str++;
+	return (*str != '\0') ? false :true;
 }
