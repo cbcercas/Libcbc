@@ -22,6 +22,7 @@
 # include <ftprintf.h>
 # include <logger.h>
 # include <gnl/get_next_line.h>
+# include <sys/ioctl.h>
 
 /**
 ** @struct     s_ts
@@ -316,7 +317,7 @@ BOOL	is_alt_x(const char *buff);
 ** @param[in]	cpos  The cursor position
 ** @param[in]	ts    The teminal size
 */
-void	move_cursor_left(t_cpos *cpos, t_ts *ts);
-void	move_cursor_right(t_cpos *cpos, t_ts *ts);
+void	move_cursor_left(t_cpos *cpos, struct winsize *ts);
+void	move_cursor_right(t_cpos *cpos, struct winsize *ts);
 
 #endif
