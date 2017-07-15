@@ -95,7 +95,7 @@ t_ts	get_term_size(void);
 # define KEY_CODE_ALT_DARROW "\x1B\x5B\x31\x3B\x33\x42\0"
 # define KEY_CODE_ALT_RARROW "\x1B\x5B\x31\x3B\x33\x43\0"
 # define KEY_CODE_ALT_LARROW "\x1B\x5B\x31\x3B\x33\x44\0"
-# define KEY_CODE_BACKSPACE "kb"
+# define KEY_CODE_BACKSPACE "\x7F\0"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
