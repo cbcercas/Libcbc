@@ -44,6 +44,7 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_BACKSPACE, &exec_backspace},
 		{KEY_CODE_TAB, &exec_tab},
 		{KEY_CODE_ALT_C, &exec_alt_c},
+		{KEY_CODE_ALT_I, &exec_alt_i},
 		{KEY_CODE_ALT_V, &exec_alt_v},
 		{KEY_CODE_ALT_X, &exec_alt_x},
 		{KEY_CODE_NONE, NULL}

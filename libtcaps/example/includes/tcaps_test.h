@@ -62,6 +62,7 @@ BOOL	exec_alt_up_arrow(const t_key *key);
 BOOL	exec_alt_down_arrow(const t_key *key);
 
 BOOL	exec_alt_c(const t_key *key);
+BOOL	exec_alt_i(const t_key *key);
 BOOL	exec_alt_v(const t_key *key);
 BOOL	exec_alt_x(const t_key *key);
 

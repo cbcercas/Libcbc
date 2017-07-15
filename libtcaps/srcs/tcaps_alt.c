@@ -19,6 +19,13 @@ BOOL	is_alt_c(const char *buff)
 	return (false);
 }
 
+BOOL	is_alt_i(const char *buff)
+{
+	if (ft_strequ(buff, KEY_CODE_ALT_I))
+		return (true);
+	return (false);
+}
+
 BOOL	is_alt_v(const char *buff)
 {
 	if (ft_strequ(buff, KEY_CODE_ALT_V))

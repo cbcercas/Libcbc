@@ -103,6 +103,7 @@ t_ts	get_term_size(void);
 # define KEY_CODE_INSERT "kI"
 
 # define KEY_CODE_ALT_C "\x1B\x63\0"
+# define KEY_CODE_ALT_I "\x1B\x69\0"
 # define KEY_CODE_ALT_V "\x1B\x76\0"
 # define KEY_CODE_ALT_X "\x1B\x78\0"
 
@@ -305,6 +306,7 @@ BOOL	is_insert(const char *buff);
 ** @return True if true, False otherwise
 */
 BOOL	is_alt_c(const char *buff);
+BOOL	is_alt_i(const char *buff);
 BOOL	is_alt_v(const char *buff);
 BOOL	is_alt_x(const char *buff);
 
