@@ -22,10 +22,11 @@ t_key	key_new(char *key_code, const char *buff)
 	return (key);
 }
 
-t_key	key_get(const char *buff)
+t_key	key_get(const char *buff, BOOL tcaps_activ)
 {
 	int				i;
 	static t_key_test	fn_test[] = {
+		{KEY_CODE_ENTER, &is_ctrl_j},
 		{KEY_CODE_RARROW, &is_right_arrow},
 		{KEY_CODE_LARROW, &is_left_arrow},
 		{KEY_CODE_DARROW, &is_down_arrow},
@@ -47,7 +48,6 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_ALT_LARROW, &is_alt_left_arrow},
 		{KEY_CODE_ALT_UARROW, &is_alt_up_arrow},
 		{KEY_CODE_ALT_DARROW, &is_alt_down_arrow},
-		{KEY_CODE_ENTER, &is_ctrl_j},
 		{KEY_CODE_BACKSPACE, &is_backspace},
 		{KEY_CODE_DELETE, &is_delete},
 		{KEY_CODE_TAB, &is_tab},
@@ -61,12 +61,17 @@ t_key	key_get(const char *buff)
 		{KEY_CODE_NONE, NULL}
 	};
 
-	i = -1;
-	while (fn_test[++i].f != NULL)
+	if (tcaps_activ)
 	{
-		if (fn_test[i].f(buff))
-			return (key_new(fn_test[i].key_code, buff));
+		i = -1;
+		while (fn_test[++i].f != NULL)
+		{
+			if (fn_test[i].f(buff))
+				return (key_new(fn_test[i].key_code, buff));
+		}
 	}
+	else if ('\n' == buff[0])
+		return (key_new(KEY_CODE_ENTER, buff));
 	return (key_new(KEY_CODE_OTHER, buff));
 }
 
