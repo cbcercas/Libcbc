@@ -47,7 +47,7 @@ t_array	*array_reset(t_array *array, void fn(void *elem))
 {
 	size_t	cnt;
 
-	if (fn)
+	if (fn && array->used)
 	{
 		cnt = 0;
 		while (cnt < array->used)
@@ -56,11 +56,16 @@ t_array	*array_reset(t_array *array, void fn(void *elem))
 			cnt += 1;
 		}
 	}
-	ft_memdel(&array->array);
-	if (!(array_init_cap(array, array->elem_size, ARRAY_MIN_SIZE)))
+	if (array->capacity > ARRAY_MIN_SIZE)
 	{
-		free(array);
-		return (NULL);
+		ft_memdel(&array->array);
+		if (!(array_init_cap(array, array->elem_size, ARRAY_MIN_SIZE)))
+		{
+			free(array);
+			return (NULL);
+		}
 	}
+	else
+		ft_bzero(array->array, array->elem_size * array->capacity);
 	return (array);
 }

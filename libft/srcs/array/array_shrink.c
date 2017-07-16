@@ -28,7 +28,7 @@ t_array	*array_shrink(t_array *ar)
 	needed_cap = (ar->used / ARRAY_MIN_SIZE + 1) * ARRAY_MIN_SIZE;
 	if (needed_cap == ar->used)
 		needed_cap += ARRAY_MIN_SIZE;
-	if (needed_cap < ar->capacity)
+	if (needed_cap > ar->capacity)
 	{
 		if (!(n_array = ft_memalloc(ar->elem_size * needed_cap)))
 			return (NULL);
