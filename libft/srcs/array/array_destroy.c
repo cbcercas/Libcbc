@@ -66,6 +66,9 @@ t_array	*array_reset(t_array *array, void fn(void *elem))
 		}
 	}
 	else
+	{
 		ft_bzero(array->array, array->elem_size * array->capacity);
+		array->used = 0;
+	}
 	return (array);
 }
