@@ -111,9 +111,20 @@ INC			+= -I $(LIBTCAPS_DIR)/includes
 #Utils
 RM					= rm -rf
 MKDIR				= mkdir -p
+COUNT_OBJ = 0
+COUNT_DEP = 0
+TOTAL = 0
+PERCENT = 0
+$(eval TOTAL=$(shell echo $$(printf "%s" "$(SRCS)" | wc -w)))
 
-#Doxygen
-DOXYGEN := $(shell command -v doxygen 2> /dev/null)
+#color
+C_NO = \033[0m
+C_G = \033[0;32m
+C_Y = \033[1;33m
+C_B = \033[1;34m
+C_C = \033[1;36m
+C_R = \033[1;31m
+DOXYGEN = $(shell doxygen -v dot 2> /dev/null)
 
 ###############################################################################
 #																			  #
@@ -131,17 +142,25 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-	ar rc $@ $(OBJS)
-	ranlib $@
+	@ar rc $@ $(OBJS)
+	@ranlib $@
+	@echo -e "$(C_G)🎩🎩🎩$(C_NO) ALL LINKED FOR LIBCBC $(C_G)🎩🎩🎩$(C_NO)"
+	@echo -e "INFO: Flags for libcbc: $(CFLAGS)"
 	@echo "[\033[35m-----------------------------\033[0m]"
 	@echo "[\033[36m------- OK - LIBCBC -------\033[0m]"
 	@echo "[\033[35m-----------------------------\033[0m]"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	$(eval COUNT_OBJ=$(shell echo $$(($(COUNT_OBJ)+1))))
+	$(eval PERCENT=$(shell echo $$((($(COUNT_OBJ) * 100 )/$(TOTAL)))))
+	@printf "$(C_B)%-8s $(C_Y) $<$(C_NO)\n" "[$(PERCENT)%]"
 
 $(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
 	@$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
+	$(eval COUNT_DEP=$(shell echo $$(($(COUNT_DEP)+1))))
+	$(eval PERCENT=$(shell echo $$((($(COUNT_DEP) * 100 )/$(TOTAL)))))
+	@printf "$(C_B)%-8s $(C_C) $@$(C_NO)\n" "[$(PERCENT)%]"
 
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
