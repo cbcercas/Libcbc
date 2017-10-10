@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 18:02:09 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 14:29:32 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/10 14:22:26 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ BOOL	exec_alt_c(const t_key *key);
 BOOL	exec_alt_i(const t_key *key);
 BOOL	exec_alt_v(const t_key *key);
 BOOL	exec_alt_x(const t_key *key);
+
+BOOL	exec_alt_s(const t_key *key);
 
 #endif

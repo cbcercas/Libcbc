@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 21:44:30 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 14:33:16 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/10 13:30:52 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_key	key_get(const char *buff, BOOL tcaps_activ)
 		{KEY_CODE_ALT_I, &is_alt_i},
 		{KEY_CODE_ALT_V, &is_alt_v},
 		{KEY_CODE_ALT_X, &is_alt_x},
+		{KEY_CODE_ALT_S, &is_alt_s},
 		{KEY_CODE_NONE, NULL}
 	};
 
