@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/18 12:37:13 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 14:32:37 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/10 14:22:01 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_ALT_I, &exec_alt_i},
 		{KEY_CODE_ALT_V, &exec_alt_v},
 		{KEY_CODE_ALT_X, &exec_alt_x},
+		{KEY_CODE_ALT_S, &exec_alt_s},
 		{KEY_CODE_NONE, NULL}
 	};
 	int				i;
