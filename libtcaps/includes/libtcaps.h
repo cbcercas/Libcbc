@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:38:32 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/17 15:54:23 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/10 11:43:35 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ t_ts	get_term_size(void);
 # define KEY_CODE_CTRL_DARROW "\x1B\x5B\x31\x3B\x35\x42\0"
 # define KEY_CODE_CTRL_RARROW "\x1B\x5B\x31\x3B\x35\x43\0"
 # define KEY_CODE_CTRL_LARROW "\x1B\x5B\x31\x3B\x35\x44\0"
-# define KEY_CODE_ALT_UARROW "\x1B\x5B\x31\x3B\x33\x41\0"
-# define KEY_CODE_ALT_DARROW "\x1B\x5B\x31\x3B\x33\x42\0"
-# define KEY_CODE_ALT_RARROW "\x1B\x5B\x31\x3B\x33\x43\0"
-# define KEY_CODE_ALT_LARROW "\x1B\x5B\x31\x3B\x33\x44\0"
+# define KEY_CODE_ALT_UARROW "\x1B\x1B\x5B\x41\0"
+# define KEY_CODE_ALT_DARROW "\x1B\x1B\x5B\x42\0"
+# define KEY_CODE_ALT_RARROW "\x1B\x1B\x5B\x43\0"
+# define KEY_CODE_ALT_LARROW "\x1B\x1B\x5B\x44\0"
 # define KEY_CODE_BACKSPACE "\x7F\0"
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
