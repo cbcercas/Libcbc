@@ -6,7 +6,7 @@
 #    By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/08 11:02:51 by chbravo-          #+#    #+#              #
-#    Updated: 2017/05/17 17:00:14 by chbravo-         ###   ########.fr        #
+#    Updated: 2017/10/10 09:11:09 by jlasne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,9 +139,9 @@ DOXYGEN = $(shell doxygen -v dot 2> /dev/null)
 all: $(NAME)
 
 # Add dependency as prerequisites
--include $(DEPS)
+#-include $(DEPS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(DEPS)
 	@ar rc $@ $(OBJS)
 	@ranlib $@
 	@echo -e "$(C_G)🎩🎩🎩$(C_NO) ALL LINKED FOR LIBCBC $(C_G)🎩🎩🎩$(C_NO)"
