@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:37:43 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/02/18 12:38:53 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/10 09:01:08 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <tcaps_test.h>
@@ -36,14 +36,15 @@ int main(int ac, char const *av[])
 		(void)ft_bzero((void *)buff, MAX_KEY_STRING_LEN);
 		res = read(STDIN_FILENO, buff, MAX_KEY_STRING_LEN);
 		buff[res] = '\0';
-		key = key_get(buff);
+		key = key_get(buff, true);
+		ft_printf("%s\n", key.key_code);
 		if (ft_strcmp(key.key_code, KEY_CODE_NONE))
 			stop = key_exec(&key);
 		else
 			if (ft_isprint(key.key[0]))
 				ft_printf("%c", key.key[0]);
 		key_del(&key);
-		if (stop == false && i++ == 10)
+		if (stop == false && i++ == 20)
 			stop = true;
 		default_terminal_mode();
 	}
