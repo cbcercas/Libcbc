@@ -161,7 +161,7 @@ struct	s_key_test
 ** @param[in]  buff      The buffer
 **
 ** @return     key_new and key_get return a t_key
-**/
+*/
 t_key	key_new(char *key_code, const char *buff);
 t_key	key_get(const char *buff, BOOL tcaps_activ);
 void	key_del(t_key *key);
