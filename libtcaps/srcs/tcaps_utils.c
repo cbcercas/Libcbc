@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 21:44:30 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/10/10 13:30:52 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 01:51:50 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_key	key_new(char *key_code, const char *buff)
 
 t_key	key_get(const char *buff, BOOL tcaps_activ)
 {
-	int				i;
+	int					i;
 	static t_key_test	fn_test[] = {
 		{KEY_CODE_ENTER, &is_ctrl_j},
 		{KEY_CODE_RARROW, &is_right_arrow},

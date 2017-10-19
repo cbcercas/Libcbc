@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 14:41:47 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/03/30 12:44:15 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 01:52:33 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_ts	get_term_size(void)
 {
-	t_ts			tws;
-	int 			tmp;
+	t_ts	tws;
+	int		tmp;
 
 	ft_bzero(&tws, sizeof(tws));
 	tmp = tgetnum("co");
@@ -38,7 +38,7 @@ t_ts	get_term_size(void)
 
 t_cpos	get_cursor_pos(void)
 {
-	char *buff;
+	char	*buff;
 	t_cpos	cpos;
 
 	ft_bzero(&cpos, sizeof(cpos));
@@ -49,7 +49,8 @@ t_cpos	get_cursor_pos(void)
 	{
 		cpos.cp_line = (unsigned short)ft_atoi(&buff[2]);
 		cpos.cp_col = (unsigned short)ft_atoi(ft_strchr(buff, ';') + 1);
-		log_dbg3("Libtcaps: cursor pos: col: %hu, line: %hu", cpos.cp_col, cpos.cp_line);
+		log_dbg3("Libtcaps: cursor pos: col: %hu, line: %hu", cpos.cp_col,
+																cpos.cp_line);
 	}
 	return (cpos);
 }

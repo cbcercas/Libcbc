@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tcaps_moving.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/19 01:52:48 by jlasne            #+#    #+#             */
+/*   Updated: 2017/10/19 01:52:58 by jlasne           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libtcaps.h>
 
 void	move_cursor_left(t_cpos *cpos, struct winsize *ts)
@@ -6,7 +18,7 @@ void	move_cursor_left(t_cpos *cpos, struct winsize *ts)
 	if (cpos->cp_col == 0)
 	{
 		tputs(tgetstr("up", NULL), 0, &ft_putchar2);
-		while(cpos->cp_col + 1 < ts->ws_col)
+		while (cpos->cp_col + 1 < ts->ws_col)
 		{
 			tputs(tgetstr("nd", NULL), 0, &ft_putchar2);
 			cpos->cp_col += 1;
