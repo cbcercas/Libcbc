@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:18:20 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/10/19 02:25:59 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 05:40:30 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ t_string	*string_init(t_string *string);
 **
 ** @brief      enlarge the string capacity
 */
-
 t_string	*string_growth_cap(t_string *array, size_t cap);
 t_string	*string_growth(t_string *array);
 
