@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 18:22:41 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 22:04:44 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:09:34 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Initialize the t_string with specified capacity
 **
 ** @param[out] string The t_string
@@ -32,7 +32,7 @@ t_string	*string_init_cap(t_string *string, size_t cap)
 	return (string);
 }
 
-/**
+/*
 ** @brief      Create a t_string with specified capacity
 **
 ** @param[in]  cap   The array capacity

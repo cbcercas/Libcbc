@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 16:08:00 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/15 02:48:14 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:10:43 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int					ft_getopt(int ac, char *const *av, const char *optstring)
 	return (go_err(GETOPT_ERR_OPT, optstring, av[0], *opt));
 }
 
-void 				ft_getopt_reset(void)
+void				ft_getopt_reset(void)
 {
 	g_opterr = 1;
 	g_optind = 1;

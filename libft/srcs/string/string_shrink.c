@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 02:51:58 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/15 02:32:20 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:10:17 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Reduce the string capacity if needed
 **
 ** @param      string  The t_t_string

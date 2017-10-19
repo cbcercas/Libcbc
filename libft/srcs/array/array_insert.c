@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 12:42:54 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:08:32 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:07:12 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      add an element to the array at the given pos
 **
 ** @param      array  The t_array

@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 07:33:40 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 21:17:55 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:07:35 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      Reduce the array capacity if needed
 **
 ** @param      ar  The t_array

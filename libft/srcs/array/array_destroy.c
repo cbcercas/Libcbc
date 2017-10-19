@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 01:20:04 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:08:24 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:08:53 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array/array.h"
 
-/**
+/*
 ** @brief      Destroy a t_array
 **
 ** @param      array  The t_array to be free
@@ -20,9 +20,9 @@
 
 void	array_destroy(t_array **array, void fn(void *elem))
 {
-	size_t  cnt;
+	size_t	cnt;
 
-    if (fn)
+	if (fn)
 	{
 		cnt = 0;
 		while (cnt < (*array)->used)
@@ -41,8 +41,9 @@ void	array_destroy(t_array **array, void fn(void *elem))
 ** @param      array  The t_array
 **
 ** @return     The t_array on success, NULL otherwise
+** TODO add some test + norme
 */
-// TODO add some test
+
 t_array	*array_reset(t_array *array, void fn(void *elem))
 {
 	size_t	cnt;
