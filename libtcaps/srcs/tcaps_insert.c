@@ -6,7 +6,7 @@
 /*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 12:57:56 by jlasne            #+#    #+#             */
-/*   Updated: 2017/10/19 02:03:28 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 05:59:55 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ BOOL	is_insert(const char *buff)
 {
 	static char	*insert;
 
-	arrow = NULL;
+	insert = NULL;
 	if (insert == NULL)
 	{
 		if ((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
