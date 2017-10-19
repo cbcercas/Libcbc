@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 14:41:47 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/10/19 01:52:33 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 06:00:26 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_ts	get_term_size(void)
 {
-	t_ts	tws;
-	int		tmp;
+	t_ts			tws;
+	int				tmp;
 
 	ft_bzero(&tws, sizeof(tws));
 	tmp = tgetnum("co");
@@ -38,8 +38,8 @@ t_ts	get_term_size(void)
 
 t_cpos	get_cursor_pos(void)
 {
-	char	*buff;
-	t_cpos	cpos;
+	char		*buff;
+	t_cpos		cpos;
 
 	ft_bzero(&cpos, sizeof(cpos));
 	write(STDIN_FILENO, "\033[6n", 4);

@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 14:38:32 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/10/19 02:17:14 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 05:53:09 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ struct						s_ts
 {
 	unsigned short ts_cols;
 	unsigned short ts_lines;
-}							;
+};
 
 t_ts						get_term_size(void);
 
