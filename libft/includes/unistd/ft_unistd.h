@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 16:07:00 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/15 02:46:29 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 02:25:06 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #  define GETOPT_ERR_ARG 2
 # endif
 
-int 	ft_getopt(int ac, char *const *av, const char *optstring);
-void 	ft_getopt_reset(void);
+int		ft_getopt(int ac, char *const *av, const char *optstring);
+void	ft_getopt_reset(void);
 
 #endif

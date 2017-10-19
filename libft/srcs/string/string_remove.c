@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 01:08:49 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/15 02:31:47 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:10:09 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      remove n char of a t_string from pos
 **
 ** @param      s     The t_string
@@ -40,7 +40,7 @@ size_t	string_remove(t_string *s, size_t pos, size_t n)
 	return (rem);
 }
 
-/**
+/*
 ** @brief      remove a char of a t_string at pos
 **
 ** @param      s     The t_string

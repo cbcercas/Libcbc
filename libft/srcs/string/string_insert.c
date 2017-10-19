@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/02 11:12:57 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 22:09:41 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:09:57 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      insert str to the t_string at given position
 **
 ** @param      string  The string
