@@ -6,7 +6,7 @@
 /*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 12:43:21 by jlasne            #+#    #+#             */
-/*   Updated: 2017/03/30 14:32:44 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 02:11:33 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,28 @@ BOOL	is_ctrl_l(const char *buff)
 	return (false);
 }
 
-BOOL    is_ctrl_j(const char *buff)
+BOOL	is_ctrl_j(const char *buff)
 {
-        if (ft_strequ(buff, KEY_CODE_ENTER))
-                return (true);
-        return (false);
+	if (ft_strequ(buff, KEY_CODE_ENTER))
+		return (true);
+	return (false);
 }
 
-BOOL    is_ctrl_r(const char *buff)
+BOOL	is_ctrl_r(const char *buff)
 {
 	if (ft_strequ(buff, KEY_CODE_CTRL_R))
 		return (true);
 	return (false);
 }
 
-BOOL    is_ctrl_v(const char *buff)
+BOOL	is_ctrl_v(const char *buff)
 {
 	if (ft_strequ(buff, KEY_CODE_CTRL_V))
 		return (true);
 	return (false);
 }
 
-BOOL    is_ctrl_w(const char *buff)
+BOOL	is_ctrl_w(const char *buff)
 {
 	if (ft_strequ(buff, KEY_CODE_CTRL_W))
 		return (true);

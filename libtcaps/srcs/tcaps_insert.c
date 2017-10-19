@@ -6,7 +6,7 @@
 /*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 12:57:56 by jlasne            #+#    #+#             */
-/*   Updated: 2017/03/30 13:42:12 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 02:03:28 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 BOOL	is_insert(const char *buff)
 {
-	static char     *insert = NULL;
+	static char	*insert;
 
+	arrow = NULL;
 	if (insert == NULL)
 	{
-		if((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
+		if ((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
 		{
 			log_fatal("Lib_tcaps: failed to get insert code.");
-			ft_dprintf(STDERR_FILENO,
-					   "Lib_tcaps: failed to get insert code.");
+			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get insert code.");
 		}
 	}
 	if (ft_strequ(buff, insert))
