@@ -6,7 +6,7 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 01:20:04 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/10/19 03:08:53 by jlasne           ###   ########.fr       */
+/*   Updated: 2017/10/19 05:42:16 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	array_destroy(t_array **array, void fn(void *elem))
 ** @param      array  The t_array
 **
 ** @return     The t_array on success, NULL otherwise
-** TODO add some test + norme
+** TODO add some test
 */
 
 t_array	*array_reset(t_array *array, void fn(void *elem))
