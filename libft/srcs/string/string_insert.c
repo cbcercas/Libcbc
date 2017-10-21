@@ -38,6 +38,35 @@ t_string	*string_insert(t_string *string, const char *str, size_t pos)
 	return (string);
 }
 
+/**
+** @brief      insert n char from str to the t_string at given position
+**
+** @param      string  The string
+** @param[in]  str     The string to insert
+** @param[in]  pos     The position
+** @param[in]  n       The len copied
+**
+** @return     the t_string if success, NULL otherwise
+*/
+
+t_string	*string_ninsert(t_string *s, const char *str, size_t pos, size_t n)
+{
+	size_t len;
+
+	if (!str)
+		return (s);
+	len = ft_strlen(str);
+	if (len < n)
+		n = len;
+	if (!(string_growth_cap(s, s->len + n)))
+		return (NULL);
+	if (pos <= s->len)
+		ft_memmove(s->s + pos + n, s->s + pos, s->len - pos);
+	ft_memcpy(s->s + pos, str, n);
+	s->len += n;
+	return (s);
+}
+
 t_string	*string_insert_front(t_string *string, const char *str)
 {
 	return (string_insert(string, str, 0));

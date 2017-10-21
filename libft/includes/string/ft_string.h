@@ -86,6 +86,7 @@ t_string	*string_clone(const t_string *string);
 ** @brief      insert a char* to the t_string
 */
 t_string	*string_insert(t_string *string, const char *str, size_t pos);
+t_string	*string_ninsert(t_string *s, const char *str, size_t pos, size_t n);
 t_string	*string_insert_front(t_string *string, const char *str);
 t_string	*string_insert_back(t_string *string, const char *str);
 
@@ -119,5 +120,6 @@ size_t		string_remove_char(t_string *s, size_t pos);
 ** @brief      Replace string in t_string
 */
 t_string	*string_replace(t_string *string, const char *str);
+t_string	*string_nreplace(t_string *string, const char *str);
 
 #endif
