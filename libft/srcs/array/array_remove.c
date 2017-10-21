@@ -6,11 +6,15 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 14:40:17 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 16:14:39 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:42:44 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
+
+/*
+**TODO: DOC
+*/
 
 t_array	*array_remove_at(t_array *array, size_t pos, void *removed)
 {

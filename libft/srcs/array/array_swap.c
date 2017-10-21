@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:07:19 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:23:11 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:43:02 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      Swap two elements in the array
 **
 ** @param      ar  The t_array

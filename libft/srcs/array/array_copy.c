@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 15:25:13 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:08:18 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:41:08 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <array/array.h>
 
-/**
+/*
 ** @brief      Copy an array into an other
 **             enlarge the destination array if needed
 ** @param      d_array  The destination array

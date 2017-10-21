@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 11:08:45 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:32:15 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:43:54 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Growth the string with capacity
 **
 ** @param      string  The t_string
@@ -38,7 +38,7 @@ t_string	*string_growth_cap(t_string *string, size_t cap)
 	return (string);
 }
 
-/**
+/*
 ** @brief      Groth the string without capacity
 **
 ** @param      string  The t_string

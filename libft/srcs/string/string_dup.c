@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 01:09:53 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:30:29 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:43:49 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @name       string_dup
 **
 ** @brief      copies at most n characters from the string str
@@ -32,7 +32,7 @@ t_string	*string_dup(const char *str)
 	return (string_ndup(str, ft_strlen(str)));
 }
 
-/**
+/*
 ** @name       string_ndup
 **
 ** @brief      copies at most n characters from the string str

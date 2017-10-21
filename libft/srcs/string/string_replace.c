@@ -6,13 +6,13 @@
 /*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:14:57 by chbravo-          #+#    #+#             */
-/*   Updated: 2017/05/13 20:31:44 by chbravo-         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:44:11 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string/ft_string.h>
 
-/**
+/*
 ** @brief      Replace the string in t_string by the str given
 **
 ** @param      string  The t_string to replace
