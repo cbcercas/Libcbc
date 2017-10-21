@@ -38,7 +38,7 @@ t_string	*string_reset(t_string *string)
 
 t_string	*string_del(t_string **string)
 {
-	if (!string)
+	if (!string && *string)
 		return (NULL);
 	if ((*string)->s)
 		ft_strdel(&(*string)->s);
