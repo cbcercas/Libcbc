@@ -129,6 +129,6 @@ size_t		string_remove_char(t_string *s, size_t pos);
 */
 
 t_string	*string_replace(t_string *string, const char *str);
-t_string	*string_nreplace(t_string *string, const char *str);
+t_string	*string_nreplace(t_string *string, const char *str, size_t size);
 
 #endif
