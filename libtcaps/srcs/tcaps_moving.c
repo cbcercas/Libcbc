@@ -48,3 +48,29 @@ void	move_cursor_right(t_cpos *cpos, struct winsize *ts)
 		cpos->cp_col += 1;
 	}
 }
+
+void	move_cursor_down(t_cpos *cpos)
+{
+	log_dbg3("Move cursor down");
+	tputs(tgetstr("do", NULL), 0, &ft_putchar2);
+	cpos->cp_line += 1;
+
+}
+
+void	move_cursor_up(t_cpos *cpos)
+{
+	log_dbg3("Move cursor down");
+	tputs(tgetstr("do", NULL), 0, &ft_putchar2);
+	cpos->cp_line -= 1;
+
+}
+
+void	move_cursor_to_col(t_cpos *cpos, struct winsize *ts, unsigned short col)
+{
+	if (!cpos || !ts || (cpos->cp_col == col))
+		return;
+	while (cpos->cp_col < col)
+		move_cursor_right(cpos, ts);
+	while (cpos->cp_col > col)
+		move_cursor_left(cpos, ts);
+}
