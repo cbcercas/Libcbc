@@ -340,5 +340,7 @@ void						move_cursor_right(t_cpos *cpos, struct winsize *ts);
 void						move_cursor_down(t_cpos *cpos);
 void						move_cursor_up(t_cpos *cpos);
 void						move_cursor_to_col(t_cpos *cpos, struct winsize *ts,
-											   unsigned short col);
+											unsigned short col);
+void						move_cursor_to(t_cpos *dest, t_cpos *ori,
+											struct winsize *ts);
 #endif
