@@ -149,6 +149,7 @@ set(SOURCE_FILES
         libtcaps/srcs/tcaps_size.c
         libtcaps/srcs/tcaps_tab.c
         libtcaps/srcs/tcaps_utils.c
+        libtcaps/srcs/tcaps_bell.c
         )
 
 
