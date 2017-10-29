@@ -343,4 +343,12 @@ void						move_cursor_to_col(t_cpos *cpos, struct winsize *ts,
 											unsigned short col);
 void						move_cursor_to(t_cpos *dest, t_cpos *ori,
 											struct winsize *ts);
+
+/*
+** @file tcaps_bell.c
+**
+** @brief Make a bip
+*/
+void tcaps_bell(void);
+
 #endif
