@@ -47,6 +47,9 @@ SRCS            += ft_getopt.c
 SRC_SUBDIR      += stack
 SRCS            += stack.c stack_2.c
 
+SRC_SUBDIR		+= ft_libgen
+SRCS			+= ft_basename.c
+
 ###############################################################################
 #																			  #
 #									CONFIG									  #

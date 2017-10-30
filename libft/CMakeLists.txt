@@ -106,7 +106,9 @@ set(SOURCE_FILES
         srcs/string/string_remove.c
         srcs/string/string_replace.c
         srcs/string/string_shrink.c
-        srcs/unistd/ft_getopt.c)
+        srcs/unistd/ft_getopt.c
+        srcs/libgen/ft_basename.c
+        )
 
 include_directories(includes)
 
