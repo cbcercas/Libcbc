@@ -14,7 +14,7 @@
 # define LIBTCAPS_H
 
 # include <termios.h>
-# include <curses.h>
+# include <termcap.h>
 # include <term.h>
 
 # include <libft.h>
