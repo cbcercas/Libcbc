@@ -17,16 +17,8 @@ void	move_cursor_to(t_cpos *dest, t_cpos *ori, struct winsize *ts)
 {
 	if (!dest || !ori || dest->cp_col > ts->ws_col)
 		return;
-	while (ori->cp_col < dest->cp_col)
-	{
-		tputs(tgetstr("nd", NULL), 0, &ft_putchar2);
-		ori->cp_col += 1;
-	}
-	while (ori->cp_col > dest->cp_col)
-	{
-		tputs(tgetstr("le", NULL), 0, &ft_putchar2);
-		ori->cp_col -= 1;
-	}
+	tputs(tgetstr("cr", NULL), 1, &ft_putchar2);
+	ori->cp_col = 0;
 	while (ori->cp_line < dest->cp_line)
 	{
 		tputs(tgetstr("do", NULL), 0, &ft_putchar2);
@@ -36,5 +28,10 @@ void	move_cursor_to(t_cpos *dest, t_cpos *ori, struct winsize *ts)
 	{
 		tputs(tgetstr("up", NULL), 0, &ft_putchar2);
 		ori->cp_line -= 1;
+	}
+	while (ori->cp_col < dest->cp_col)
+	{
+		tputs(tgetstr("nd", NULL), 0, &ft_putchar2);
+		ori->cp_col += 1;
 	}
 }
