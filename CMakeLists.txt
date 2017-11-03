@@ -147,6 +147,7 @@ set(SOURCE_FILES
         libtcaps/srcs/tcaps_home_end.c
         libtcaps/srcs/tcaps_insert.c
         libtcaps/srcs/tcaps_moving.c
+        libtcaps/srcs/tcaps_moving_2.c
         libtcaps/srcs/tcaps_size.c
         libtcaps/srcs/tcaps_tab.c
         libtcaps/srcs/tcaps_utils.c
