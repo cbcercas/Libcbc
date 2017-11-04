@@ -113,7 +113,7 @@ t_ts						get_term_size(void);
 # define KEY_CODE_ALT_V "\xE2\x88\x9a\0"
 # define KEY_CODE_ALT_X "\xE2\x89\x88\0"
 
-# define KEY_CODE_OTHER ""
+# define KEY_CODE_OTHER "other"
 # define KEY_CODE_NONE ""
 
 typedef struct s_key		t_key;
