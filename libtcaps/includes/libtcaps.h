@@ -113,6 +113,8 @@ t_ts						get_term_size(void);
 # define KEY_CODE_ALT_V "\xE2\x88\x9a\0"
 # define KEY_CODE_ALT_X "\xE2\x89\x88\0"
 
+# define KEY_CODE_ESC "\x1B"
+
 # define KEY_CODE_OTHER "other"
 # define KEY_CODE_NONE ""
 
@@ -350,5 +352,17 @@ void						move_cursor_to(t_cpos *dest, t_cpos *ori,
 ** @brief Make a bip
 */
 void tcaps_bell(void);
+
+/*
+** @file tcaps_escape.c
+**
+** @brief Determines if escape pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if true, False otherwise
+*/
+
+BOOL	is_escape(const char *buff);
 
 #endif

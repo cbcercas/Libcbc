@@ -59,6 +59,7 @@ t_key	key_get(const char *buff, BOOL tcaps_activ)
 		{KEY_CODE_ALT_V, &is_alt_v},
 		{KEY_CODE_ALT_X, &is_alt_x},
 		{KEY_CODE_ALT_S, &is_alt_s},
+		{KEY_CODE_ESC, &is_escape},
 		{KEY_CODE_NONE, NULL}
 	};
 
