@@ -60,7 +60,7 @@ void	move_cursor_down(t_cpos *cpos)
 void	move_cursor_up(t_cpos *cpos)
 {
 	log_dbg3("Move cursor down");
-	tputs(tgetstr("do", NULL), 0, &ft_putchar2);
+	tputs(tgetstr("up", NULL), 0, &ft_putchar2);
 	cpos->cp_line -= 1;
 
 }
