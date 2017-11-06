@@ -90,6 +90,21 @@ ifeq ($(UNAME_S), Darwin)
  	ECHOLOR = echo
 endif
 
+#color
+C_NO = \033[0m
+C_G = \033[0;32m
+C_Y = \033[1;33m
+C_B = \033[1;34m
+C_C = \033[1;36m
+C_R = \033[1;31m
+C_P = \033[1;35m
+
+COUNT_OBJ = 0
+COUNT_DEP = 0
+TOTAL = 0
+PERCENT = 0
+$(eval TOTAL=$(shell echo $$(printf "%s" "$(SRCS)" | wc -w)))
+
 ###############################################################################
 #																			  #
 #								DOT NOT EDIT BELOW							  #
@@ -106,17 +121,23 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-	ar rc $@ $(OBJS)
-	ranlib $@
+	@ar rc $@ $(OBJS)
+	@ranlib $@
 	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
 	@$(ECHOLOR) "[\033[36m------- OK - LIBFTCBC -------\033[0m]"
 	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	$(eval COUNT_OBJ=$(shell echo $$(($(COUNT_OBJ)+1))))
+	$(eval PERCENT=$(shell echo $$((($(COUNT_OBJ) * 100 )/$(TOTAL)))))
+	@printf "$(C_B)%-8s $(C_P) $<$(C_NO)\n" "[$(PERCENT)%]"
 
 $(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
 	@$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
+	$(eval COUNT_DEP=$(shell echo $$(($(COUNT_DEP)+1))))
+	$(eval PERCENT=$(shell echo $$((($(COUNT_DEP) * 100 )/$(TOTAL)))))
+	@printf "$(C_B)%-8s $(C_G) $@$(C_NO)\n" "[$(PERCENT)%]"
 
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
