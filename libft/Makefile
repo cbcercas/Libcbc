@@ -47,7 +47,7 @@ SRCS            += ft_getopt.c
 SRC_SUBDIR      += stack
 SRCS            += stack.c stack_2.c
 
-SRC_SUBDIR		+= ft_libgen
+SRC_SUBDIR		+= libgen
 SRCS			+= ft_basename.c
 
 ###############################################################################
@@ -81,6 +81,15 @@ MKDIR				= mkdir -p
 #Doxygen
 DOXYGEN := $(shell command -v doxygen 2> /dev/null)
 
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S), Linux)
+	ECHOLOR = echo -e
+endif
+ifeq ($(UNAME_S), Darwin)
+ 	ECHOLOR = echo
+endif
+
 ###############################################################################
 #																			  #
 #								DOT NOT EDIT BELOW							  #
@@ -99,9 +108,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 	ranlib $@
-	@echo "[\033[35m-----------------------------\033[0m]"
-	@echo "[\033[36m------- OK - LIBFTCBC -------\033[0m]"
-	@echo "[\033[35m-----------------------------\033[0m]"
+	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
+	@$(ECHOLOR) "[\033[36m------- OK - LIBFTCBC -------\033[0m]"
+	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
@@ -116,7 +125,7 @@ re: clean fclean all
 
 clean:
 ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
-	@echo "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]"
+	@$(ECHOLOR) "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]"
 	@$(RM) $(OBJS_DIR)
 endif
 ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
@@ -125,7 +134,7 @@ endif
 
 fclean: clean
 ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
-	@echo "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
+	@$(ECHOLOR) "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
 	@$(RM) $(NAME)
 endif
 
@@ -134,10 +143,10 @@ ifndef DOXYGEN
 	@echo "Please install doxygen first (brew install doxygen)."
 else
 	@doxygen Doxyfile 1> /dev/null
-	@echo "[\033[35m--------------------------\033[0m]"
-	@echo "[\033[36m------ Documentation -----\033[0m]"
-	@echo "[\033[36m------   generated   -----\033[0m]"
-	@echo "[\033[35m--------------------------\033[0m]"
+	@$(ECHOLOR) "[\033[35m--------------------------\033[0m]"
+	@$(ECHOLOR) "[\033[36m------ Documentation -----\033[0m]"
+	@$(ECHOLOR) "[\033[36m------   generated   -----\033[0m]"
+	@$(ECHOLOR) "[\033[35m--------------------------\033[0m]"
 endif
 
 .PHONY: re clean fclean all doc
