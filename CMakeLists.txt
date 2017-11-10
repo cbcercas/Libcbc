@@ -153,6 +153,7 @@ set(SOURCE_FILES
         libtcaps/srcs/tcaps_utils.c
         libtcaps/srcs/tcaps_bell.c
         libtcaps/srcs/tcaps_escape.c
+        libtcaps/srcs/tcaps_video.c
         )
 
 
