@@ -15,7 +15,9 @@ set(SOURCE_FILES
         srcs/tcaps_delete.c
         srcs/tcaps_moving.c
         srcs/tcaps_home_end.c
-        srcs/tcaps_escape.c)
+        srcs/tcaps_escape.c
+        srcs/tcaps_video.c
+        )
 
 include_directories(includes)
 include_directories(../libft/includes)

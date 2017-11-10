@@ -365,4 +365,13 @@ void tcaps_bell(void);
 
 BOOL	is_escape(const char *buff);
 
+/*
+** @file tcaps_video.c
+**
+** @brief Video modes
+*/
+void	tcaps_video_reverse(void);
+void	tcaps_video_default(void);
+void	tcaps_video_underline(BOOL on);
+
 #endif
