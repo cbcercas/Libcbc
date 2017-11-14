@@ -38,7 +38,7 @@ t_string	*string_insert(t_string *string, const char *str, size_t pos)
 	return (string);
 }
 
-/**
+/*
 ** @brief      insert n char from str to the t_string at given position
 **
 ** @param      string  The string
