@@ -22,3 +22,9 @@ int		ft_putchar2(int c)
 	ft_putchar(c);
 	return (c);
 }
+
+int		ft_putchar2_fd(int c, int fd)
+{
+	ft_putchar_fd(c, fd);
+	return (c);
+}
