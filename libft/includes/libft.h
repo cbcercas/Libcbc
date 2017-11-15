@@ -82,7 +82,6 @@ char			*ft_itoa_base(long long int n, int base);
 char			*ft_uitoa_base(unsigned long long nb, int base);
 void			ft_putchar(char c);
 int				ft_putchar2(int c);
-int			ft_putchar2_fd(int c, int fd);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
