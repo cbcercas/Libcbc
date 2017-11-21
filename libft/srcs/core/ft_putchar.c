@@ -17,8 +17,14 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int		ft_putchar2(int c)
+int		ft_putc_in(int c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, STDIN_FILENO);
+	return (c);
+}
+
+int		ft_putc_out(int c)
+{
+	ft_putchar_fd(c, STDOUT_FILENO);
 	return (c);
 }
