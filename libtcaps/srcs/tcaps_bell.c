@@ -14,5 +14,5 @@
 
 void tcaps_bell(void)
 {
-	tputs(tgetstr("bl", NULL), 0, &ft_putchar2);
+	tputs(tgetstr("bl", NULL), 0, &ft_putc_in);
 }

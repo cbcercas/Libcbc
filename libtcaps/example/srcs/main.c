@@ -53,7 +53,7 @@ int main(int ac, char const *av[])
 		if (stop == false && i++ == 20)
 			stop = true;
 	}
-	tputs(tgetstr("cl", NULL), 0, &ft_putchar2);
+	tputs(tgetstr("cl", NULL), 0, &ft_putc_in);
 	default_terminal_mode();
 	logger_close();
 	return 0;

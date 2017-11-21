@@ -14,18 +14,18 @@
 
 void	tcaps_video_reverse(void)
 {
-	tputs(tgetstr("mr", NULL), 0, &ft_putchar2);
+	tputs(tgetstr("mr", NULL), 0, &ft_putc_in);
 }
 
 void	tcaps_video_default(void)
 {
-	tputs(tgetstr("me", NULL), 0, &ft_putchar2);
+	tputs(tgetstr("me", NULL), 0, &ft_putc_in);
 }
 
 void	tcaps_video_underline(BOOL on)
 {
 	if (on)
-		tputs(tgetstr("us", NULL), 0, &ft_putchar2);
+		tputs(tgetstr("us", NULL), 0, &ft_putc_in);
 	else
-		tputs(tgetstr("ue", NULL), 0, &ft_putchar2);
+		tputs(tgetstr("ue", NULL), 0, &ft_putc_in);
 }
