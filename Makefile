@@ -157,10 +157,10 @@ all: $(NAME)
 $(NAME): $(OBJS) $(DEPS)
 	@ar rc $@ $(OBJS)
 	@ranlib $@
-	@echo -e "$(C_G)🎩🎩🎩$(C_NO) ALL LINKED FOR LIBCBC $(C_G)🎩🎩🎩$(C_NO)"
-	@echo -e "INFO: Flags for libcbc: $(CFLAGS)"
+	@$(ECHOLOR) -e "$(C_G)🎩🎩🎩$(C_NO) ALL LINKED FOR LIBCBC $(C_G)🎩🎩🎩$(C_NO)"
+	@$(ECHOLOR) -e "INFO: Flags for libcbc: $(CFLAGS)"
 	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
-	@$(ECHOLOR) "[\033[36m------- OK - LIBCBC -------\033[0m]"
+	@$(ECHOLOR) "[\033[36m-------- OK - LIBCBC- -------\033[0m]"
 	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
