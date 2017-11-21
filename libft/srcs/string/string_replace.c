@@ -36,7 +36,7 @@ t_string	*string_replace(t_string *string, const char *str)
 	return (string);
 }
 
-/**
+/*
 ** @brief      Replace the string in t_string by the n char of the str given
 **
 ** @param      string  The t_string to replace
