@@ -42,14 +42,14 @@ SRCS			+= string.c string_growth.c string_dup.c string_clone.c \
 string_insert.c string_join.c string_clean.c string_remove.c string_shrink.c \
 string_replace.c
 
-SRC_SUBDIR      += libft/srcs/unistd
-SRCS            += ft_getopt.c
+SRC_SUBDIR		+= libft/srcs/unistd
+SRCS			+= ft_getopt.c
 
-SRC_SUBDIR      += libft/srcs/stack
-SRCS            += stack.c stack_2.c
+SRC_SUBDIR		+= libft/srcs/stack
+SRCS			+= stack.c stack_2.c
 
-SRC_SUBDIR      += libft/srcs/libgen
-SRCS            += ft_basename.c
+SRC_SUBDIR		+= libft/srcs/libgen
+SRCS			+= ft_basename.c
 
 # Ft printf sources
 
@@ -79,46 +79,46 @@ SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 ###############################################################################
 
 #  Compiler
-CC			= gcc
-CFLAGS		= -g -Wall -Wextra -Werror
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror
 
 #The Directories, Source, Includes, Objects and Libraries
-INC			= -I includes
-#SRCS_DIR	= srcs
+INC				= -I includes
 vpath  %c $(SRC_SUBDIR)
 
 #Objects
-OBJS_DIR	= objs
-OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
+OBJS_DIR		= objs
+OBJS			= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 # Dependencies
-DEPS_DIR	= .deps
-DEPS		= $(SRCS:%.c=$(DEPS_DIR)/%.d)
-BUILD_DIR	= $(OBJS_DIR) $(DEPS_DIR)
+DEPS_DIR		= .deps
+DEPS			= $(SRCS:%.c=$(DEPS_DIR)/%.d)
+BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR)
 
 ## libft
-LIBFT_DIR	= libft
-INC			+= -I $(LIBFT_DIR)/includes
+LIBFT_DIR		= libft
+INC				+= -I $(LIBFT_DIR)/includes
 
 ## libftprinft
 LIBFTPRINTF_DIR	= libftprintf
-INC			+= -I $(LIBFTPRINTF_DIR)/includes
+INC				+= -I $(LIBFTPRINTF_DIR)/includes
 
 ## lib_logger
 LIBLOGGER_DIR	= liblogger
-INC			+= -I $(LIBLOGGER_DIR)/includes
+INC				+= -I $(LIBLOGGER_DIR)/includes
 
 ## lib_tcaps
 LIBTCAPS_DIR	= libtcaps
-INC			+= -I $(LIBTCAPS_DIR)/includes
+INC				+= -I $(LIBTCAPS_DIR)/includes
 
 #Utils
-RM					= rm -rf
-MKDIR				= mkdir -p
-COUNT_OBJ = 0
-COUNT_DEP = 0
-TOTAL = 0
-PERCENT = 0
+RM				= rm -rf
+MKDIR			= mkdir -p
+
+COUNT_OBJ		= 0
+TOTAL			= 0
+PERCENT			= 0
+
 $(eval TOTAL=$(shell echo $$(printf "%s" "$(SRCS)" | wc -w)))
 
 #color
@@ -130,15 +130,6 @@ C_C = \033[1;36m
 C_R = \033[1;31m
 DOXYGEN = $(shell doxygen -v dot 2> /dev/null)
 
-UNAME_S := $(shell uname -s)
-
-ifeq ($(UNAME_S), Linux)
-	ECHOLOR = echo -e
-endif
-ifeq ($(UNAME_S), Darwin)
-	ECHOLOR = echo
-endif
-
 ###############################################################################
 #																			  #
 #								DOT NOT EDIT BELOW							  #
@@ -147,33 +138,30 @@ endif
  #########
 ## RULES ##
  #########
-.SECONDARY: $(OBJS)
 
-all: $(NAME)
+all: $(DEPS_DIR) $(NAME)
 
-# Add dependency as prerequisites
-#-include $(DEPS)
-
-$(NAME): $(OBJS) $(DEPS)
+$(NAME): $(OBJS)
 	@ar rc $@ $(OBJS)
 	@ranlib $@
-	@$(ECHOLOR) -e "$(C_G)🎩🎩🎩$(C_NO) ALL LINKED FOR LIBCBC $(C_G)🎩🎩🎩$(C_NO)"
-	@$(ECHOLOR) -e "INFO: Flags for libcbc: $(CFLAGS)"
-	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
-	@$(ECHOLOR) "[\033[36m-------- OK - LIBCBC- -------\033[0m]"
-	@$(ECHOLOR) "[\033[35m-----------------------------\033[0m]"
+	@printf "$(C_G)-->$(C_NO) ALL LINKED FOR LIBCBC $(C_G)<---$(C_NO)\n"
+	@printf "INFO: Flags for libcbc: $(CFLAGS)\n"
+	@printf "[\033[35m-----------------------------\033[0m]\n"
+	@printf "[\033[36m-------- OK - LIBCBC- -------\033[0m]\n"
+	@printf "[\033[35m-----------------------------\033[0m]\n"
 
 $(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@$(CC) $(INC) -MM $< -MT $@ -MP -MF $(DEPS_DIR)/$*.d
 	$(eval COUNT_OBJ=$(shell echo $$(($(COUNT_OBJ)+1))))
 	$(eval PERCENT=$(shell echo $$((($(COUNT_OBJ) * 100 )/$(TOTAL)))))
 	@printf "$(C_B)%-8s $(C_Y) $<$(C_NO)\n" "[$(PERCENT)%]"
 
-$(DEPS_DIR)/%.d: %.c | $(DEPS_DIR)
-	@$(CC) $(CFLAGS) $(INC) -MM $< -MT $(OBJS_DIR)/$*.o -MF $@
-	$(eval COUNT_DEP=$(shell echo $$(($(COUNT_DEP)+1))))
-	$(eval PERCENT=$(shell echo $$((($(COUNT_DEP) * 100 )/$(TOTAL)))))
-	@printf "$(C_B)%-8s $(C_C) $@$(C_NO)\n" "[$(PERCENT)%]"
+# Add dependency as prerequisites
+-include $(DEPS)
+
+$(DEPS_DIR)/%.d: ;
+.PRECIOUS: $(DEPS_DIR)/%.d
 
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
@@ -182,7 +170,7 @@ re: clean fclean all
 
 clean:
 ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
-	@$(ECHOLOR) "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]"
+	@printf "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]\n"
 	@$(RM) $(OBJS_DIR)
 endif
 ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
@@ -191,7 +179,7 @@ endif
 
 fclean: clean
 ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
-	@$(ECHOLOR) "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]"
+	@printf "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]\n"
 	@$(RM) $(NAME)
 endif
 
@@ -200,10 +188,10 @@ ifndef DOXYGEN
 	@echo "Please install doxygen first (brew install doxygen)."
 else
 	@doxygen Doxyfile 1> /dev/null
-	@$(ECHOLOR) "[\033[35m--------------------------\033[0m]"
-	@$(ECHOLOR) "[\033[36m------ Documentation -----\033[0m]"
-	@$(ECHOLOR) "[\033[36m------   generated   -----\033[0m]"
-	@$(ECHOLOR) "[\033[35m--------------------------\033[0m]"
+	@printf "[\033[35m--------------------------\033[0m]\n"
+	@printf "[\033[36m------ Documentation -----\033[0m]\n"
+	@printf "[\033[36m------   generated   -----\033[0m]\n"
+	@printf "[\033[35m--------------------------\033[0m]\n"
 endif
 
 .PHONY: re clean fclean all doc
