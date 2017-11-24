@@ -150,7 +150,7 @@ $(NAME): $(OBJS)
 	@printf "[\033[36m-------- OK - LIBCBC- -------\033[0m]\n"
 	@printf "[\033[35m-----------------------------\033[0m]\n"
 
-$(OBJS): $(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
+$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 	@$(CC) $(INC) -MM $< -MT $@ -MP -MF $(DEPS_DIR)/$*.d
 	$(eval COUNT_OBJ=$(shell echo $$(($(COUNT_OBJ)+1))))
@@ -166,7 +166,7 @@ $(DEPS_DIR)/%.d: ;
 $(BUILD_DIR):
 	@$(MKDIR) -p $@
 
-re: clean fclean all
+re: fclean all
 
 clean:
 ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
