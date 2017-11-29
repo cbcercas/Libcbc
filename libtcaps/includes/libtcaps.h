@@ -102,6 +102,7 @@ t_ts						get_term_size(void);
 # define KEY_CODE_DELETE "kD"
 # define KEY_CODE_TAB "\x9\0\0\0\0"
 # define KEY_CODE_ENTER "\xA\0\0\0\0"
+# define KEY_CODE_ESC_ENTER "\x1B\xA\0\0\0"
 # define KEY_CODE_END "\x1b\x5b\x46\0"
 # define KEY_CODE_HOME "\x1b\x5b\x48\0"
 # define KEY_CODE_INSERT "kI"
@@ -364,6 +365,18 @@ void tcaps_bell(void);
 */
 
 BOOL	is_escape(const char *buff);
+
+/*
+** @file tcaps_escape_enter.c
+**
+** @brief Determines if escape and enter pressed
+**
+** @param[in]	buff  The buffer
+**
+** @return True if true, False otherwise
+*/
+
+BOOL	is_escape_enter(const char *buff);
 
 /*
 ** @file tcaps_video.c
