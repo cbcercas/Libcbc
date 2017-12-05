@@ -30,7 +30,8 @@ char		*ft_uitoa_base(unsigned long long nb, int base)
 	str[size] = '\0';
 	while (size--)
 	{
-		str[size] = (s % base < 10) ? (s % base) + '0' : (s % base) - 10 + 'a';
+		str[size] = (s % base < 10) ? (char)((s % base) + '0') :
+					(char)((s % base) - 10 + 'a');
 		s = s / base;
 	}
 	return (str);
@@ -52,9 +53,9 @@ static char	*ft_convert(long long int n, int base, char *str, int i)
 		d *= base;
 	while (d > 0)
 	{
-		temp = '0' + n / d;
+		temp = (char)('0' + n / d);
 		if (temp > '9')
-			str[i] = (temp + 39);
+			str[i] = (char)(temp + 39);
 		else
 			str[i] = temp;
 		n %= d;

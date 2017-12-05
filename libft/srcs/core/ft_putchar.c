@@ -19,12 +19,12 @@ void	ft_putchar(char c)
 
 int		ft_putc_in(int c)
 {
-	ft_putchar_fd(c, STDIN_FILENO);
+	ft_putchar_fd((char)c, STDIN_FILENO);
 	return (c);
 }
 
 int		ft_putc_out(int c)
 {
-	ft_putchar_fd(c, STDOUT_FILENO);
+	ft_putchar_fd((char)c, STDOUT_FILENO);
 	return (c);
 }

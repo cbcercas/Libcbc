@@ -27,5 +27,5 @@ char	*ft_strrchr(const char *s, int c)
 			return (0);
 		s2--;
 	}
-	return ((char *)s2);
+	return (s2);
 }

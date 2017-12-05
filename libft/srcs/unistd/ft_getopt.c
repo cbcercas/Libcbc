@@ -91,7 +91,7 @@ int					ft_getopt(int ac, char *const *av, const char *optstring)
 			if (*(opt + 1) != '\0')
 				g_optarg = (char *)(opt + 1);
 			else if (g_optind < ac)
-				g_optarg = (char *)av[g_optind];
+				g_optarg = av[g_optind];
 			else
 				return (go_err(GETOPT_ERR_ARG, optstring, av[0], *opt));
 			g_optind += 1;

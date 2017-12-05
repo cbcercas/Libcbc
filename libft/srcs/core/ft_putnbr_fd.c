@@ -24,7 +24,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	{
 		while (nb != 0)
 		{
-			str[--i] = '0' - (nb % 10);
+			str[--i] = (char)('0' - (nb % 10));
 			nb = (nb / 10);
 		}
 		str[--i] = '-';
@@ -33,7 +33,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	{
 		while (nb != 0)
 		{
-			str[--i] = '0' + (nb % 10);
+			str[--i] = (char)('0' + (nb % 10));
 			nb = (nb / 10);
 		}
 	}

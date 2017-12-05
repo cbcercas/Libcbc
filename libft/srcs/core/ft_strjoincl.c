@@ -35,7 +35,7 @@ char	*ft_strjoincl(char *s1, char *s2, int free)
 	}
 	else
 		s = NULL;
-	((free == 1 || free == 3) && s1) ? ft_strdel((char **)&s1) : 0;
-	((free == 2 || free == 3) && s2) ? ft_strdel((char **)&s2) : 0;
+	((free == 1 || free == 3) && s1) ? ft_strdel(&s1) : 0;
+	((free == 2 || free == 3) && s2) ? ft_strdel(&s2) : 0;
 	return (s);
 }

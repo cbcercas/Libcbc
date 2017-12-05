@@ -28,7 +28,7 @@ char		*ft_strtrim(char const *s)
 	while (((s[len - 1] == ' ') || (s[len - 1] == '\n')
 			|| (s[len - 1] == '\t')) && (s[start] != '\0'))
 		len--;
-	str = ft_strsub(s, start, len - start);
+	str = ft_strsub(s, (unsigned int)start, len - start);
 	if (str)
 		return (str);
 	return (NULL);

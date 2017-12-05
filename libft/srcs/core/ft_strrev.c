@@ -14,11 +14,11 @@
 
 char	*ft_strrev(char *str)
 {
-	char	c;
-	int		i;
-	int		len;
+	char		c;
+	ssize_t		i;
+	ssize_t		len;
 
-	len = ft_strlen(str) - 1;
+	len = (ssize_t)(ft_strlen(str)) - 1;
 	i = 0;
 	while (i < len)
 	{

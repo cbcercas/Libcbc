@@ -45,7 +45,7 @@ char		*ft_imtoa(intmax_t num)
 	int			i;
 	intmax_t	numtmp;
 
-	if (!(str = ft_strnew(ft_countdigit(num))))
+	if (!(str = ft_strnew((size_t)ft_countdigit(num))))
 		return (NULL);
 	numtmp = num;
 	if ((sign = (num < 0)))
@@ -55,7 +55,7 @@ char		*ft_imtoa(intmax_t num)
 		str[i++] = '0';
 	while (numtmp > 0)
 	{
-		str[i++] = '0' + (numtmp % 10);
+		str[i++] = (char)('0' + (numtmp % 10));
 		numtmp /= 10;
 	}
 	if (sign)
@@ -71,7 +71,7 @@ char		*ft_uimtoa(uintmax_t num)
 	int			i;
 	uintmax_t	numtmp;
 
-	if (!(str = ft_strnew(ft_countdigit_unsigned(num) + 1)))
+	if (!(str = ft_strnew((size_t)ft_countdigit_unsigned(num) + 1)))
 		return (NULL);
 	numtmp = num;
 	i = 0;
@@ -79,7 +79,7 @@ char		*ft_uimtoa(uintmax_t num)
 		str[i++] = '0';
 	while (numtmp > 0)
 	{
-		str[i++] = '0' + (numtmp % 10);
+		str[i++] = (char)('0' + (numtmp % 10));
 		numtmp /= 10;
 	}
 	str[i] = '\0';
