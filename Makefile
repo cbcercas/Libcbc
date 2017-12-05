@@ -79,8 +79,20 @@ SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 ###############################################################################
 
 #  Compiler
-CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror
+CC				= clang
+CFLAGS			= -Wall -Wextra
+
+ifneq ($(NOERR),yes)
+    CFLAGS		+= -Werror
+endif
+
+ifeq ($(DEV),yes)
+    CFLAGS		+= -g
+endif
+
+ifeq ($(SAN),yes)
+    CFLAGS		+= -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls
+endif
 
 #The Directories, Source, Includes, Objects and Libraries
 INC				= -I includes
