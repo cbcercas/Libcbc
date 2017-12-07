@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tcaps_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlasne <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: chbravo- <chbravo-@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 12:57:56 by jlasne            #+#    #+#             */
-/*   Updated: 2017/10/19 05:59:55 by jlasne           ###   ########.fr       */
+/*   Created: 2017/03/30 12:57:56 by chbravo-            #+#    #+#             */
+/*   Updated: 2017/10/19 05:59:55 by chbravo-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 BOOL	is_insert(const char *buff)
 {
-	static char	*insert;
+	static char	*insert = NULL;
 
-	insert = NULL;
 	if (insert == NULL)
 	{
 		if ((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
