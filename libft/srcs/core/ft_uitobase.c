@@ -26,7 +26,7 @@ char	*ft_uitobase(uintmax_t nb, unsigned int base)
 	{
 		rst = nb % base;
 		nb /= base;
-		ret[i] = rst + '0';
+		ret[i] = (char)(rst + '0');
 		i++;
 	}
 	ft_strrev(ret);

@@ -23,5 +23,5 @@ BOOL	ft_isprintstr(char const *str)
 {
 	while (str && ft_isprint(*str))
 		str++;
-	return (*str != '\0') ? false : true;
+	return (str && *str != '\0') ? false : true;
 }

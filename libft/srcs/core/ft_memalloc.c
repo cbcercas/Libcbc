@@ -22,5 +22,5 @@ void	*ft_memalloc(size_t size)
 	if (!mem)
 		return (0);
 	ft_bzero(mem, size);
-	return ((char *)mem);
+	return (mem);
 }

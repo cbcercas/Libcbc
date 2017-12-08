@@ -24,7 +24,7 @@ char	**ft_strtabdup(char **tab)
 		tabcpy[i] = ft_strdup(tab[i]);
 		if (!tabcpy[i])
 		{
-			ft_freetab(tabcpy, i);
+			ft_freetab(tabcpy, (size_t)i);
 			return (NULL);
 		}
 		i++;

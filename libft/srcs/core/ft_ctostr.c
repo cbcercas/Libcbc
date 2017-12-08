@@ -16,7 +16,7 @@ char	*ft_ctostr(char c, int nb)
 {
 	char *s;
 
-	s = ft_strnew(nb);
-	ft_memset(s, c, nb);
+	s = ft_strnew((size_t)nb);
+	ft_memset(s, c, (size_t)nb);
 	return (s);
 }

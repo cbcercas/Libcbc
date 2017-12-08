@@ -17,5 +17,4 @@ void	ft_freetab(char **tab, size_t nb)
 	while (nb--)
 		free(tab[nb]);
 	free(tab);
-	tab = NULL;
 }
