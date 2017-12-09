@@ -54,13 +54,13 @@ int			ft_print_ws(int fd, t_args *sarg, va_list *larg)
 		len = sarg->preci_len;
 	len_save = len;
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, (int) len, sarg->min_width, \
-            (char) ((sarg->zero_pad) ? '0' : ' '));
+		len += ft_print_pad(fd, (int)len, sarg->min_width,
+							(char)((sarg->zero_pad) ? '0' : ' '));
 	ft_putnstr_fd(s, len_save, fd);
 	ft_strdel(&s);
 	if (sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, (int) len, sarg->min_width, ' ');
-	return (int) (len);
+		len += ft_print_pad(fd, (int)len, sarg->min_width, ' ');
+	return ((int)len);
 }
 
 int			ft_print_s(int fd, t_args *sarg, va_list *larg)
@@ -78,11 +78,11 @@ int			ft_print_s(int fd, t_args *sarg, va_list *larg)
 		len = sarg->preci_len;
 	len_save = len;
 	if (!sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, (int) len, sarg->min_width, \
-            (char) ((sarg->zero_pad) ? '0' : ' '));
+		len += ft_print_pad(fd, (int)len, sarg->min_width,
+							(char)((sarg->zero_pad) ? '0' : ' '));
 	ft_putnstr_fd(s, len_save, fd);
 	ft_strdel(&s);
 	if (sarg->left_pad && (sarg->min_width > len))
-		len += ft_print_pad(fd, (int) len, sarg->min_width, ' ');
-	return (int) (len);
+		len += ft_print_pad(fd, (int)len, sarg->min_width, ' ');
+	return ((int)len);
 }

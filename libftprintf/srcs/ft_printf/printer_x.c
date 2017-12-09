@@ -31,15 +31,15 @@ int	ft_print_wx(int fd, t_args *s, va_list *larg)
 	if (ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0)
 		ft_putstr_fd("0X", fd);
 	if (!s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(fd, (int) len, s->min_width,
-							(char) (s->zero_pad ? '0' : ' '));
+		len += ft_print_pad(fd, (int)len, s->min_width,
+							(char)(s->zero_pad ? '0' : ' '));
 	if (ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0)
 		ft_putstr_fd("0X", fd);
 	(s->precision && !s->preci_len && unb == 0) ? 0 : ft_putstr(str);
 	if (s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(fd, (int) len, s->min_width, ' ');
+		len += ft_print_pad(fd, (int)len, s->min_width, ' ');
 	ft_strdel(&str);
-	return (int) (len);
+	return ((int)len);
 }
 
 int	ft_print_x(int fd, t_args *s, va_list *larg)
@@ -53,21 +53,20 @@ int	ft_print_x(int fd, t_args *s, va_list *larg)
 	len = (s->precision && !s->preci_len && unb == 0) ? 0 : ft_strlen(str);
 	(s->precision) ?
 		put_uprecision(s, &len, &str) : 0;
-	if ((s->alternate && ft_strncmp(str, "0\0", 2))
-		|| s->conversion == p)
+	if ((s->alternate && ft_strncmp(str, "0\0", 2)) || s->conversion == p)
 		len += 2;
 	if ((ft_strncmp(str, "0\0", 2) && s->alternate && s->zero_pad && unb > 0)
 			|| (s->conversion == p && s->zero_pad))
 		ft_putstr_fd("0x", fd);
 	if (!s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(fd, (int) len, s->min_width,
-							(char) (s->zero_pad ? '0' : ' '));
+		len += ft_print_pad(fd, (int)len, s->min_width,
+							(char)(s->zero_pad ? '0' : ' '));
 	if ((ft_strncmp(str, "0\0", 2) && s->alternate && !s->zero_pad && unb > 0)
 			|| (s->conversion == p && !s->zero_pad))
 		ft_putstr_fd("0x", fd);
 	(s->precision && !s->preci_len && unb == 0) ? 0 : ft_putstr(str);
 	if (s->left_pad && (s->min_width > 1))
-		len += ft_print_pad(fd, (int) len, s->min_width, ' ');
+		len += ft_print_pad(fd, (int)len, s->min_width, ' ');
 	ft_strdel(&str);
-	return (int) (len);
+	return ((int)len);
 }
