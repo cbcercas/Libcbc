@@ -18,19 +18,14 @@
 ** @param      array  The t_array to be free
 */
 
-void	array_destroy(t_array **array, void fn(void *elem))
+void	array_destroy(t_array **array, void *fn(void *elem))
 {
 	size_t	cnt;
 
+	cnt = 0;
 	if (fn)
-	{
-		cnt = 0;
 		while (cnt < (*array)->used)
-		{
-			fn(array_get_at(*array, cnt));
-			cnt += 1;
-		}
-	}
+			fn(array_get_at(*array, cnt++));
 	ft_memdel(&(*array)->array);
 	ft_memdel((void **)array);
 }
@@ -44,27 +39,19 @@ void	array_destroy(t_array **array, void fn(void *elem))
 ** TODO add some test
 */
 
-t_array	*array_reset(t_array *array, void fn(void *elem))
+t_array	*array_reset(t_array *array, void *fn(void *elem))
 {
 	size_t	cnt;
 
+	cnt = 0;
 	if (fn && array->used)
-	{
-		cnt = 0;
 		while (cnt < array->used)
-		{
-			fn(array_get_at(array, cnt));
-			cnt += 1;
-		}
-	}
+			fn(array_get_at(array, cnt++));
 	if (array->capacity > ARRAY_MIN_SIZE)
 	{
 		ft_memdel(&array->array);
 		if (!(array_init_cap(array, array->elem_size, ARRAY_MIN_SIZE)))
-		{
 			free(array);
-			return (NULL);
-		}
 	}
 	else
 	{
