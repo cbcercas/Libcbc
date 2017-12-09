@@ -50,7 +50,7 @@ char		*ft_get_width(char **format, t_args *sarg, va_list *larg)
 		}
 		else
 		{
-			sarg->min_width = va_arg(*larg, int);
+			sarg->min_width = (unsigned int)va_arg(*larg, int);
 			(*format)++;
 		}
 	}

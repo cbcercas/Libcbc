@@ -34,7 +34,7 @@ static char	*ft_get_nbstr(t_args *sarg, va_list *larg, char *sign)
 	return (ft_uimtoa(unb));
 }
 
-static void	put_sign(char *sign, t_args *s, unsigned int *len, char **nbr)
+static void	put_sign(const char *sign, t_args *s, unsigned int *len, char **nbr)
 {
 	char	*tmp;
 
@@ -54,7 +54,8 @@ static void	put_sign(char *sign, t_args *s, unsigned int *len, char **nbr)
 	}
 }
 
-static void	put_precision(t_args *s, unsigned int *len, char **nbr, char *sign)
+static void	put_precision(t_args *s, unsigned int *len, char **nbr,
+							const char *sign)
 {
 	char			*tmp;
 	unsigned int	l;

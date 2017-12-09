@@ -71,7 +71,8 @@ int		ft_print(int fd, va_list *larg, const char *fmt, int printed)
 	else if (next_arg > fmt)
 	{
 		ft_putnstr_fd(fmt, next_arg - fmt, fd);
-		return (ft_print(fd, larg, next_arg, printed + (next_arg - fmt)));
+		return (ft_print(fd, larg, next_arg,
+						(int)(printed + (next_arg - fmt))));
 	}
 	else
 	{

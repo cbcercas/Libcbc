@@ -31,12 +31,12 @@ int			ft_print_u(int fd, t_args *sarg, va_list *larg)
 	put_uprecision(sarg, &len, &str);
 	if (!sarg->left_pad && sarg->preci_len < sarg->min_width
 		&& sarg->min_width > len)
-		len += ft_print_pad(fd, len, sarg->min_width, ' ');
+		len += ft_print_pad(fd, (int)len, sarg->min_width, ' ');
 	if (!(!ft_strcmp(str, "0") && sarg->precision
 		&& sarg->preci_len <= len))
 		ft_putstr_fd(str, fd);
 	if (sarg->left_pad && (sarg->min_width > 1))
-		len += ft_print_pad(fd, len, sarg->min_width, ' ');
+		len += ft_print_pad(fd, (int)len, sarg->min_width, ' ');
 	ft_strdel(&str);
-	return (len);
+	return ((int)len);
 }
