@@ -18,7 +18,7 @@
 ** @param      array  The t_array to be free
 */
 
-void	array_destroy(t_array **array, void *fn(void *))
+void	array_destroy(t_array **array, void *fn(void *elem))
 {
 	size_t	cnt;
 
@@ -39,7 +39,7 @@ void	array_destroy(t_array **array, void *fn(void *))
 ** TODO add some test
 */
 
-t_array	*array_reset(t_array *array, void *fn(void *))
+t_array	*array_reset(t_array *array, void *fn(void *elem))
 {
 	size_t	cnt;
 
