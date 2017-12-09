@@ -26,7 +26,7 @@ t_stack	*stack_push(t_stack *st, void *data);
 t_stack	*stack_pop(t_stack *st);
 t_stack	*get_top_stack(t_stack *st);
 size_t	get_stack_length(t_stack *st);
-void	stack_destroy(t_stack **st, void fn(void *));
-t_stack	*stack_reset(t_stack *st, void fn(void *));
+void	stack_destroy(t_stack **st, void *fn(void *));
+t_stack	*stack_reset(t_stack *st, void *fn(void *));
 
 #endif
