@@ -28,7 +28,7 @@ enum	e_d_lvl
 };
 
 int		logger_init(enum e_d_lvl lvl, const char *pname, const char *filename);
-void	logger_log(enum e_d_lvl lvl, const char *fmt,  va_list list);
+void	logger_log(enum e_d_lvl lvl, const char *fmt, va_list list);
 int		logger_close();
 
 void	log_fatal(const char *fmt, ...);
