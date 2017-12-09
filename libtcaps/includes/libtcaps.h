@@ -42,8 +42,6 @@ struct						s_ts
 	unsigned short ts_lines;
 };
 
-t_ts						get_term_size(void);
-
 /*
 ** @struct     s_ts
 **
@@ -135,8 +133,8 @@ typedef struct s_key_test	t_key_test;
 
 struct						s_key
 {
-	char	*key_code;
-	char	key[MAX_KEY_STRING_LEN];
+	char					*key_code;
+	char					key[MAX_KEY_STRING_LEN];
 }							;
 
 /*
@@ -153,8 +151,8 @@ struct						s_key
 
 struct						s_key_test
 {
-	char	*key_code;
-	BOOL	(*f)(const char *);
+	char					*key_code;
+	BOOL					(*f)(const char *);
 }							;
 
 /*
@@ -352,7 +350,7 @@ void						move_cursor_to(t_cpos *dest, t_cpos *ori,
 **
 ** @brief Make a bip
 */
-void tcaps_bell(void);
+void						tcaps_bell(void);
 
 /*
 ** @file tcaps_escape.c
@@ -364,7 +362,7 @@ void tcaps_bell(void);
 ** @return True if true, False otherwise
 */
 
-BOOL	is_escape(const char *buff);
+BOOL						is_escape(const char *buff);
 
 /*
 ** @file tcaps_escape_enter.c
@@ -376,15 +374,15 @@ BOOL	is_escape(const char *buff);
 ** @return True if true, False otherwise
 */
 
-BOOL	is_escape_enter(const char *buff);
+BOOL						is_escape_enter(const char *buff);
 
 /*
 ** @file tcaps_video.c
 **
 ** @brief Video modes
 */
-void	tcaps_video_reverse(void);
-void	tcaps_video_default(void);
-void	tcaps_video_underline(BOOL on);
+void						tcaps_video_reverse(void);
+void						tcaps_video_default(void);
+void						tcaps_video_underline(BOOL on);
 
 #endif

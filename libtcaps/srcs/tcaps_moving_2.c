@@ -12,11 +12,10 @@
 
 #include <libtcaps.h>
 
-
 void	move_cursor_to(t_cpos *dest, t_cpos *ori, struct winsize *ts)
 {
 	if (!dest || !ori || dest->cp_col > ts->ws_col)
-		return;
+		return ;
 	tputs(tgetstr("cr", NULL), 1, &ft_putc_in);
 	ori->cp_col = 0;
 	while (ori->cp_line < dest->cp_line)

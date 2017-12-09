@@ -12,7 +12,7 @@
 
 #include <libtcaps.h>
 
-void tcaps_bell(void)
+void	tcaps_bell(void)
 {
 	tputs(tgetstr("bl", NULL), 0, &ft_putc_in);
 }
