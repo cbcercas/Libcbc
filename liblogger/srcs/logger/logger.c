@@ -70,7 +70,6 @@ int		logger_close(void)
 
 void	logger_log(enum e_d_lvl lvl, const char *format, va_list list)
 {
-	//va_list		list;
 	time_t		now;
 	struct tm	*now_tm;
 
@@ -79,11 +78,9 @@ void	logger_log(enum e_d_lvl lvl, const char *format, va_list list)
 		return ;
 	now = time(0);
 	now_tm = gmtime(&now);
-	//va_start(list, format);
 	ft_dprintf(g_logger_fd, get_log_format(lvl), \
 		1900 + now_tm->tm_year, 1 + now_tm->tm_mon, now_tm->tm_mday, \
 		now_tm->tm_hour, now_tm->tm_min, now_tm->tm_sec, g_logger_pname);
 	ft_vdprintf(g_logger_fd, format, list);
 	ft_putchar_fd('\n', g_logger_fd);
-	//va_end(list);
 }
