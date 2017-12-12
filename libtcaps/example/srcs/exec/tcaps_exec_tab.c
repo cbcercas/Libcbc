@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <tcaps_test.h>
+
 BOOL	exec_tab(const t_key *key)
 {
 	(void)key;
@@ -18,5 +19,3 @@ BOOL	exec_tab(const t_key *key)
 	exec_ctrl_c(key);
 	return (false);
 }
-
-

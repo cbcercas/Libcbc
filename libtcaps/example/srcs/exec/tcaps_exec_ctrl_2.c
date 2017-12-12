@@ -9,6 +9,7 @@
 /*   Updated: 2017/03/30 14:30:38 by jlasne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <tcaps_test.h>
 
 BOOL	exec_ctrl_j(const t_key *key)
@@ -39,6 +40,14 @@ BOOL	exec_ctrl_w(const t_key *key)
 {
 	(void)key;
 	write(1, "User pressed CTRL+W", 19);
+	exec_ctrl_c(key);
+	return (false);
+}
+
+BOOL	exec_ctrl_l(const t_key *key)
+{
+	(void)key;
+	write(1, "User pressed CTRL+L\n", 20);
 	exec_ctrl_c(key);
 	return (false);
 }

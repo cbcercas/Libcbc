@@ -50,7 +50,7 @@ BOOL	key_exec(t_key *key)
 		{KEY_CODE_ALT_S, &exec_alt_s},
 		{KEY_CODE_NONE, NULL}
 	};
-	int				i;
+	int					i;
 
 	i = -1;
 	while (fn_exec[++i].f != NULL)
