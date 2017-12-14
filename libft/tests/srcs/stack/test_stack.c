@@ -18,7 +18,7 @@ static void teardown(void) {
 TestSuite(stack, .disabled = DISABLE_STACK_TEST, .fini = teardown);
 
 Test(stack, Test_stack) {
-	t_stack stack;
+	t_stack *stack;
 	int a = 1;
 	int *b;
 

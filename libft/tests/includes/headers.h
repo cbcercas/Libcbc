@@ -15,11 +15,11 @@
 
 # include <criterion/criterion.h>
 # include <libft.h>
-# include <ft_printf/libftprintf.h>
+# include <ftprintf.h>
 # include <array/array.h>
 # include <string/ft_string.h>
-# include <logger/logger.h>
-# include <stack/stack.h>
+# include <logger.h>
+# include <types/stack.h>
 
 # define PROGNAME "test_libft"
 
