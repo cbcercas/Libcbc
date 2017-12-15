@@ -1,40 +1,29 @@
 All-in-one lib
 
-to use it
 ```
-git clone --recursive https://mongit.mesamis.org/cbcercas/libcbc.git
-```
-and make with libs options like:
-```
-make WITH_LIBFT=yes \
-WITH_FTPRINTF=yes \
-WITH_LOGGER=yes \
-WITH_LIBTCAPS=yes
-```
-
 add include in your compilation command like:
 ```
-LIB_CBC_DIR := libcbc
+LIBCBC_DIR := libcbc
 ```
 
 for libft:
 ```
-INC += -I $(LIB_CBC_DIR)/libft_cbc/includes
+INC += -I $(LIBCBC_DIR)/libft/includes
 ```
 
 for printf:
 ```
-INC += -I $(LIB_CBC_DIR)/libftprintfcbc/includes
+INC += -I $(LIBCBC_DIR)/libftprintf/includes
 ```
 
 for logger:
 ```
-INC += -I $(LIB_CBC_DIR)/lib_logger_cbc/includes
+INC += -I $(LIBCBC_DIR)/liblogger/includes
 ```
 
 for logger:
 ```
-INC += -I $(LIB_CBC_DIR)/lib_tcaps/includes
+INC += -I $(LIBCBC_DIR)/libtcaps/includes
 ```
 
 and finaly link the lib to your executable
