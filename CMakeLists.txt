@@ -161,3 +161,5 @@ set(SOURCE_FILES
 include_directories(libft/includes libftprintf/includes liblogger/includes libtcaps/includes)
 
 add_library(cbc ${SOURCE_FILES})
+
+add_subdirectory(tests)

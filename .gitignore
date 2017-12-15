@@ -45,7 +45,9 @@ cmake-build-debug/
 # Cmake files
 CMakeFiles/
 cmake_install.cmake
+build/
 
 # Project Related
 test
+test_cbc
 
