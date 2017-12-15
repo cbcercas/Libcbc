@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chbravo- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chbravo- <chbravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 23:06:54 by chbravo-          #+#    #+#             */
 /*   Updated: 2017/05/13 23:06:59 by chbravo-         ###   ########.fr       */
