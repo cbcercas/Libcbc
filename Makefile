@@ -71,18 +71,18 @@ SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
 					tcaps_insert.c tcaps_alt.c tcaps_alt_arrow.c tcaps_moving_2.c \
 					tcaps_bell.c tcaps_escape.c tcaps_video.c tcaps_escape_enter.c
 
-SRC_TESTS_SUBDIR	+= libft/tests/srcs/array
+SRC_TESTS_SUBDIR	+= tests/srcs/array
 SRCS_TESTS			+= test_array_create.c test_array_simple_usage.c
 
-SRC_TESTS_SUBDIR	+= libft/tests/srcs/string
+SRC_TESTS_SUBDIR	+= tests/srcs/string
 SRCS_TESTS			+= test_string_create.c test_string_dup.c test_string_clone.c \
 					test_string_insert.c test_string_join.c test_string_remove.c \
 					test_string_shrink.c test_string_replace.c
 
-SRC_TESTS_SUBDIR	+= libft/tests/srcs/logger
+SRC_TESTS_SUBDIR	+= tests/srcs/logger
 SRCS_TESTS			+= test_logger.c
 
-SRC_TESTS_SUBDIR	+= libft/tests/srcs/stack
+SRC_TESTS_SUBDIR	+= tests/srcs/stack
 SRCS_TESTS			+= test_stack.c
 
 
@@ -110,7 +110,7 @@ endif
 
 #The Directories, Source, Includes, Objects and Libraries
 INC				= -I includes
-INC_TESTS		+= -I $(LIBFT_DIR)/tests/includes
+INC_TESTS		+= -I tests/includes
 
 vpath  %c $(SRC_SUBDIR)
 vpath  %c $(SRC_TESTS_SUBDIR)
