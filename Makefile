@@ -66,10 +66,24 @@ SRCS			+= logger.c logger_utils.c logger_log.c logger_log_dbg.c
 # Tcaps sources
 SRC_SUBDIR		+= libtcaps/srcs
 SRCS			+= tcaps_utils.c tcaps_arrow.c tcaps_ctrl_1.c tcaps_ctrl_2.c\
-				  tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c\
-				  tcaps_moving.c tcaps_home_end.c tcaps_ctrl_arrow.c \
-				  tcaps_insert.c tcaps_alt.c tcaps_alt_arrow.c tcaps_moving_2.c \
-				  tcaps_bell.c tcaps_escape.c tcaps_video.c tcaps_escape_enter.c
+					tcaps_backspace.c tcaps_tab.c tcaps_size.c tcaps_delete.c\
+					tcaps_moving.c tcaps_home_end.c tcaps_ctrl_arrow.c \
+					tcaps_insert.c tcaps_alt.c tcaps_alt_arrow.c tcaps_moving_2.c \
+					tcaps_bell.c tcaps_escape.c tcaps_video.c tcaps_escape_enter.c
+
+SRC_TESTS_SUBDIR	+= libft/tests/srcs/array
+SRCS_TESTS			+= test_array_create.c test_array_simple_usage.c
+
+SRC_TESTS_SUBDIR	+= libft/tests/srcs/string
+SRCS_TESTS			+= test_string_create.c test_string_dup.c test_string_clone.c \
+					test_string_insert.c test_string_join.c test_string_remove.c \
+					test_string_shrink.c test_string_replace.c
+
+SRC_TESTS_SUBDIR	+= libft/tests/srcs/logger
+SRCS_TESTS			+= test_logger.c
+
+SRC_TESTS_SUBDIR	+= libft/tests/srcs/stack
+SRCS_TESTS			+= test_stack.c
 
 
 ###############################################################################
@@ -96,16 +110,23 @@ endif
 
 #The Directories, Source, Includes, Objects and Libraries
 INC				= -I includes
+INC_TESTS		+= -I $(LIBFT_DIR)/tests/includes
+
 vpath  %c $(SRC_SUBDIR)
+vpath  %c $(SRC_TESTS_SUBDIR)
 
 #Objects
 OBJS_DIR		= objs
 OBJS			= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
+#OBJS_TESTS_DIR	= objs_tests
+OBJS_TESTS		= $(SRCS_TESTS:%.c=$(OBJS_DIR)/%.o)
+
 # Dependencies
 DEPS_DIR		= .deps
 DEPS			= $(SRCS:%.c=$(DEPS_DIR)/%.d)
-BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR)
+DEPS			+= $(SRCS_TESTS:%.c=$(DEPS_DIR)/%.d)
+BUILD_DIR		= $(OBJS_DIR) $(DEPS_DIR) $(OBJS_TESTS_DIR)
 
 ## libft
 LIBFT_DIR		= libft
@@ -123,23 +144,15 @@ INC				+= -I $(LIBLOGGER_DIR)/includes
 LIBTCAPS_DIR	= libtcaps
 INC				+= -I $(LIBTCAPS_DIR)/includes
 
+## Lib criterion
+LIBCRITERION_ROOT	+= ../Criterion
+LIBCRITERION_DIR	+= $(LIBCRITERION_ROOT)/build
+INC_TESTS			+= -I $(LIBCRITERION_ROOT)/include
+
 #Utils
 RM				= rm -rf
 MKDIR			= mkdir -p
 
-COUNT_OBJ		= 0
-TOTAL			= 0
-PERCENT			= 0
-
-$(eval TOTAL=$(shell echo $$(printf "%s" "$(SRCS)" | wc -w)))
-
-#color
-C_NO = \033[0m
-C_G = \033[0;32m
-C_Y = \033[1;33m
-C_B = \033[1;34m
-C_C = \033[1;36m
-C_R = \033[1;31m
 DOXYGEN = $(shell doxygen -v dot 2> /dev/null)
 
 ###############################################################################
@@ -154,20 +167,16 @@ DOXYGEN = $(shell doxygen -v dot 2> /dev/null)
 all: $(DEPS_DIR) $(NAME)
 
 $(NAME): $(OBJS)
-	@ar rc $@ $(OBJS)
-	@ranlib $@
-	@printf "$(C_G)-->$(C_NO) ALL LINKED FOR LIBCBC $(C_G)<---$(C_NO)\n"
-	@printf "INFO: Flags for libcbc: $(CFLAGS)\n"
-	@printf "[\033[35m-----------------------------\033[0m]\n"
-	@printf "[\033[36m-------- OK - LIBCBC- -------\033[0m]\n"
-	@printf "[\033[35m-----------------------------\033[0m]\n"
+	ar rc $@ $(OBJS)
+	ranlib $@
 
-$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
-	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-	@$(CC) $(INC) -MM $< -MT $@ -MP -MF $(DEPS_DIR)/$*.d
-	$(eval COUNT_OBJ=$(shell echo $$(($(COUNT_OBJ)+1))))
-	$(eval PERCENT=$(shell echo $$((($(COUNT_OBJ) * 100 )/$(TOTAL)))))
-	@printf "$(C_B)%-8s $(C_Y) $<$(C_NO)\n" "[$(PERCENT)%]"
+$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR) $(DEPS_DIR)
+	$(CC) $(CFLAGS) $(INC) $(INC_TESTS) -o $@ -c $<
+	$(CC) $(INC) $(INC_TESTS) -MM $< -MT $@ -MP -MF $(DEPS_DIR)/$*.d
+
+tests: $(OBJS_TESTS) $(NAME) |
+	$(CC) $(CFLAGS) -o test $(OBJS_TESTS) -L ./ -lcbc -L $(LIBCRITERION_DIR) -lcriterion $(INC) $(INC_TESTS)
+	echo "done"
 
 # Add dependency as prerequisites
 -include $(DEPS)
@@ -182,19 +191,19 @@ re: fclean all
 
 clean:
 ifeq ($(shell [ -e $(OBJS_DIR) ] && echo 1 || echo 0),1)
-	@printf "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression des .o\033[0m]\n"
-	@$(RM) $(OBJS_DIR)
+	$(RM) $(OBJS_DIR)
 endif
 ifeq ($(shell [ -e $(DEPS_DIR) ] && echo 1 || echo 0),1)
-	@$(RM) $(DEPS_DIR)
+	$(RM) $(DEPS_DIR)
 endif
 
 fclean: clean
 ifeq ($(shell [ -e $(NAME) ] && echo 1 || echo 0),1)
-	@printf "\033[35mLIBFTCBC  :\033[0m [\033[31mSuppression de $(NAME)\033[0m]\n"
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 endif
-
+ifeq ($(shell [ -e test ] && echo 1 || echo 0),1)
+	$(RM) $(NAME)
+endif
 doc:
 ifndef DOXYGEN
 	@echo "Please install doxygen first (brew install doxygen)."
@@ -206,5 +215,5 @@ else
 	@printf "[\033[35m--------------------------\033[0m]\n"
 endif
 
-.PHONY: re clean fclean all doc
+.PHONY: re clean fclean all doc tests
 .SUFFIXES: .c .h .o .d
