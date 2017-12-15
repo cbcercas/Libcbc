@@ -1,0 +1,22 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/chbravo-/DEV/Lib_tcaps"
+		}
+	],
+	"SublimeLinter":
+    {
+        "linters":
+        {
+            "clang": {
+                "extra_flags": "-Wall -Werror -Wextra",
+                "include_dirs": [
+                    "${project_folder}/includes",
+                    "${project_folder}/tests/includes",
+                    "${project_folder}/tests/criterion/include"
+                ]
+            }
+        }
+    }
+}
