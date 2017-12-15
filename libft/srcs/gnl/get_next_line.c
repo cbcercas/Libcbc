@@ -60,7 +60,8 @@ RETURN_TYPE	ft_next_line(t_fd *elem, char **line, const char c, size_t b_size)
 			ret = 0;
 		else
 		{
-			ret = read(elem->fd, buf, b_size);
+			if ((ret = read(elem->fd, buf, b_size)) < 0)
+				return (-1);
 			buf[ret] = '\0';
 			if (ret > 0)
 				elem->rest = ft_strjoincl(elem->rest, buf, 1);
@@ -70,8 +71,6 @@ RETURN_TYPE	ft_next_line(t_fd *elem, char **line, const char c, size_t b_size)
 				elem->rest = NULL;
 				break ;
 			}
-			else if (ret == -1)
-				return (-1);
 		}
 	ret = ((RETURN_LEN && *line) ? ft_strlen(*line) : 1);
 	return ((*line) ? (RETURN_TYPE)ret : (RETURN_TYPE)0);
