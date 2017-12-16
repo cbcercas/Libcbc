@@ -13,10 +13,11 @@ set(SOURCE_FILES_TESTS
         srcs/string/test_string_shrink.c
         )
 
-include_directories(includes ../../Criterion/include)
+if($ENV{TRAVIS})
+    include_directories(includes Criterion/include)
+    LINK_DIRECTORIES(Criterion/build)
+endif()
+    include_directories(includes)
 
 add_executable(test_cbc ${SOURCE_FILES_TESTS})
-
-LINK_DIRECTORIES(../../Criterion/build)
-
 target_link_libraries(test_cbc cbc criterion)

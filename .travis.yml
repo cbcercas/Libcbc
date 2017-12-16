@@ -1,0 +1,43 @@
+language: c
+
+os:
+  - linux
+  - osx
+
+sudo: enabled
+
+git:
+    submodules: true
+
+compiler:
+  - clang
+  - gcc
+
+
+before_install:
+  - mkdir build
+  - if [ $TRAVIS_OS_NAME = linux ]; then
+      sudo add-apt-repository ppa:snaipewastaken/ppa -y;
+      sudo apt-get update -qq;
+      sudo apt-get install criterion-dev -y;
+    else
+      brew install snaipe/soft/criterion;
+    fi
+
+install:
+  - cd build
+  - cmake ../
+  - make
+
+before_script:
+  - make test_cbc
+
+script:
+  - pwd
+  - ls
+  - ./test_cbc
+
+notifications:
+  slack:
+    rooms:
+      - mrchapeau:2e9nZEItuNS5mFwMM0CBYYEF#github-travis
