@@ -18,6 +18,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	int		i;
 
 	i = 11;
+	ft_bzero((void *)str, sizeof(str));
 	if (nb == 0)
 		str[--i] = '0';
 	if (nb < 0)

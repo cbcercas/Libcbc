@@ -14,28 +14,5 @@
 
 void	ft_putnbr(int nb)
 {
-	char	str[12];
-	int		i;
-
-	i = 11;
-	if (nb == 0)
-		str[--i] = '0';
-	if (nb < 0)
-	{
-		while (nb != 0)
-		{
-			str[--i] = (char)('0' - (nb % 10));
-			nb = (nb / 10);
-		}
-		str[--i] = '-';
-	}
-	else
-	{
-		while (nb != 0)
-		{
-			str[--i] = (char)('0' + (nb % 10));
-			nb = (nb / 10);
-		}
-	}
-	ft_putstr(&str[i]);
+	ft_putnbr_fd(nb, STDOUT_FILENO);
 }
