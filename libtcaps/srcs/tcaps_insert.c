@@ -21,7 +21,7 @@ BOOL	is_insert(const char *buff)
 		if ((insert = tgetstr(KEY_CODE_INSERT, NULL)) == NULL)
 		{
 			log_fatal("Lib_tcaps: failed to get insert code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get insert code.");
+			return (false);
 		}
 	}
 	if (ft_strequ(buff, insert))

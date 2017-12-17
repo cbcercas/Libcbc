@@ -22,7 +22,7 @@ BOOL	is_delete(const char *buff)
 		if ((delete = tgetstr(KEY_CODE_DELETE, NULL)) == NULL)
 		{
 			log_fatal("Lib_tcaps: failed to get delete code.");
-			ft_dprintf(STDERR_FILENO, "Lib_tcaps: failed to get delete code.");
+			return (false);
 		}
 	}
 	if (ft_strequ(buff, delete))
