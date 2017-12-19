@@ -170,16 +170,22 @@ $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 	ranlib $@
 
-$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR) $(DEPS_DIR)
+$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR) $(DEPS_DIR) Makefile
 	$(CC) $(CFLAGS) $(INC) $(INC_TESTS) -o $@ -c $<
 	$(CC) $(INC) $(INC_TESTS) -MM $< -MT $@ -MP -MF $(DEPS_DIR)/$*.d
 
-tests: $(OBJS_TESTS) $(NAME) |
+tests: $(OBJS_TESTS) $(NAME)
 	$(CC) $(CFLAGS) -o test $(OBJS_TESTS) -L ./ -lcbc -L $(LIBCRITERION_DIR) -lcriterion $(INC) $(INC_TESTS)
 	echo "done"
 
 # Add dependency as prerequisites
--include $(DEPS)
+ifneq ($(MAKECMDGOALS),clean)
+ ifneq ($(MAKECMDGOALS),fclean)
+  ifneq ($(MAKECMDGOALS),doc)
+   -include $(DEPS)
+  endif
+ endif
+endif
 
 $(DEPS_DIR)/%.d: ;
 .PRECIOUS: $(DEPS_DIR)/%.d
