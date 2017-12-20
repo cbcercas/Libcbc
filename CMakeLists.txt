@@ -111,6 +111,7 @@ set(SOURCE_FILES
         libft/srcs/string/string_shrink.c
         libft/srcs/unistd/ft_getopt.c
         libft/srcs/libgen/ft_basename.c
+        libft/srcs/deamonize/ft_demonize.c
 
         # printf
         libftprintf/srcs/ft_printf/ft_parse_args.c

@@ -48,6 +48,9 @@ SRCS			+= ft_getopt.c
 SRC_SUBDIR		+= libft/srcs/stack
 SRCS			+= stack.c stack_2.c
 
+SRC_SUBDIR		+= libft/srcs/deamonize
+SRCS			+= ft_demonize.c
+
 SRC_SUBDIR		+= libft/srcs/libgen
 SRCS			+= ft_basename.c
 
