@@ -6,8 +6,8 @@
 
 static inline void	close_all_fds()
 {
-	int	maxfd;
-	int	fd;
+	long	maxfd;
+	int		fd;
 
 	maxfd = sysconf(_SC_OPEN_MAX);
 	if (maxfd == -1)
