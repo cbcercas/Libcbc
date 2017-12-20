@@ -75,7 +75,7 @@ static int			go_err(int err, const char *c, const char *av, const char o)
 	return ('?');
 }
 
-int					ft_getopt(int ac, char *const *av, const char *optstring)
+int					ft_getopt(int ac, char *const av[], const char *optstring)
 {
 	static const char	*nextchar = NULL;
 	const char			*opt;

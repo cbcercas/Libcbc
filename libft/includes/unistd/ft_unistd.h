@@ -13,13 +13,13 @@
 #ifndef FT_UNISTD_H
 # define FT_UNISTD_H
 
-# ifndef LOGGER_MAIN
+# ifdef FT_GETOPT_MAIN
 #  include <libft.h>
 #  define GETOPT_ERR_OPT 1
 #  define GETOPT_ERR_ARG 2
 # endif
 
-int		ft_getopt(int ac, char *const *av, const char *optstring);
+int		ft_getopt(int ac, char *const av[], const char *optstring);
 void	ft_getopt_reset(void);
 
 #endif
